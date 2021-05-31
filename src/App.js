@@ -1,8 +1,15 @@
 import './App.css';
+import logo from './logo.svg';
+import Header from './components/Header/Header'
+import { BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+      <>
+          <Header
+              logo={logo}
+          />
+      </>
   );
 }
 
