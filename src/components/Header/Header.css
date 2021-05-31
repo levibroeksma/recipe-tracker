@@ -1,13 +1,14 @@
 /*General header styling*/
 
 header {
-    position: relative;
+    position: sticky;
     top: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px 0;
     box-shadow: 10px 10px 10px 0 rgba(48, 63, 77, 0.1);
+    background: #fff;
 }
 
 .header-holder {
@@ -87,14 +88,26 @@ header nav ul li a.active::after {
     bottom: -8px;
 }
 
-header nav ul li:last-child a {
+header nav ul li:last-child a.active {
     background: #FD8888;
+    color: #fff;
+    border: 2px solid #FD8888;
+}
+
+header nav ul li:last-child a.active::after {
+    display: none;
+}
+
+header nav ul li:last-child a {
+    color: #FD8888;
     padding: .7em 1.2em;
     border-radius: 50px;
-    color: #fff;
     transition: .25s ease-in-out;
+    border: 2px solid #FD8888;
 }
 
 header nav ul li:last-child a:hover {
-    background: rgba(219,70,70,.8);
+    background: #d86d6d;
+    color: #fff;
+    border: 2px solid #d86d6d;
 }

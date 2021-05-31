@@ -1,6 +1,8 @@
 import './Header.css';
+import {NavLink} from "react-router-dom";
 
 function Header({logo, }) {
+    // const history = useHistory();
     return (
         <header>
             <div className="header-holder">
@@ -11,29 +13,29 @@ function Header({logo, }) {
                     <nav>
                         <ul>
                             <li>
-                                <a href="#" className="active">
+                                <NavLink exact to="/" activeClassName="active">
                                     Home
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
-                                <a href="#">
+                                <NavLink to="/recipes" activeClassName="active">
                                     Recipe's
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
-                                <a href="#">
+                                <NavLink to="/about-us" activeClassName="active">
                                     About us
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
-                                <a href="#">
+                                <NavLink to="/contact" activeClassName="active">
                                     Contact
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
-                                <a href="#">
+                                <NavLink to="/account" activeClassName="active">
                                     Account
-                                </a>
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>
