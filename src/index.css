@@ -1,13 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Noto Sans JP','Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+div#root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageWrapper {
+  max-width: 1300px;
+  padding: 50px 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #1C1DB1;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+h1::after {
+  content: "";
+  width: 100px;
+  height: 1px;
+  background: #1C1DB1;
+  position: absolute;
+  left: calc(50% - 50px);
+  right: calc(50% - 50px);
+  top: 80px;
+}
+
+p {
+  font-family: 'Open sans', sans-serif;
+  line-height: 1.65em;
+  color: #565656;
+  font-size: 15px;
+}
+
+/*Z-indexes*/
+
+header {
+  z-index: 1;
 }
