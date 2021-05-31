@@ -4,23 +4,23 @@ import { useForm } from "react-hook-form";
 
 function ContactPage() {
 
-    const {handleSubmit, register, formState: { errors }, watch} = useForm();
+    const {handleSubmit, register, formState: { errors }} = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div className="pageWrapper">
             <h1>Contact</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
-                    name="test"
-                    placeholder="First name..."
+                    name="userName"
+                    placeholder="Username"
                     required={true}
                     requiredError="This field is required."
                     register={register}
                     errors={errors}
                 />
                 <Input
-                    name="testTwee"
-                    placeholder="Last name"
+                    name="mail"
+                    placeholder="Email address"
                     required={true}
                     requiredError="This field is required."
                     register={register}

@@ -1,9 +1,10 @@
 label {
     position: relative;
+    width: 100%;
 }
 
-input:focus ~ .placeholder,
-input:not(:focus):valid ~ .placeholder{
+input:focus ~ p.placeholder,
+input:not(:focus):valid ~ p.placeholder {
     top: -18px;
     bottom: 10px;
     left: 10px;
@@ -20,7 +21,7 @@ input:not(:focus):valid ~ .placeholder{
     padding: 5px;
 }
 
-.placeholder {
+p.placeholder {
     position: absolute;
     pointer-events: none;
     left: 10px;
