@@ -1,13 +1,28 @@
 import './Header.css';
-import {NavLink} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
+import {useState} from "react";
 
 function Header({logo, }) {
     // const history = useHistory();
+    const [navScrolled, setNavScrolled] = useState(false);
+
+    const changeMenuSize = () => {
+        if(window.scrollY >= 40) {
+            setNavScrolled(true);
+        } else {
+            setNavScrolled(false);
+        }
+    }
+
+    window.addEventListener("scroll", changeMenuSize);
+
     return (
-        <header>
+        <header className={navScrolled ? 'header scrolled' : 'header'}>
             <div className="header-holder">
                 <div className="logo-holder">
-                    <img src={logo} alt="Recipe tracker"/>
+                    <Link exact to="/">
+                        <img src={logo} alt="Recipe tracker"/>
+                    </Link>
                 </div>
                 <div className="nav-holder">
                     <nav>

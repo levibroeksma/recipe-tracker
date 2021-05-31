@@ -79,6 +79,10 @@ a.mail:hover,
 a.phone-number:hover {
     color: #1C1DB1;
 }
+a.phone-number svg,
+a.mail svg {
+    margin-right: 10px;
+}
 
 /*Copyright bar*/
 

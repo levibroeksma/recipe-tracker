@@ -1,7 +1,12 @@
 import './Footer.css';
 import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEnvelope,faPhone} from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
+
+    const mail = <FontAwesomeIcon icon={faEnvelope}/>
+    const phone = <FontAwesomeIcon icon={faPhone}/>
     return (
         <footer>
             <div className="footer-position-holder">
@@ -9,11 +14,7 @@ function Footer() {
                     <section className="footer-section">
                         <div className="h2">Recepten</div>
                         <ul className="link-holder">
-                            <li><a href="#">Dit is een suggestie</a></li>
-                            <li><a href="#">Dit is een suggestie</a></li>
-                            <li><a href="#">Dit is een suggestie</a></li>
-                            <li><a href="#">Dit is een suggestie</a></li>
-                            <li><a href="#">Dit is een suggestie</a></li>
+
                         </ul>
                     </section>
                     <section className="footer-section">
@@ -28,8 +29,9 @@ function Footer() {
                     <section className="footer-section">
                         <div className="h2">Contact</div>
                         <span>RecipeTracker</span>
-                        <a href="#" className="mail"><strong>M</strong> info@recipetracker.com</a>
-                        <a href="#" className="phone-number"><strong>P</strong> + 31 (0) 123 45 67 8</a>
+                        <a href="mailto:info@recipetracker.com" className="mail">{mail}info@recipetracker.com</a>
+
+                        <a href="tel:+3112345678" className="phone-number"><strong>{phone}</strong> + 31 (0) 123 45 67 8</a>
                     </section>
                 </div>
             </div>
