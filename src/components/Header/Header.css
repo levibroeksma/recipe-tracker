@@ -1,6 +1,6 @@
 /*General header styling*/
 
-header {
+header.header {
     position: sticky;
     top: 0;
     width: 100%;
@@ -9,6 +9,11 @@ header {
     padding: 20px 0;
     box-shadow: 10px 10px 10px 0 rgba(48, 63, 77, 0.1);
     background: #fff;
+    transition: .25s ease-in-out;
+}
+
+header.scrolled {
+    padding: 5px 0;
 }
 
 .header-holder {
