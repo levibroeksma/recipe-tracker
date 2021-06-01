@@ -1,0 +1,17 @@
+.service-alert-holder {
+    background: #1C1DB1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0em;
+}
+
+.service-alert-holder .text-holder {
+    max-width: 1300px;
+}
+
+.service-alert-holder .text-holder span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
