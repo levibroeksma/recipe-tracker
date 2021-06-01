@@ -1,0 +1,13 @@
+.bgImg {
+    width: 100%;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.bgImg img {
+    width: 100%;
+    position: relative;
+
+}

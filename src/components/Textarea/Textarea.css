@@ -1,0 +1,13 @@
+textarea {
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+
+.errorMessage.textArea {
+    position: absolute;
+    top: 10px;
+}

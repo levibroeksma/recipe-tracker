@@ -6,6 +6,7 @@ import HomePage from "./Pages/Home-page";
 import AboutUs from "./Pages/About-us";
 import RecipePage from "./Pages/Recipe-page";
 import ContactPage from "./Pages/Contact-page";
+import ThankYou from "./Pages/Thank-you";
 import AccountPage from "./Pages/Account-page";
 import Footer from "./components/Footer/Footer";
 
@@ -25,8 +26,11 @@ function App() {
               <Route path="/about-us">
                   <AboutUs/>
               </Route>
-              <Route path="/contact">
+              <Route exact path="/contact">
                   <ContactPage/>
+              </Route>
+              <Route path="/contact/thank-you" >
+                <ThankYou />
               </Route>
               <Route path="/account">
                   <AccountPage/>

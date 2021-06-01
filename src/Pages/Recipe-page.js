@@ -1,7 +1,8 @@
 function RecipePage() {
     return (
-        <div className="pageWrapper">
+        <div className="page-wrapper">
             <h1>Recipe's</h1>
+
         </div>
     )
 }
