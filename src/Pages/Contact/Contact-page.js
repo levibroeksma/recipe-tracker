@@ -39,6 +39,7 @@ function ContactPage() {
                             <Input
                                 name="name"
                                 labelId="nameId"
+                                type="text"
                                 placeholder="Name..."
                                 required={true}
                                 requiredError="This field is required."
@@ -52,6 +53,7 @@ function ContactPage() {
                             <Input
                                 name="phoneNumber"
                                 labelId="phoneNumberID"
+                                type="text"
                                 errors={errors}
                                 register={register}
                                 placeholder="Phone number..."
@@ -60,6 +62,7 @@ function ContactPage() {
                             <Input
                                 name="mail"
                                 labelId="mailId"
+                                type="text"
                                 placeholder="Email..."
                                 required={true}
                                 requiredError="This field is required."

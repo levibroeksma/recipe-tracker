@@ -11,17 +11,21 @@
 .account-devider {
     width: 1px;
     background: #1C1DB1;
-    height: 200px;
+    height: auto;
 }
 
 .account-page-wrapper .login-holder {
-    padding: 0 50px;
+    padding: 0 60px 0 200px;
     box-sizing: border-box;
     width: 50%;
 }
 
 .account-page-wrapper .register-holder {
-    padding: 0 50px;
+    padding: 0 200px 0 60px;
     box-sizing: border-box;
     width: 50%;
+}
+
+.account-page-wrapper .register-holder p {
+    min-height: 50px;
 }
