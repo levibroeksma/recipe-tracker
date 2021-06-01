@@ -1,9 +1,10 @@
 .bgImg {
     width: 100%;
     overflow: hidden;
-    height: 500px;
+    max-height: 500px;
     position: relative;
-    margin-bottom: 50px;
+    margin: 50px 0;
+    line-height: 0;
 }
 
 .bgImg img {

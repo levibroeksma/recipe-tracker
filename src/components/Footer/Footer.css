@@ -73,6 +73,7 @@ a.phone-number {
     color: #FD8888;
     text-decoration: none;
     margin: 5px 0;
+    transition: .25s ease;
 }
 
 a.mail:hover,
