@@ -1,0 +1,25 @@
+.comment-holder {
+    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    max-width: calc(100% / 3);
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.comment-holder .text-holder {
+    background: #F5F8FF;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.comment-holder .text-holder p {
+    margin: 0;
+}
+
+.account-comment-image {
+    border-radius: 45px;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+}

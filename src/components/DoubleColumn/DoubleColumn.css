@@ -1,0 +1,31 @@
+.column-wrapper {
+    display: flex;
+   flex-direction: row;
+    padding: 50px 0;
+    justify-content: space-between;
+}
+
+.column-wrapper section img {
+    max-height: 500px;
+}
+
+.column-wrapper section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    width: calc(50% - 20px);
+}
+
+.column-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.img-left-inner {
+    max-width: 1300px;
+    display: flex;
+}

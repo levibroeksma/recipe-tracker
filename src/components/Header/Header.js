@@ -2,10 +2,8 @@ import './Header.css';
 import {NavLink, Link} from "react-router-dom";
 import {useState} from "react";
 
-function Header({logo, }) {
-    // const history = useHistory();
+function Header({logo}) {
     const [navScrolled, setNavScrolled] = useState(false);
-
     const changeMenuSize = () => {
         if(window.scrollY >= 40) {
             setNavScrolled(true);
@@ -13,7 +11,6 @@ function Header({logo, }) {
             setNavScrolled(false);
         }
     }
-
     window.addEventListener("scroll", changeMenuSize);
 
     return (
@@ -59,9 +56,5 @@ function Header({logo, }) {
         </header>
     )
 }
-
-
-
-
 
 export default Header;

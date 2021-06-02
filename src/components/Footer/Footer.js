@@ -7,6 +7,7 @@ function Footer() {
 
     const mail = <FontAwesomeIcon icon={faEnvelope}/>
     const phone = <FontAwesomeIcon icon={faPhone}/>
+
     return (
         <footer>
             <div className="footer-position-holder">
@@ -31,7 +32,7 @@ function Footer() {
                         <span>RecipeTracker</span>
                         <a href="mailto:info@recipetracker.com" className="mail">{mail}info@recipetracker.com</a>
 
-                        <a href="tel:+3112345678" className="phone-number"><strong>{phone}</strong> + 31 (0) 123 45 67 8</a>
+                        <a href="tel:+31123456789" className="phone-number"><strong>{phone}</strong> + 31 (0) 12 345 67 89</a>
                     </section>
                 </div>
             </div>

@@ -7,19 +7,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
 }
 
 div#root {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+
 }
 
-.pageWrapper {
-  max-width: 1300px;
+.page-wrapper {
+  width: 100%;
   padding: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.page-wrapper.blue {
+background: rgba(168,218,220,0.08);
+}
+
+.page-wrapper-inner {
+  max-width: 1300px;
 }
 
 code {
@@ -32,9 +41,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
+  position: relative;
   text-align: center;
   color: #1C1DB1;
-  position: relative;
   margin-bottom: 100px;
 }
 
@@ -47,6 +56,11 @@ h1::after {
   left: calc(50% - 50px);
   right: calc(50% - 50px);
   top: 80px;
+}
+
+h2 {
+  color: #1C1DB1;
+  margin: 0;
 }
 
 p {
