@@ -11,6 +11,10 @@ function Comment() {
                         <div className="account-comment-image">
                             <img src="//via.placeholder.com/80x80" alt=""/>
                         </div>
+                        <div className="account-comment-text">
+                            <h3>Jillis de Boom</h3>
+                            <span>Beunhaas</span>
+                        </div>
                     </div>
                     <div className="rating">
                         

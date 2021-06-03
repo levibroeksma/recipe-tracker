@@ -14,7 +14,7 @@ function ContactPage() {
     const history = useHistory();
     const onSubmit = (data) => {
         console.log(data)
-        history.push('contact/thank-you')
+        history.push('contact/thank-you');
     };
     const mail = <FontAwesomeIcon icon={faEnvelope}/>
     const phone = <FontAwesomeIcon icon={faPhone}/>

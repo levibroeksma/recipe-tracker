@@ -1,7 +1,7 @@
 .comment-holder {
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
-    max-width: calc(100% / 3);
-    padding: 20px;
+    max-width: 40%;
+    padding: 30px;
     border-radius: 10px;
     box-sizing: border-box;
 }
@@ -10,7 +10,7 @@
     background: #F5F8FF;
     padding: 15px;
     border-radius: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .comment-holder .text-holder p {
@@ -22,4 +22,29 @@
     overflow: hidden;
     width: 80px;
     height: 80px;
+}
+
+.account-comment-holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.account-comment-holder h3 {
+    color: #1C1DB1;
+    margin: 0;
+    font-weight: 400;
+}
+
+.account-comment-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.account-comment-holder span {
+    color: #3E3E3E;
+    font-size: 12px;
+    margin-left: 2px;
 }

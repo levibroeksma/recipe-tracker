@@ -13,29 +13,17 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
       <Router>
-          <Header
-              logo={logo}
-          />
+          <Header logo={logo}/>
+
           <Switch>
-            <Route exact path="/">
-                <HomePage/>
-            </Route>
-              <Route path="/recipes">
-                  <RecipePage/>
-              </Route>
-              <Route path="/about-us">
-                  <AboutUs/>
-              </Route>
-              <Route exact path="/contact">
-                  <ContactPage/>
-              </Route>
-              <Route path="/contact/thank-you" >
-                <ThankYou />
-              </Route>
-              <Route path="/account">
-                  <AccountPage/>
-              </Route>
+              <Route exact path="/"><HomePage/></Route>
+              <Route path="/recipes"><RecipePage/></Route>
+              <Route path="/about-us"><AboutUs/></Route>
+              <Route exact path="/contact"><ContactPage/></Route>
+              <Route path="/contact/thank-you" ><ThankYou /></Route>
+              <Route path="/account"><AccountPage/></Route>
           </Switch>
+
           <Footer />
       </Router>
   );
