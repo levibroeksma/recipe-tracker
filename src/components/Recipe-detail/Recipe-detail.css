@@ -60,6 +60,11 @@ button.favorite {
     width: 100%;
     margin-bottom: 30px;
     font-size: 30px;
+    text-align: left;
+}
+
+.recipe-text-holder h1::after {
+    display: none;
 }
 
 .ingredients-holder,

@@ -80,7 +80,7 @@ function ContactPage() {
                                 register={register}
                                 requiredError="This field is required."
                                 maxLength={1000}
-                                maxLengthError="You can't use more then 1000 characters"
+                                maxLengthError="You can't use more then 1000 characters."
                                 errors={errors}
                                 row={20}
                                 column={20}
@@ -88,7 +88,7 @@ function ContactPage() {
 
                             <Button
                                 classNameButton="btn"
-                                buttonTitle="Send and make it longer"
+                                buttonTitle="Send"
                                 type="submit"
                             />
                         </form>

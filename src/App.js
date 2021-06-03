@@ -4,7 +4,7 @@ import Header from './components/Header/Header'
 import { BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
 import HomePage from "./Pages/Home-page/Home-page";
 import AboutUs from "./Pages/About-us";
-import RecipePage from "./Pages/Recipe-page";
+import RecipePage from "./Pages/Recipe-page/Recipe-page";
 import ContactPage from "./Pages/Contact/Contact-page";
 import ThankYou from "./Pages/Contact/Thank-you";
 import AccountPage from "./Pages/Account-page/Account-page";

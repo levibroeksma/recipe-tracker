@@ -1,5 +1,10 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faStar} from "@fortawesome/free-solid-svg-icons";
+
 import "./Comment.css"
 function Comment() {
+
+    const star = <FontAwesomeIcon icon={faStar}/>
     return(
         <>
             <section className="comment-holder">
@@ -9,7 +14,7 @@ function Comment() {
                 <div className="bottom-wrap">
                     <div className="account-comment-holder">
                         <div className="account-comment-image">
-                            <img src="//via.placeholder.com/80x80" alt=""/>
+                            <img src="//via.placeholder.com/60x60" alt=""/>
                         </div>
                         <div className="account-comment-text">
                             <h3>Jillis de Boom</h3>
@@ -17,7 +22,10 @@ function Comment() {
                         </div>
                     </div>
                     <div className="rating">
-                        
+                        <div className="star-holder">
+                            {star}{star}{star}{star}{star}
+                        </div>
+                        <span>1 week ago</span>
                     </div>
                 </div>
             </section>

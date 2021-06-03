@@ -1,0 +1,70 @@
+.leave-a-comment {
+    border: 1px solid #fd8888;
+    border-radius: 10px;
+    max-width: 60%;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.leave-a-comment form {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0px 0 20px;
+}
+
+.leave-a-comment form textarea {
+    background: #EAE6E5;
+    border: 0;
+    border-radius: 8px;
+    margin: 0;
+    height: 100%;
+    min-height: 250px;
+}
+
+.leave-a-comment form label {
+    max-width: calc(80% - 10px);
+}
+
+.leave-a-comment .right-holder {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.leave-a-comment .right-holder span {
+    font-size: 13px;
+    color: #3E3E3E;
+    line-height: 1.55;
+    margin-top: 4px;
+    padding-left: 5px;
+}
+
+.leave-a-comment .right-holder .star-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.leave-a-comment .right-holder .star-holder .stars {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leave-a-comment form .errorMessage.textArea {
+    position: absolute;
+    top: 255px;
+}
+
+.leave-a-comment .right-holder .star-holder .stars svg.svg-inline--fa.fa-star.fa-w-18,
+.leave-a-comment .right-holder .star-holder .stars svg.svg-inline--fa.fa-star.fa-w-18:last-child
+{
+    color: #EAE6E5;
+    opacity: 1;
+}
+/*HOVERS*/
+
+.leave-a-comment .right-holder .star-holder .stars svg.svg-inline--fa.fa-star.fa-w-18:hover{
+    color: #1C1DB1;
+}

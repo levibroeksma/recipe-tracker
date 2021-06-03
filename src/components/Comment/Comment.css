@@ -1,17 +1,22 @@
 .comment-holder {
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
-    max-width: 40%;
+    min-width: 40%;
     padding: 30px;
     border-radius: 10px;
     box-sizing: border-box;
+    position: relative;
+    margin-right: 30px;
 }
 
 .comment-holder .text-holder {
     background: #F5F8FF;
     padding: 15px;
     border-radius: 6px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    height: 150px;
 }
+
+
 
 .comment-holder .text-holder p {
     margin: 0;
@@ -20,8 +25,8 @@
 .account-comment-image {
     border-radius: 45px;
     overflow: hidden;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 .account-comment-holder {
@@ -33,7 +38,8 @@
 .account-comment-holder h3 {
     color: #1C1DB1;
     margin: 0;
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .account-comment-text {
@@ -47,4 +53,35 @@
     color: #3E3E3E;
     font-size: 12px;
     margin-left: 2px;
+}
+
+.bottom-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.rating {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+
+.bottom-wrap .rating span {
+    color: #3E3E3E;
+    font-size: 12px;
+    margin-left: 4px;
+    top: -2px;
+    position: relative;
+}
+
+svg.svg-inline--fa.fa-star.fa-w-18 {
+    color: #fd8888;
+    width: 25px;
+    height: auto;
+    margin: 0 2px;
+}
+
+svg.svg-inline--fa.fa-star.fa-w-18:last-child {
+    color: black;
+    opacity: 0.3;
 }
