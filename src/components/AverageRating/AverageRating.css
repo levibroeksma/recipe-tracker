@@ -1,12 +1,13 @@
 /*Container*/
 
 .averageRating {
-    max-width: 50%;
+    max-width: calc(35% - 15px);
     border: 1px solid #fd8888;
     padding: 30px;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    width: 100%;
 }
 
 /*STARS*/
@@ -69,16 +70,20 @@
     position: relative;
 }
 
+.bar-wrapper:last-child .bar-background {
+    margin-bottom: 0;
+}
+
 .bar-background .bar-count {
     position: absolute;
     height: 15px;
     width: 100%;
     background: #FECC48;
-    border-radius: 50px;
+    border-radius: 100px;
 }
 
 .bar-background .bar-count.b1s {
-    width: 4%;
+    width: 6%;
 }
 .bar-background .bar-count.b2s {
     width: 0%;

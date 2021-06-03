@@ -1,16 +1,18 @@
 .leave-a-comment {
     border: 1px solid #fd8888;
     border-radius: 10px;
-    max-width: 60%;
+    max-width: calc(65% - 15px);
     padding: 20px 0;
     box-sizing: border-box;
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    width: 100%;
 }
 
 .leave-a-comment form {
     display: flex;
     flex-direction: row;
     margin: 0 0px 0 20px;
+    height: 100%;
 }
 
 .leave-a-comment form textarea {
