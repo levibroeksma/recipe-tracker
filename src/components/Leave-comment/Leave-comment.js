@@ -5,6 +5,8 @@ import Textarea from "../Textarea/Textarea";
 import Button from "../Button/Button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
+import RatingRow from "../Ratings/RatingRow";
+import {useState} from "react";
 
 function LeaveComment() {
     const {handleSubmit, register, formState: { errors }} = useForm();
@@ -12,7 +14,17 @@ function LeaveComment() {
     const history = useHistory();
     const onSubmit = (data) => {
         console.log(data)
-        history.push('contact/thank-you');
+    };
+    const [rating, setRating] = useState(0);
+    const [hoverRating, setHoverRating] = useState(0);
+    const onMouseEnter = (index) => {
+        setHoverRating(index);
+    };
+    const onMouseLeave = () => {
+        setHoverRating(0);
+    };
+    const onSaveRating = (index) => {
+        setRating(index);
     };
     return (
         <section className="leave-a-comment">
@@ -33,7 +45,19 @@ function LeaveComment() {
                 <div className="right-holder">
                     <div className="star-holder">
                         <div className="stars">
-                            {star}{star}{star}{star}{star}
+                            <div className="box flex">
+                                {[1, 2, 3, 4, 5].map((index) => {
+                                    return (
+                                        <RatingRow
+                                            index={index}
+                                            rating={rating}
+                                            hoverRating={hoverRating}
+                                            onMouseEnter={onMouseEnter}
+                                            onMouseLeave={onMouseLeave}
+                                            onSaveRating={onSaveRating} />
+                                    )
+                                })}
+                            </div>
                         </div>
                         <span>What rating would you give this recipe?</span>
                     </div>

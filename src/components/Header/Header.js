@@ -45,6 +45,11 @@ function Header({logo}) {
                                 </NavLink>
                             </li>
                             <li>
+                                <NavLink to="/style" activeClassName="active">
+                                    Style
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/account" activeClassName="active">
                                     Account
                                 </NavLink>

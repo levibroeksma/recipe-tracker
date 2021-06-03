@@ -9,6 +9,7 @@ import ContactPage from "./Pages/Contact/Contact-page";
 import ThankYou from "./Pages/Contact/Thank-you";
 import AccountPage from "./Pages/Account-page/Account-page";
 import Footer from "./components/Footer/Footer";
+import StylePage from "./Pages/Style-page";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/about-us"><AboutUs/></Route>
               <Route exact path="/contact"><ContactPage/></Route>
               <Route path="/contact/thank-you" ><ThankYou /></Route>
+              <Route path="/style"><StylePage/></Route>
               <Route path="/account"><AccountPage/></Route>
           </Switch>
 

@@ -4,6 +4,7 @@
     max-width: 60%;
     padding: 20px 0;
     box-sizing: border-box;
+    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
 }
 
 .leave-a-comment form {
