@@ -9,7 +9,7 @@ import ContactPage from "./Pages/Contact/Contact-page";
 import ThankYou from "./Pages/Contact/Thank-you";
 import AccountPage from "./Pages/Account-page/Account-page";
 import Footer from "./components/Footer/Footer";
-import StylePage from "./Pages/Style-page";
+import StylePage from "./Pages/Style-page/Style-page";
 
 function App() {
   return (

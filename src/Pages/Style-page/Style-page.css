@@ -1,0 +1,85 @@
+
+
+.main-container {
+    background-color: #fff;
+    width: 50%;
+    height: min-content;
+    border-radius: 5px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.35);
+}
+
+.title {
+    text-align: center;
+}
+
+.add-item-box {
+    color: #ec645b;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding-right: 15px;
+    border: 1px solid #aaa;
+}
+
+
+.add-item-input {
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 15px;
+    color: #1C1DB1;
+}
+
+input::placeholder {
+    color: #1C1DB1;
+}
+input:focus {
+    outline: 0;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px #FD8888 solid;
+}
+
+.item-name span {
+    color: #1C1DB1;
+}
+
+.eraser {
+    display: flex;
+    border: 1px solid #FD8888;
+    border-radius: 50px;
+    min-width: 70px;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.eraser svg.eraserIcon {
+    color: #FD8888;
+}
+
+.eraser:hover svg.eraserIcon {
+    color: red !important;
+}
+
+element.style {
+}
+svg.svg-inline--fa.fa-plus.fa-w-14 {
+    cursor: pointer;
+}
