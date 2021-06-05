@@ -11,6 +11,7 @@ import AccountPage from "./Pages/Account-page/Account-page";
 import Footer from "./components/Footer/Footer";
 import StylePage from "./Pages/Style-page/Style-page";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import RegisterPage from "./Pages/Account-page/Register-page";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
               <Route exact path="/contact"><ContactPage/></Route>
               <Route path="/contact/thank-you" ><ThankYou /></Route>
               <Route path="/style"><StylePage/></Route>
-              <Route path="/account"><AccountPage/></Route>
+              <Route exact path="/account"><AccountPage/></Route>
+              <Route path="/account/register"><RegisterPage/></Route>
           </Switch>
 
           <Footer />

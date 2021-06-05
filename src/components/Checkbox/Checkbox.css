@@ -1,0 +1,13 @@
+label {
+    font-size: 13px;
+}
+
+label a {
+    color: #fd8888;
+    text-decoration: none;
+    transition: .25s ease;
+}
+
+label a:hover {
+    color: #1C1DB1;
+}

@@ -30,6 +30,9 @@ background: rgba(168,218,220,0.08);
 .page-wrapper-inner {
   max-width: 1300px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 code {

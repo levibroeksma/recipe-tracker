@@ -7,7 +7,10 @@ function AccountPage() {
 
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
-    const onSubmit = (data) => {
+    const onSubmitLogin = (data) => {
+        console.log(data);
+    };
+    const onSubmitRegister = (data) => {
         console.log(data);
     };
     return (
@@ -19,11 +22,11 @@ function AccountPage() {
                         <h5>Returning user</h5>
                         <p>Welcome back, please enter your account
                             details below to continue.</p>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-
+                        <form onSubmit={handleSubmit(onSubmitLogin)}>
+                    
                             <Input
-                                name="userName"
-                                labelId="userNameId"
+                                name="userNameLogin"
+                                labelId="userNameLoginId"
                                 type="text"
                                 placeholder="Username..."
                                 required={true}
@@ -32,8 +35,8 @@ function AccountPage() {
                                 errors={errors}
                             />
                             <Input
-                                name="password"
-                                labelId="passwordId"
+                                name="passwordLogin"
+                                labelId="passwordLoginId"
                                 type="password"
                                 placeholder="Password..."
                                 required={true}
@@ -55,7 +58,7 @@ function AccountPage() {
                         <h5>New? Register below!</h5>
                         <p>Please pick a username and enter your email
                             address below.</p>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmitRegister)}>
                             <Input
                                 name="userName"
                                 labelId="userNameId"
@@ -78,11 +81,12 @@ function AccountPage() {
                                 register={register}
                                 errors={errors}
                                 pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
-                                patternError="Invalid, please enter a valid email address."
+                                patternError="Please enter a valid email address."
                             />
                             <Button
                                 buttonTitle="Register"
                                 classNameButton="btn"
+                                type="submit"
                             />
                         </form>
                     </div>
