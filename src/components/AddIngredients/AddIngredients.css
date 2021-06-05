@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 
-.direction-container {
+.ingredient-container {
     background-color: #fff;
     width: calc(50% - 15px);
     height: min-content;
@@ -16,36 +16,52 @@
     margin-bottom: 20px ;
 }
 
-.direction-container.direction-list {
+.ingredient-container.ingredients-list {
     padding: 0;
 }
 
-.direction-container h2 {
+.ingredient-container h2 {
     margin-top: 10px;
 }
 
-.direction-container .add-direction-box {
+.add-item-box {
+    color: #ec645b;
     margin-top: 1em;
     margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding-right: 15px;
+    border: 1px solid #aaa;
 }
 
-.direction-container textarea {
-    margin: 0 0 10px 0px;
-    min-height: 100px;
+.add-item-input {
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    color: #1C1DB1;
+    background: none;
 }
-.direction-container .add-item-textarea::placeholder {
+
+.add-item-input::placeholder {
     color: #1C1DB1;
 }
-textarea:focus {
+input:focus {
     outline: 0;
+}
+
+button.plusButton {
+    background: none;
+    border: none;
+    color: #FD8888;
+    padding: 0;
+    cursor: pointer;
 }
 
 .item-list {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    color: #fd8888;
-    font-weight: 700;
 }
 
 .item-list:empty ~ .save-button {
@@ -56,14 +72,13 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 5px 0;
     border-bottom: 1px #FD8888 solid;
     margin: 18px 15px 0px 15px;
 }
 
 .item-name span {
     color: #1C1DB1;
-    font-weight: 400;
 }
 
 .eraser {
@@ -76,7 +91,6 @@ textarea:focus {
     box-sizing: border-box;
     cursor: pointer;
     background: none;
-    margin: 0px 0px 0 10px;
 }
 
 .eraser svg.eraserIcon {
@@ -85,11 +99,6 @@ textarea:focus {
 
 .eraser:hover svg.eraserIcon {
     color: red;
-}
-
-.button-holder {
-    display: flex;
-    flex-direction: row-reverse;
 }
 
 .save-button {
