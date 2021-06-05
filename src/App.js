@@ -10,10 +10,12 @@ import ThankYou from "./Pages/Contact/Thank-you";
 import AccountPage from "./Pages/Account-page/Account-page";
 import Footer from "./components/Footer/Footer";
 import StylePage from "./Pages/Style-page/Style-page";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
       <Router>
+          <ScrollToTop/>
           <Header logo={logo}/>
 
           <Switch>
