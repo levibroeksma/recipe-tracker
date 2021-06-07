@@ -14,7 +14,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import RegisterPage from "./Pages/Login-register-page/Register-page";
 import AccountPageRegister from "./Pages/Login-register-page/Account-page-register";
 import TermsAndConditions from "./Pages/TermsAndConditions";
-import PrivacyPolicy from "./Pages/Privacy-policy-page";
+import PrivacyPolicy from "./Pages/Privacy-policy/Privacy-policy-page";
 import RegstrationConfirmation from "./Pages/Login-register-page/Registration-confirmation-page";
 import MyAccount from "./Pages/My-account-page/My-account-page";
 import AddRecipe from "./Pages/Add-recipe-page/Add-recipe";

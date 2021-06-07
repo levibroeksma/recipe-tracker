@@ -1,0 +1,12 @@
+.privacy-holder {
+    padding: 20px;
+}
+
+.privacy-holder h1 {
+    text-align: left;
+    margin: 40px 0;
+}
+
+.privacy-holder h1::after {
+    display: none;
+}
