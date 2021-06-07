@@ -1,0 +1,12 @@
+.terms-holder {
+    padding: 20px;
+}
+
+.terms-holder h1 {
+    text-align: left;
+    margin: 40px 0;
+}
+
+.terms-holder h1::after {
+    display: none;
+}

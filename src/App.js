@@ -13,7 +13,7 @@ import StylePage from "./Pages/Style-page/Style-page";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import RegisterPage from "./Pages/Login-register-page/Register-page";
 import AccountPageRegister from "./Pages/Login-register-page/Account-page-register";
-import TermsAndConditions from "./Pages/TermsAndConditions";
+import TermsAndConditions from "./Pages/Terms-and-conditions/TermsAndConditions";
 import PrivacyPolicy from "./Pages/Privacy-policy/Privacy-policy-page";
 import RegstrationConfirmation from "./Pages/Login-register-page/Registration-confirmation-page";
 import MyAccount from "./Pages/My-account-page/My-account-page";
