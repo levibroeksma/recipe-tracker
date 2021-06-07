@@ -1,0 +1,9 @@
+.my-recipe-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1300px;
+    overflow: scroll;
+    width: 100%;
+    padding: 30px 10px;
+}

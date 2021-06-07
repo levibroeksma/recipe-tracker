@@ -1,0 +1,39 @@
+.add-ingredient-wrapper {
+    width: 100%;
+}
+
+#recipe-detail-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#recipe-detail-form .checkbox-wrapper {
+
+    width: 100%;
+}
+
+#recipe-detail-form .checkbox-wrapper .checkbox-wrapper-inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 250px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#recipe-detail-form .checkbox-wrapper .checkbox-wrapper-inner label {
+    width: 50%;
+}
+
+#recipe-detail-form label span.errorMessage {
+    top: 60px;
+}
+
+#countryId,
+#prepTimeId,
+#kcalId {
+    width: calc(100% / 3 - 15px);
+}

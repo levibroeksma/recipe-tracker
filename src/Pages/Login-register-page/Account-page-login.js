@@ -1,7 +1,7 @@
 import './Account-page.css'
 import Input from "../../components/Input/Input";
 import {useForm} from "react-hook-form";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import Button from "../../components/Button/Button";
 function AccountPageLogin() {
 
@@ -9,11 +9,13 @@ function AccountPageLogin() {
     const history = useHistory();
     const onSubmitLogin = (data) => {
         console.log(data);
+        history.push("my-account")
     };
 
     const toRegister = () => {
         history.push('/register')
     }
+
 
     return (
         <div className="page-wrapper">
@@ -55,11 +57,16 @@ function AccountPageLogin() {
                                 register={register}
                                 errors={errors}
                             />
-                            <Button
-                                buttonTitle="Log in"
-                                classNameButton="btn"
-                                type="submit"
-                            />
+                            <div className="button-wrapper-login">
+                                <Button
+                                    buttonTitle="Log in"
+                                    classNameButton="btn"
+                                    type="submit"
+                                />
+                                <div className="forgot-password">
+                                    <Link to="/forgot-password">Forgot password?</Link>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

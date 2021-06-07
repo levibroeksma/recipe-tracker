@@ -46,7 +46,7 @@ function ContactPage() {
                                 register={register}
                                 errors={errors}
                                 minLength={4}
-                                minLengthError=""
+                                minLengthError="The minimum length should be at least 4 characters."
                                 maxLength={24}
                             />
 

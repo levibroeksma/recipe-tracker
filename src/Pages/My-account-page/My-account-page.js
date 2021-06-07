@@ -1,19 +1,31 @@
-import "./Home-page.css"
+import "./My-account-page.css"
 import Recipe from "../../components/Recipe/Recipe";
-function HomePage() {
+import Button from "../../components/Button/Button";
+import {useHistory} from "react-router-dom";
+
+function MyAccount() {
+    const history = useHistory();
+
+    const toAddRecipe = () => {
+        history.push("my-account/add-recipe")
+    }
+
     return (
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-                    <h1>Welcome to <img src={require('../../logo.svg').default} alt="logo RecipeTracker"/></h1>
-                    <div className="welcome-text">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.</p>
-                    </div>
+                    <h1>My account</h1>
+                    <Button
+                        type="button"
+                        onClickEvent={toAddRecipe}
+                        buttonTitle="Add a new recipe"
+                        classNameButton="btn"
+                    />
                 </div>
             </div>
             <div className="page-wrapper blue">
                 <div className="page-wrapper-inner left">
-                    <h2>Highlighted</h2>
+                    <h2>My recipe's</h2>
                     <div className="my-recipe-wrapper">
                         <Recipe
                             title="Pasta Bolognese"
@@ -50,36 +62,36 @@ function HomePage() {
             </div>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner left">
-                    <h2>All time favorites</h2>
+                    <h2>My favorites</h2>
                     <div className="my-recipe-wrapper">
                         <Recipe
                             title="Pasta Bolognese"
                             kcal="475 kcal"
-                            preptime="30"
+                            preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
                             kcal="475 kcal"
-                            preptime="30"
+                            preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
                             kcal="475 kcal"
-                            preptime="30"
+                            preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
                             kcal="475 kcal"
-                            preptime="30"
+                            preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
                             kcal="475 kcal"
-                            preptime="30"
+                            preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                     </div>
@@ -89,4 +101,4 @@ function HomePage() {
     )
 }
 
-export default HomePage;
+export default MyAccount;

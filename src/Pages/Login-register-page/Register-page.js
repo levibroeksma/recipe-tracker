@@ -62,8 +62,10 @@ function RegisterPage() {
                             requiredError="Required."
                             register={register}
                             errors={errors}
-                            minLength={6}
-                            minLengthError="The password has to be at least 6 characters."
+                            minLength={8}
+                            minLengthError="The password has to be at least 8 characters."
+                            pattern={/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/}
+                            patternError="Your password should contain at least: 1 uppercase, 1 lowercase and 1 digit"
                         />
                         <Input
                             name="passwordCheck"
@@ -74,8 +76,8 @@ function RegisterPage() {
                             requiredError="Required."
                             register={register}
                             errors={errors}
-                            minLength={6}
-                            minLengthError="The password has to be at least 6 characters."
+                            minLength={8}
+                            minLengthError="The password has to be at least 8 characters."
                         />
                         <div className="checkbox-wrapper">
                             <Checkbox
