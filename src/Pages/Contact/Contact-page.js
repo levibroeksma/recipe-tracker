@@ -65,7 +65,7 @@ function ContactPage() {
                                 type="text"
                                 placeholder="Email..."
                                 required={true}
-                                requiredError="This field is required."
+                                requiredError="Required."
                                 register={register}
                                 errors={errors}
                                 pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
@@ -78,12 +78,10 @@ function ContactPage() {
                                 labelId="remarksId"
                                 placeholder="Your question or remark..."
                                 register={register}
-                                requiredError="This field is required."
+                                requiredError="Required."
                                 maxLength={1000}
                                 maxLengthError="You can't use more then 1000 characters."
                                 errors={errors}
-                                row={20}
-                                column={20}
                             />
 
                             <Button
