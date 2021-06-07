@@ -10,11 +10,8 @@ function RegisterPage() {
     const history = useHistory();
     const onSubmit = (data) => {
         console.log(data)
-    };
-
-    const confirmRegistration = () => {
         history.push('/register/confirmation')
-    }
+    };
 
     return (
         <div className="page-wrapper">
@@ -50,7 +47,7 @@ function RegisterPage() {
                             type="text"
                             placeholder="Email address"
                             required={true}
-                            requiredError="This field is required."
+                            requiredError="Required."
                             register={register}
                             errors={errors}
                             pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
@@ -116,7 +113,6 @@ function RegisterPage() {
                             buttonTitle="Register"
                             type="submit"
                             classNameButton="btn"
-                            onClickEvent={confirmRegistration}
                         />
                     </form>
                 </div>

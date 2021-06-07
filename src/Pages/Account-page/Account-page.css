@@ -51,7 +51,7 @@
     margin: 0;
 }
 
-.checkbox-wrapper span.errorMessage {
+.registration-form .checkbox-wrapper span.errorMessage {
     top: 18px;
 }
 
@@ -81,4 +81,8 @@ label#passwordId,
 label#passwordCheckId
 {
     width: calc(50% - 15px);
+}
+
+.registration-form span.errorMessage {
+    top: 60px;
 }
