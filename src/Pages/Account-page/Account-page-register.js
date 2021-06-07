@@ -3,61 +3,37 @@ import Input from "../../components/Input/Input";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import Button from "../../components/Button/Button";
-function AccountPage() {
+function AccountPageRegister() {
 
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
-    const onSubmitLogin = (data) => {
-        console.log(data);
-    };
     const onSubmitRegister = (data) => {
         console.log(data);
+        history.push('register/registration');
     };
+    const toLogIn = () => {
+        history.push('/account')
+    }
+
+
     return (
         <div className="page-wrapper">
             <div className="page-wrapper-inner">
                 <h1>Account</h1>
-                <div className="account-page-wrapper">
-                    <div className="login-holder">
+
+                <div className="register-menu">
+                    <div className="tab-holder">
+                        <div className="login-tab" onClick={toLogIn}>
+                            <span>Login</span>
+                        </div>
+                        <div className="register-tab">
+                            <span>Register</span>
+                        </div>
+                    </div>
+                    <div className="login-field">
                         <h5>Returning user</h5>
                         <p>Welcome back, please enter your account
                             details below to continue.</p>
-                        <form onSubmit={handleSubmit(onSubmitLogin)}>
-                    
-                            <Input
-                                name="userNameLogin"
-                                labelId="userNameLoginId"
-                                type="text"
-                                placeholder="Username..."
-                                required={true}
-                                requiredError="Required."
-                                register={register}
-                                errors={errors}
-                            />
-                            <Input
-                                name="passwordLogin"
-                                labelId="passwordLoginId"
-                                type="password"
-                                placeholder="Password..."
-                                required={true}
-                                requiredError="Required."
-                                register={register}
-                                errors={errors}
-                            />
-                            <Button
-                                buttonTitle="Log in"
-                                classNameButton="btn"
-                                type="submit"
-                            />
-                        </form>
-                    </div>
-                    <div className="account-devider">
-                        {/*THIS HAS TO STAY EMPTY*/}
-                    </div>
-                    <div className="register-holder">
-                        <h5>New? Register below!</h5>
-                        <p>Please pick a username and enter your email
-                            address below.</p>
                         <form onSubmit={handleSubmit(onSubmitRegister)}>
                             <Input
                                 name="userName"
@@ -69,7 +45,7 @@ function AccountPage() {
                                 errors={errors}
                                 minLength={4}
                                 minLengthError="A username has to contain 4 - 12 characters."
-                                maxLength={12}
+                                maxLength={20}
                                 maxLengthError="A username has to contain 4 - 12 characters."
                             />
                             <Input
@@ -96,4 +72,4 @@ function AccountPage() {
     )
 }
 
-export default AccountPage;
+export default AccountPageRegister;

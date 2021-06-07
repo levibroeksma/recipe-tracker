@@ -1,17 +1,16 @@
 import React from "react";
 import './Checkbox.css'
+import {Link} from "react-router-dom";
 
-function Checkbox({name, required, requiredError,errors,register,labelTitle,labelId}) {
+function Checkbox({name, required, requiredError,errors,register,labelTitle,labelId,titleLink,pageRoute}) {
     return (
         <label htmlFor={name} id={labelId}>
             <input
                 name={name}
                 type="checkbox"
-                required
                 {...register(name, {required: required}) }
             />
-            {/*I agree with the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>*/}
-            {labelTitle}
+            {labelTitle}<Link to={pageRoute}>{titleLink}</Link>
             {errors[name] && errors[name].type === "required" && <span className="errorMessage">{requiredError}</span>}
         </label>
     )

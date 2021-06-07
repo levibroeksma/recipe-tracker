@@ -7,11 +7,15 @@ import AboutUs from "./Pages/About-us";
 import RecipePage from "./Pages/Recipe-page/Recipe-page";
 import ContactPage from "./Pages/Contact/Contact-page";
 import ThankYou from "./Pages/Contact/Thank-you";
-import AccountPage from "./Pages/Account-page/Account-page";
+import AccountPageLogin from "./Pages/Account-page/Account-page-login";
 import Footer from "./components/Footer/Footer";
 import StylePage from "./Pages/Style-page/Style-page";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import RegisterPage from "./Pages/Account-page/Register-page";
+import AccountPageRegister from "./Pages/Account-page/Account-page-register";
+import TermsAndConditions from "./Pages/TermsAndConditions";
+import PrivacyPolicy from "./Pages/Privacy-policy-page";
+import RegstrationConfirmation from "./Pages/Account-page/Registration-confirmation-page";
 
 function App() {
   return (
@@ -26,8 +30,12 @@ function App() {
               <Route exact path="/contact"><ContactPage/></Route>
               <Route path="/contact/thank-you" ><ThankYou /></Route>
               <Route path="/style"><StylePage/></Route>
-              <Route exact path="/account"><AccountPage/></Route>
-              <Route path="/account/register"><RegisterPage/></Route>
+              <Route exact path="/account"><AccountPageLogin/></Route>
+              <Route exact path="/register"><AccountPageRegister/></Route>
+              <Route path="/register/registration"><RegisterPage/></Route>
+              <Route path="/register/confirmation"><RegstrationConfirmation/></Route>
+              <Route path="/terms-and-conditions"><TermsAndConditions/></Route>
+              <Route path="/privacy-policy"><PrivacyPolicy /></Route>
           </Switch>
 
           <Footer />

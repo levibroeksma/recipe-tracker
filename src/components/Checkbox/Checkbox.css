@@ -11,3 +11,13 @@ label a {
 label a:hover {
     color: #1C1DB1;
 }
+
+input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+    margin-bottom: 15px;
+}
+
+input[type="checkbox"]:last-child {
+    margin-bottom: 0;
+}

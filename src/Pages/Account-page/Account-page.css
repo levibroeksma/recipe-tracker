@@ -1,31 +1,84 @@
-.account-page-wrapper {
-    display: flex;
+.login-menu,
+.register-menu
+{
     width: 100%;
-    flex-direction: row;
+    background: white;
+    border: 1px solid #fd8888;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
 }
 
-.account-page-wrapper h5 {
+.tab-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px 0;
+}
+
+.login-tab,
+.register-tab {
+    width: calc(50% - 15px);
+    text-align: center;
+    padding: 20px  15px ;
+    color: #1C1DB1;
+    font-weight: 600;
+}
+
+.login-menu .register-tab {
+    background: #f6f5f5;
+    border-radius: 0 10px 0 0;
+}
+.register-menu .login-tab {
+    background: #f6f5f5;
+    border-radius: 10px 0 0 0 ;
+}
+
+.login-menu .register-tab {
+    cursor: pointer;
+}
+.register-menu .login-tab {
+    cursor: pointer;
+}
+
+.login-field {
+    padding: 30px;
+}
+
+.login-field h5 {
     margin: 0;
 }
 
-.account-devider {
-    width: 1px;
-    background: #1C1DB1;
-    height: auto;
+.checkbox-wrapper span.errorMessage {
+    top: 18px;
 }
 
-.account-page-wrapper .login-holder {
-    padding: 0 60px 0 200px;
-    box-sizing: border-box;
-    width: 50%;
+/*REGISTRATION FORM PAGE*/
+
+.registration-form-holder {
+    max-width: 800px;
 }
 
-.account-page-wrapper .register-holder {
-    padding: 0 200px 0 60px;
-    box-sizing: border-box;
-    width: 50%;
+.registration-form-holder .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    width: 100%;
 }
 
-.account-page-wrapper .register-holder p {
-    min-height: 50px;
+.registration-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label#firstNameId,
+label#lastNameId,
+label#passwordId,
+label#passwordCheckId
+{
+    width: calc(50% - 15px);
 }

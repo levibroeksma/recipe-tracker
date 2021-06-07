@@ -1,0 +1,20 @@
+button.favorite-button {
+    background: #fd8888;
+    border: none;
+    border-radius: 50px;
+    padding: 1em;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+button.favorite-button svg {
+    color: #1C1DB1;
+}
+
+button.favorite-button:hover svg {
+    fill: #1C1DB1;
+}
