@@ -2,7 +2,7 @@ import React from "react";
 import './Input.css';
 
 
-function Input({labelId, name, type, placeholder, errors, register, required,  minLength, maxLength, pattern, requiredError, minLengthError, maxLengthError, patternError}) {
+function Input({labelId, name, type, placeholder, errors, register, required,  minLength, maxLength, pattern, requiredError, minLengthError, maxLengthError, patternError, compareName,validateValue, validateError, validatePassword, validate}) {
 
     return (
         <label htmlFor={name} id={labelId}>
@@ -18,14 +18,18 @@ function Input({labelId, name, type, placeholder, errors, register, required,  m
                         required: required,
                         minLength: minLength,
                         maxLength: maxLength,
-                        pattern: pattern
+                        pattern: pattern,
+                        validate: validate
                     })}
             />
             {errors[name] && errors[name].type === "required" && <span className="errorMessage">{requiredError}</span>}
             {errors[name] && errors[name].type === "minLength" && <span className="errorMessage">{minLengthError}</span>}
             {errors[name] && errors[name].type === "maxLength" && <span className="errorMessage">{maxLengthError}</span>}
             {errors[name] && errors[name].type === "pattern" && <span className="errorMessage">{patternError}</span>}
+            {errors[name] && errors[name].type === "validate" && <span className="errorMessage">{validateError}</span>}
         </label>
     )
 }
 export default Input;
+
+// validate: ({validateValue}) => value === {compareName}.current

@@ -77,6 +77,10 @@ button.plusButton {
     margin: 18px 15px 0px 15px;
 }
 
+.item-container:last-child {
+    margin-bottom: 30px;
+}
+
 .item-name span {
     color: #1C1DB1;
 }

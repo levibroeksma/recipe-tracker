@@ -10,8 +10,6 @@ import {useState} from "react";
 
 function LeaveComment() {
     const {handleSubmit, register, formState: { errors }} = useForm();
-    const star = <FontAwesomeIcon icon={faStar}/>
-    const history = useHistory();
     const onSubmit = (data) => {
         console.log(data)
     };

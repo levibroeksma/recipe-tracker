@@ -19,6 +19,10 @@ import RegstrationConfirmation from "./Pages/Login-register-page/Registration-co
 import MyAccount from "./Pages/My-account-page/My-account-page";
 import AddRecipe from "./Pages/Add-recipe-page/Add-recipe";
 import ForgotPasswordPage from "./Pages/Login-register-page/Forgot-password-page";
+import AddRecipeStep2 from "./Pages/Add-recipe-page/Step-2";
+import AddRecipeStep3 from "./Pages/Add-recipe-page/Step-3";
+import AddRecipeStep4 from "./Pages/Add-recipe-page/Step-4";
+
 
 function App() {
   return (
@@ -36,7 +40,10 @@ function App() {
               <Route exact path="/account"><AccountPageLogin/></Route>
               <Route exact path="/my-account"><MyAccount/></Route>
               <Route path="/forgot-password"><ForgotPasswordPage/></Route>
-              <Route path="/my-account/add-recipe"><AddRecipe/></Route>
+              <Route exact path="/my-account/add-recipe"><AddRecipe/></Route>
+              <Route path="/my-account/add-recipe/step-2"><AddRecipeStep2/></Route>
+              <Route path="/my-account/add-recipe/step-3"><AddRecipeStep3/></Route>
+              <Route path="/my-account/add-recipe/step-4"><AddRecipeStep4/></Route>
               <Route exact path="/register"><AccountPageRegister/></Route>
               <Route path="/register/registration"><RegisterPage/></Route>
               <Route path="/register/confirmation"><RegstrationConfirmation/></Route>

@@ -5,7 +5,7 @@ import {useState} from "react";
 function Header({logo}) {
     const [navScrolled, setNavScrolled] = useState(false);
     const changeMenuSize = () => {
-        if(window.scrollY >= 40) {
+        if(window.scrollY >= 1) {
             setNavScrolled(true);
         } else {
             setNavScrolled(false);

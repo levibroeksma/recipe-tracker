@@ -1,135 +1,61 @@
 import "./Add-recipe-page.css"
-import AddIngredients from "../../components/AddIngredients/AddIngredients";
-import AddDirections from "../../components/AddDirections/AddDirections";
+import Button from "../../components/Button/Button";
+import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import Input from "../../components/Input/Input";
-import Checkbox from "../../components/Checkbox/Checkbox";
-import Button from "../../components/Button/Button";
+import Textarea from "../../components/Textarea/Textarea";
+
 
 function AddRecipe() {
+    const history= useHistory();
     const {handleSubmit, register, formState: { errors }} = useForm();
+
     const onSubmit = (data) => {
         console.log(data)
+        history.push("add-recipe/step-2")
     }
-
     return (
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-                    <h1>Add a new recipe</h1>
-                    <div className="add-ingredient-wrapper">
-                        <AddIngredients/>
-                    </div>
+                    <h1>Upload your own recipe</h1>
+                    <form onSubmit={handleSubmit(onSubmit)} id="newRecipeForm">
+                        <Input
+                            name="recipeTitle"
+                            labelId="recipeTitleId"
+                            register={register}
+                            errors={errors}
+                            placeholder="Recipe title"
+                            maxLength={50}
+                            maxLengthError="You can't use more than 50 characters"
+                            required={true}
+                            requiredError="Required."
+                        />
+                        <Textarea
+                            name="recipeCaption"
+                            labelId="recipeCaptionId"
+                            register={register}
+                            errors={errors}
+                            placeholder="Enter a caption for this recipe."
+                            maxLength={100}
+                            maxLengthError="You can't use more than 100 characters"
+                            required={true}
+                            requiredError="Required."
+                        />
+                        <Button
+                            classNameButton="btn"
+                            buttonTitle="Save and continue"
+                            type="submit"
+                        />
+
+                    </form>
                 </div>
             </div>
             <div className="page-wrapper blue">
                 <div className="page-wrapper-inner">
-                    <h2>Add directions</h2>
-                    <div className="add-ingredient-wrapper">
-                        <AddDirections/>
+                    <div className="button-wrapper">
+
                     </div>
-                </div>
-            </div>
-            <div className="page-wrapper">
-                <div className="page-wrapper-inner">
-                    <h2>Additional details</h2>
-                    <form onSubmit={handleSubmit(onSubmit)} id="recipe-detail-form">
-                        <Input
-                            register={register}
-                            errors={errors}
-                            required={true}
-                            requiredError="Required."
-                            labelId="countryId"
-                            name="country"
-                            placeholder="Country of origin"
-                            type="text"
-                        />
-                        <Input
-                            register={register}
-                            errors={errors}
-                            required={true}
-                            requiredError="Required."
-                            labelId="prepTimeId"
-                            name="prepTime"
-                            placeholder="Preperation time in minutes"
-                            type="number"
-                        />
-                        <Input
-                            register={register}
-                            errors={errors}
-                            required={true}
-                            requiredError="Required."
-                            labelId="kcalId"
-                            name="kcal"
-                            placeholder="Ammount of calories"
-                            type="number"
-                        />
-                        <div className="checkbox-wrapper">
-                            <div className="checkbox-wrapper-inner">
-                                <Checkbox
-                                    labelTitle="Vegetarian"
-                                    name="vegetarian"
-                                    labelId="vegetarianId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                                <Checkbox
-                                    labelTitle="Vegan"
-                                    name="vegan"
-                                    labelId="veganId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                                <Checkbox
-                                    labelTitle="Fish"
-                                    name="fish"
-                                    labelId="fishId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                                <Checkbox
-                                    labelTitle="Beef"
-                                    name="beef"
-                                    labelId="beefId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                                <Checkbox
-                                    labelTitle="Pork"
-                                    name="pork"
-                                    labelId="porkId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                                <Checkbox
-                                    labelTitle="Lamb"
-                                    name="lamb"
-                                    labelId="lambId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                                <Checkbox
-                                    labelTitle="Spicy"
-                                    name="spicy"
-                                    labelId="spicyId"
-                                    required={false}
-                                    register={register}
-                                    errors={errors}
-                                />
-                            </div>
-                        </div>
-                        <Button
-                            type="submit"
-                            buttonTitle="Save recipe"
-                            classNameButton="btn"
-                        />
-                    </form>
                 </div>
             </div>
         </>

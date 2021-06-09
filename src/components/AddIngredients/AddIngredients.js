@@ -52,7 +52,7 @@ function AddIngredients() {
                 <div className='item-list'>
                     {items.map((item, index) =>
                         <div className='item-container'>
-                            <div className='item-name'>
+                            <div className='item' key={"item" + index}>
                                 <span>{item.itemName}</span>
                             </div>
                             <button className='eraser'onClick={() => eraseLine(index)} >
@@ -60,13 +60,6 @@ function AddIngredients() {
                             </button>
                         </div>
                     )}
-                </div>
-                <div className="save-button">
-                    <Button
-                        type="submit"
-                        buttonTitle="Save"
-                        classNameButton="btn"
-                    />
                 </div>
             </div>
         </div>
