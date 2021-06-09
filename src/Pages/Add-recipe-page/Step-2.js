@@ -10,7 +10,7 @@ function AddRecipeStep2() {
         history.push("step-3")
     }
     const previousStep = () => {
-        history.push("/my-account/add-recipe");
+        history.push("/add-recipe/step-1");
     }
 
     return (

@@ -7,7 +7,7 @@ function MyAccount() {
     const history = useHistory();
 
     const toAddRecipe = () => {
-        history.push("my-account/add-recipe")
+        history.push("add-recipe/step-1")
     }
 
     return (

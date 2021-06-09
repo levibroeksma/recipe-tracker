@@ -3,11 +3,20 @@ import {useForm} from "react-hook-form";
 import Input from "../../components/Input/Input";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Button from "../../components/Button/Button";
+import {useHistory} from "react-router-dom";
 
 function AddRecipeStep4() {
     const {handleSubmit, register, formState: { errors }} = useForm();
+    const history = useHistory();
     const onSubmit = (data) => {
         console.log(data)
+    }
+
+    const nextStep = () => {
+        history.push("step-5");
+    }
+    const previousStep = () => {
+        history.push("step-3");
     }
     return (
         <>
@@ -106,9 +115,16 @@ function AddRecipeStep4() {
                             </div>
                         </div>
                         <Button
+                            classNameButton="btn cancel"
+                            buttonTitle="Previous step"
                             type="submit"
-                            buttonTitle="Save recipe"
+                            onClickEvent={previousStep}
+                        />
+                        <Button
                             classNameButton="btn"
+                            buttonTitle="Save and continue"
+                            type="submit"
+                            onClickEvent={nextStep}
                         />
                     </form>
                 </div>

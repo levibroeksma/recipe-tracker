@@ -6,13 +6,13 @@ import Input from "../../components/Input/Input";
 import Textarea from "../../components/Textarea/Textarea";
 
 
-function AddRecipe() {
+function Step1() {
     const history= useHistory();
     const {handleSubmit, register, formState: { errors }} = useForm();
 
     const onSubmit = (data) => {
         console.log(data)
-        history.push("add-recipe/step-2")
+        history.push("step-2")
     }
     return (
         <>
@@ -62,4 +62,4 @@ function AddRecipe() {
     )
 }
 
-export default AddRecipe;
+export default Step1;
