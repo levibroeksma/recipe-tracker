@@ -51,8 +51,8 @@ function AddIngredients() {
             <div className="ingredient-container ingredients-list">
                 <div className='item-list'>
                     {items.map((item, index) =>
-                        <div className='item-container'>
-                            <div className='item' key={"item" + index}>
+                        <div className='item-container' key={"container" + index}>
+                            <div className='item'>
                                 <span>{item.itemName}</span>
                             </div>
                             <button className='eraser'onClick={() => eraseLine(index)} >

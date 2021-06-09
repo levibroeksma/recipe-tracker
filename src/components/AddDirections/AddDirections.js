@@ -50,7 +50,7 @@ function AddDirections() {
                 <div className="direction-container direction-list">
                     <ol className='item-list'>
                         {directions.map((direction, index) =>
-                            <div className='item-container'>
+                            <div className='item-container' key={"container" + index}>
                                 <li className='item-name'>
                                     <span>{direction.direction}</span>
                                 </li>

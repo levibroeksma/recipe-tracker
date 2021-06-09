@@ -8,16 +8,20 @@ import {useHistory} from "react-router-dom";
 function AddRecipeStep4() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
+
     const onSubmit = (data) => {
         console.log(data)
+        nextStep();
     }
 
     const nextStep = () => {
         history.push("step-5");
     }
+
     const previousStep = () => {
         history.push("step-3");
     }
+
     return (
         <>
             <div className="page-wrapper">
@@ -117,14 +121,13 @@ function AddRecipeStep4() {
                         <Button
                             classNameButton="btn cancel"
                             buttonTitle="Previous step"
-                            type="submit"
+                            type="button"
                             onClickEvent={previousStep}
                         />
                         <Button
                             classNameButton="btn"
                             buttonTitle="Save and continue"
                             type="submit"
-                            onClickEvent={nextStep}
                         />
                     </form>
                 </div>

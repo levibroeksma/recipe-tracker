@@ -1,0 +1,47 @@
+/*DROPZONE*/
+
+.img-image {
+    font-size: 80px;
+    color: #808080;
+    opacity: 0.7;
+}
+
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 3px solid #808080;
+    border-style: dashed;
+    height: 100%;
+    min-height: 200px;
+}
+
+/*PREVIEW GALLERY*/
+
+.thumbsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    width: 100%;
+    justify-content: start;
+}
+.thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    height: 100%;
+    box-sizing: border-box;
+    width: calc(25% - 10px);
+    max-height: 80px;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.preview-image {
+    height: 100%;
+    max-height: 200px;
+}
