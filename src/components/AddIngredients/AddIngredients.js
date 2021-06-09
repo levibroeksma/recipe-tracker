@@ -2,8 +2,7 @@ import "./AddIngredients.css"
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import {FaEraser} from "react-icons/fa";
-import Button from "../Button/Button";
+import {BsTrashFill} from "react-icons/bs";
 import {useState} from "react";
 
 function AddIngredients() {
@@ -56,7 +55,7 @@ function AddIngredients() {
                                 <span>{item.itemName}</span>
                             </div>
                             <button className='eraser'onClick={() => eraseLine(index)} >
-                                <FaEraser className="eraserIcon"/>
+                                <BsTrashFill className="eraserIcon"/>
                             </button>
                         </div>
                     )}

@@ -2,7 +2,7 @@ import React from "react";
 import './Input.css';
 
 
-function Input({labelId, name, type, placeholder, errors, register, required,  minLength, maxLength, pattern, requiredError, minLengthError, maxLengthError, patternError, compareName,validateValue, validateError, validatePassword, validate}) {
+function Input({labelId, name, type, placeholder, errors, register, required,  minLength, maxLength, pattern, requiredError, minLengthError, maxLengthError, patternError, validateError, validate}) {
 
     return (
         <label htmlFor={name} id={labelId}>

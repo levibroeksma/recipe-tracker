@@ -9,7 +9,7 @@ function RegisterPage() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
 
-    const [password, setPassword] = useState()
+    const [password, setPassword] = useState(null)
 
     const onSubmit = (data) => {
         console.log(data)
@@ -19,9 +19,6 @@ function RegisterPage() {
     function validatePassword (value) {
         if (password !== value) return false;
     }
-
-
-
 
     return (
         <div className="page-wrapper">
@@ -79,8 +76,12 @@ function RegisterPage() {
                             validate={(value) => validatePassword(value)}
                             validateError="The passwords do not match."
                         />
-                        <label htmlFor="passwordCheckId">
+
+                        {/*PASSWORD CHECK*/}
+
+                        <label htmlFor="passwordCheck" id="passwordCheckId">
                             <input
+                                className="textInput"
                                 name="passwordCheck"
                                 id="passwordCheck"
                                 type="password"
@@ -89,20 +90,6 @@ function RegisterPage() {
                                 onChange={(e)=>setPassword(e.target.value)}
                             />
                         </label>
-                        {/*<Input*/}
-                        {/*    name="passwordCheck"*/}
-                        {/*    labelId="passwordCheckId"*/}
-                        {/*    type="password"*/}
-                        {/*    placeholder="Re-enter password"*/}
-                        {/*    required={true}*/}
-                        {/*    requiredError="Required."*/}
-                        {/*    register={register}*/}
-                        {/*    errors={errors}*/}
-                        {/*    // validateValue="value"*/}
-                        {/*    // validateError="The passwords do not match "*/}
-                        {/*    // compareName="password"*/}
-                        {/*/>*/}
-
                         <div className="checkbox-wrapper">
                             <Checkbox
                                 name="newsLetter"
