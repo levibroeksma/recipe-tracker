@@ -20,6 +20,7 @@ function AccountPageLogin() {
     }
 
     const [showPassword, toggleShowPassword] = useState(false);
+
     const toggleVisability = () => {toggleShowPassword(!showPassword)}
 
     return (
