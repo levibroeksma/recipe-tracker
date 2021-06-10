@@ -1,6 +1,7 @@
 import './Header.css';
 import {NavLink, Link} from "react-router-dom";
 import {useState} from "react";
+import {HiSearch} from "react-icons/hi";
 
 function Header({logo}) {
     const [navScrolled, setNavScrolled] = useState(false);
@@ -20,6 +21,15 @@ function Header({logo}) {
                     <Link exact to="/">
                         <img src={logo} alt="Recipe tracker"/>
                     </Link>
+                </div>
+                <div className="search-bar-holder">
+                    <div className="search-bar">
+                        <input
+                            type="text"
+                            id="searchbar"
+                            placeholder="search..."/>
+                        <HiSearch className="searchIcon"/>
+                    </div>
                 </div>
                 <div className="nav-holder">
                     <nav>

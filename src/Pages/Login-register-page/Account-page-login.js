@@ -3,6 +3,9 @@ import Input from "../../components/Input/Input";
 import {useForm} from "react-hook-form";
 import {Link, useHistory} from "react-router-dom";
 import Button from "../../components/Button/Button";
+import {AiFillEye} from "react-icons/ai";
+import {AiFillEyeInvisible} from "react-icons/ai"
+import {useState} from "react";
 function AccountPageLogin() {
 
     const {handleSubmit, register, formState: { errors }} = useForm();
@@ -16,6 +19,8 @@ function AccountPageLogin() {
         history.push('/register')
     }
 
+    const [showPassword, toggleShowPassword] = useState(false);
+    const toggleVisability = () => {toggleShowPassword(!showPassword)}
 
     return (
         <div className="page-wrapper">
@@ -47,16 +52,21 @@ function AccountPageLogin() {
                                 register={register}
                                 errors={errors}
                             />
-                            <Input
-                                name="passwordLogin"
-                                labelId="passwordLoginId"
-                                type="password"
-                                placeholder="Password..."
-                                required={true}
-                                requiredError="Required."
-                                register={register}
-                                errors={errors}
-                            />
+                            <div className="password-login-wrapper">
+                                <Input
+                                    name="passwordLogin"
+                                    labelId="passwordLoginId"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password..."
+                                    required={true}
+                                    requiredError="Required."
+                                    register={register}
+                                    errors={errors}
+                                />
+                                <div className="eye-holder" onClick={toggleVisability}>
+                                    {showPassword ? <AiFillEyeInvisible className="hide-eye"/> : <AiFillEye className="show-eye"/>}
+                                </div>
+                            </div>
                             <div className="button-wrapper-login">
                                 <Button
                                     buttonTitle="Log in"
