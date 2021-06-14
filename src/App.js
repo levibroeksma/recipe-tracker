@@ -7,12 +7,11 @@ import AboutUs from "./Pages/About-us";
 import RecipePage from "./Pages/Recipe-page/Recipe-page";
 import ContactPage from "./Pages/Contact/Contact-page";
 import ThankYou from "./Pages/Contact/Thank-you";
-import AccountPageLogin from "./Pages/Login-register-page/Account-page-login";
+import AccountPage from "./Pages/Login-register-page/Account-page";
 import Footer from "./components/Footer/Footer";
 import StylePage from "./Pages/Style-page/Style-page";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import RegisterPage from "./Pages/Login-register-page/Register-page";
-import AccountPageRegister from "./Pages/Login-register-page/Account-page-register";
 import TermsAndConditions from "./Pages/Terms-and-conditions/TermsAndConditions";
 import PrivacyPolicy from "./Pages/Privacy-policy/Privacy-policy-page";
 import RegstrationConfirmation from "./Pages/Login-register-page/Registration-confirmation-page";
@@ -37,7 +36,7 @@ function App() {
               <Route exact path="/contact"><ContactPage/></Route>
               <Route path="/contact/thank-you" ><ThankYou /></Route>
               <Route path="/style"><StylePage/></Route>
-              <Route exact path="/account"><AccountPageLogin/></Route>
+              <Route exact path="/account"><AccountPage/></Route>
               <Route exact path="/my-account"><MyAccount/></Route>
               <Route path="/forgot-password"><ForgotPasswordPage/></Route>
               <Route exact path="/add-recipe/step-1"><Step1/></Route>
@@ -45,8 +44,7 @@ function App() {
               <Route path="/add-recipe/step-3"><AddRecipeStep3/></Route>
               <Route path="/add-recipe/step-4"><AddRecipeStep4/></Route>
               <Route path="/add-recipe/step-5"><AddRecipeStep5/></Route>
-              <Route exact path="/register"><AccountPageRegister/></Route>
-              <Route path="/register/registration"><RegisterPage/></Route>
+              <Route path="/register"><RegisterPage/></Route>
               <Route path="/register/confirmation"><RegstrationConfirmation/></Route>
               <Route path="/terms-and-conditions"><TermsAndConditions/></Route>
               <Route path="/privacy-policy"><PrivacyPolicy /></Route>

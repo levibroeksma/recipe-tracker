@@ -6,21 +6,24 @@ import Button from "../../components/Button/Button";
 import {AiFillEye} from "react-icons/ai";
 import {AiFillEyeInvisible} from "react-icons/ai"
 import {useState} from "react";
-function AccountPageLogin() {
+function AccountPage() {
 
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
     const onSubmitLogin = (data) => {
         console.log(data);
-        history.push("my-account")
+        if(formLogin === true) {
+            history.push("my-account")
+        } else{
+            history.push("/register")
+        }
     };
 
-    const toRegister = () => {
-        history.push('/register')
-    }
+    const [formLogin, setFormLogin] = useState(true);
+
+    function setFormField() {setFormLogin(!formLogin)}
 
     const [showPassword, toggleShowPassword] = useState(false);
-
     const toggleVisability = () => {toggleShowPassword(!showPassword)}
 
     return (
@@ -30,14 +33,14 @@ function AccountPageLogin() {
 
                 <div className="login-menu">
                     <div className="tab-holder">
-                        <div className="login-tab">
+                        <div className={ `login-tab ${formLogin ? "active" : ""}`} onClick={setFormField}>
                             <span>Login</span>
                         </div>
-                        <div className="register-tab" onClick={toRegister}>
+                        <div className={ `register-tab ${formLogin ? "" : "active"}`} onClick={setFormField}>
                             <span>Register</span>
                         </div>
                     </div>
-                    <div className="login-field">
+                    {formLogin ? <div className="login-field">
                         <h5>Returning user</h5>
                         <p>Welcome back, please enter your account
                             details below to continue.</p>
@@ -79,11 +82,49 @@ function AccountPageLogin() {
                                 </div>
                             </div>
                         </form>
-                    </div>
+                        </div>
+                        :
+                        <div className="login-field">
+                            <h5>New? Register below!</h5>
+                            <p>Please pick a username and enter your email
+                                address below.</p>
+                            <form onSubmit={handleSubmit(onSubmitLogin)}>
+                                <Input
+                                    name="userName"
+                                    labelId="userNameId"
+                                    placeholder="Pick a username..."
+                                    required={true}
+                                    requiredError="Required."
+                                    register={register}
+                                    errors={errors}
+                                    minLength={4}
+                                    minLengthError="A username has to contain 4 - 12 characters."
+                                    maxLength={20}
+                                    maxLengthError="A username has to contain 4 - 12 characters."
+                                />
+                                <Input
+                                    name="mail"
+                                    labelId="mailId"
+                                    placeholder="Enter your email address..."
+                                    required={true}
+                                    requiredError="Required."
+                                    register={register}
+                                    errors={errors}
+                                    pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+                                    patternError="Please enter a valid email address."
+                                />
+                                <Button
+                                    buttonTitle="Register"
+                                    classNameButton="btn"
+                                    type="submit"
+                                />
+                            </form>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     )
 }
 
-export default AccountPageLogin;
+export default AccountPage;

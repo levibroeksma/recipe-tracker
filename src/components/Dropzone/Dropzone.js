@@ -5,13 +5,17 @@ import {faImage} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function Dropzone(props) {
+
     const [files, setFiles] = useState([]);
     const {getRootProps, getInputProps} = useDropzone({
-        accept: 'image/*',
+        accept: 'image/jpeg, image/jpg, image/png',
+        maxFiles: 1,
+        maxSize: 2000000,
         onDrop: acceptedFiles => {
             setFiles(acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
             })));
+
         }
     });
 

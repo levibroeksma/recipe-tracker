@@ -15,7 +15,8 @@ function AddRecipeStep5() {
                 <div className="page-wrapper-inner">
                     <h1>Upload an image</h1>
                     <div className="file-upload-wrapper">
-                        <Dropzone />
+                        <Dropzone>
+                        </Dropzone>
                     </div>
                     <div className="button-wrapper">
                         <Button classNameButton="btn cancel" buttonTitle="Previous step" type="button" onClickEvent={previousStep}/>
