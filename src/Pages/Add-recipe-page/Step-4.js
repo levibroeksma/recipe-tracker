@@ -4,6 +4,7 @@ import Input from "../../components/Input/Input";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Button from "../../components/Button/Button";
 import {useHistory} from "react-router-dom";
+import FlagSelector from "../../components/CountryFlagSelector/FlagSelector";
 
 function AddRecipeStep4() {
     const {handleSubmit, register, formState: { errors }} = useForm();
@@ -28,15 +29,14 @@ function AddRecipeStep4() {
                 <div className="page-wrapper-inner">
                     <h2>Additional details</h2>
                     <form onSubmit={handleSubmit(onSubmit)} id="recipe-detail-form">
-                        <Input
-                            register={register}
-                            errors={errors}
-                            required={true}
-                            requiredError="Required."
-                            labelId="countryId"
-                            name="country"
+                        <FlagSelector
+                            id="country-flag-choice"
+                            name="country-flag-choice"
                             placeholder="Country of origin"
-                            type="text"
+                            required={true}
+                            errors={errors}
+                            requiredError="Required."
+                            register={register}
                         />
                         <Input
                             register={register}

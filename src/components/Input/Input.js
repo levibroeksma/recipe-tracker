@@ -31,5 +31,3 @@ function Input({labelId, name, type, placeholder, errors, register, required,  m
     )
 }
 export default Input;
-
-// validate: ({validateValue}) => value === {compareName}.current
