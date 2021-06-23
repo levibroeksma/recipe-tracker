@@ -10,6 +10,7 @@ header.header {
     box-shadow: 10px 10px 10px 0 rgba(48, 63, 77, 0.1);
     background: #fff;
     transition: .25s ease-in-out;
+    z-index: 1;
 }
 
 header.scrolled {
