@@ -1,7 +1,7 @@
 import './App.css';
 import logo from './logo.svg';
 import Header from './components/Header/Header'
-import { BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import HomePage from "./Pages/Home-page/Home-page";
 import AboutUs from "./Pages/About-us";
 import RecipePage from "./Pages/Recipe-page/Recipe-page";
@@ -25,34 +25,32 @@ import AddRecipeStep5 from "./Pages/Add-recipe-page/Step-5";
 
 function App() {
   return (
-      <Router>
-          <ScrollToTop/>
-          <Header logo={logo}/>
-
-          <Switch>
-              <Route exact path="/"><HomePage/></Route>
-              <Route path="/recipes"><RecipePage/></Route>
-              <Route path="/about-us"><AboutUs/></Route>
-              <Route exact path="/contact"><ContactPage/></Route>
-              <Route path="/contact/thank-you" ><ThankYou /></Route>
-              <Route path="/style"><StylePage/></Route>
-              <Route exact path="/account"><AccountPage/></Route>
-              <Route exact path="/my-account"><MyAccount/></Route>
-              <Route path="/forgot-password"><ForgotPasswordPage/></Route>
-              <Route exact path="/add-recipe/step-1"><Step1/></Route>
-              <Route path="/add-recipe/step-2"><AddRecipeStep2/></Route>
-              <Route path="/add-recipe/step-3"><AddRecipeStep3/></Route>
-              <Route path="/add-recipe/step-4"><AddRecipeStep4/></Route>
-              <Route path="/add-recipe/step-5"><AddRecipeStep5/></Route>
-              <Route path="/register"><RegisterPage/></Route>
-              <Route path="/register/confirmation"><RegstrationConfirmation/></Route>
-              <Route path="/terms-and-conditions"><TermsAndConditions/></Route>
-              <Route path="/privacy-policy"><PrivacyPolicy /></Route>
-          </Switch>
-
-          <Footer />
-      </Router>
-  );
+    <>
+      <ScrollToTop/>
+      <Header logo={logo}/>
+      <Switch>
+          <Route exact path="/"><HomePage/></Route>
+          <Route path="/recipes"><RecipePage/></Route>
+          <Route path="/about-us"><AboutUs/></Route>
+          <Route exact path="/contact"><ContactPage/></Route>
+          <Route path="/contact/thank-you" ><ThankYou /></Route>
+          <Route path="/style"><StylePage/></Route>
+          <Route exact path="/signin"><AccountPage/></Route>
+          <Route exact path="/my-account"><MyAccount/></Route>
+          <Route path="/forgot-password"><ForgotPasswordPage/></Route>
+          <Route exact path="/add-recipe/step-1"><Step1/></Route>
+          <Route path="/add-recipe/step-2"><AddRecipeStep2/></Route>
+          <Route path="/add-recipe/step-3"><AddRecipeStep3/></Route>
+          <Route path="/add-recipe/step-4"><AddRecipeStep4/></Route>
+          <Route path="/add-recipe/step-5"><AddRecipeStep5/></Route>
+          <Route path="/register"><RegisterPage/></Route>
+          <Route path="/register/confirmation"><RegstrationConfirmation/></Route>
+          <Route path="/terms-and-conditions"><TermsAndConditions/></Route>
+          <Route path="/privacy-policy"><PrivacyPolicy /></Route>
+      </Switch>
+      <Footer />
+    </>
+);
 }
 
 export default App;

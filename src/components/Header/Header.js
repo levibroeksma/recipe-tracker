@@ -60,8 +60,8 @@ function Header({logo}) {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/account" activeClassName="active">
-                                    Account
+                                <NavLink to="/signin" activeClassName="active">
+                                    Sign in
                                 </NavLink>
                             </li>
                         </ul>
