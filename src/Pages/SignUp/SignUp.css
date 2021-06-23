@@ -10,7 +10,7 @@
 .registration-form-holder .checkbox-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
     width: 100%;
 }
 
@@ -31,7 +31,9 @@ label#firstNameId,
 label#lastNameId {
     width: calc(100% / 3 - 15px);
 }
-
+.registration-form .password-login-wrapper {
+    width: calc(50% - 15px);
+}
 .registration-form span.errorMessage {
     top: 60px;
 }

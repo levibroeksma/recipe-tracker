@@ -7,6 +7,7 @@ import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import "./SignUp.css"
 import Checkbox from "../../components/Checkbox/Checkbox";
+import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai";
 
 function SignUp() {
 
@@ -15,6 +16,9 @@ function SignUp() {
     const [success, setSucces] = useState(false);
     const [loading, setLoading] = useState(false);
     const [password, setPassword] = useState(null);
+
+    const [showPassword, toggleShowPassword] = useState(false);
+    const toggleVisability = () => {toggleShowPassword(!showPassword)}
 
     function validatePassword (value) {
         if (password !== value) return false;
@@ -103,11 +107,11 @@ function SignUp() {
                                 pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                                 patternError="Please enter a valid email address"
                             />
-
+                            <div className="password-login-wrapper">
                             <Input
                                 name="password"
                                 labelId="password-field"
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Password"
                                 required={true}
                                 requiredError="Required."
@@ -120,7 +124,10 @@ function SignUp() {
                                 validate={(value) => validatePassword(value)}
                                 validateError="The passwords do not match."
                             />
-
+                            <div className="eye-holder" onClick={toggleVisability}>
+                                {showPassword ? <AiFillEyeInvisible className="hide-eye"/> : <AiFillEye className="show-eye"/>}
+                            </div>
+                            </div>
                             <label htmlFor="passwordCheck" id="password-field-check">
                                 <input
                                     className="textInput"
@@ -174,10 +181,6 @@ function SignUp() {
                             />
                         </form>
                     )}
-                    <p>
-                        Heb je al een account? Je kunt je <Link to="/signin">hier</Link>{" "}
-                        inloggen.
-                    </p>
                 </div>
             </div>
         </div>

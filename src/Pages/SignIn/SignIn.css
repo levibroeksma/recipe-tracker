@@ -41,18 +41,18 @@
     border-radius: 10px;
 }
 
-.login-tab,
-.register-tab {
-    cursor: pointer;
-}
-
-.login-tab.active,
-.register-tab.active {
-    cursor: auto;
-}
-
 .login-field {
     padding: 30px;
+}
+.login-field a {
+    text-decoration: none;
+    color: #1C1DB1;
+    font-weight: 600;
+    transition: .15s ease;
+}
+
+.login-field a:hover {
+    color: #fd8888;
 }
 
 .login-field h5 {
