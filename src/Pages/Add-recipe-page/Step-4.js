@@ -51,8 +51,6 @@ function AddRecipeStep4() {
                         <Input
                             register={register}
                             errors={errors}
-                            required={true}
-                            requiredError="Required."
                             labelId="kcalId"
                             name="kcal"
                             placeholder="Ammount of calories"

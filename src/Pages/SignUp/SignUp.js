@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -104,7 +103,7 @@ function SignUp() {
                                 requiredError="Required."
                                 register={register}
                                 errors={errors}
-                                pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+                                pattern={/^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                                 patternError="Please enter a valid email address"
                             />
                             <div className="password-login-wrapper">
@@ -119,7 +118,7 @@ function SignUp() {
                                 errors={errors}
                                 minLength={8}
                                 minLengthError="The password has to be at least 8 characters."
-                                // pattern={/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/}
+                                pattern={/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/}
                                 patternError="Your password should contain at least: 1 uppercase, 1 lowercase and 1 digit"
                                 validate={(value) => validatePassword(value)}
                                 validateError="The passwords do not match."

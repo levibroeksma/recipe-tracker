@@ -9,7 +9,6 @@ import ContactPage from "./Pages/Contact/Contact-page";
 import ThankYou from "./Pages/Contact/Thank-you";
 import AccountPage from "./Pages/SignIn/SignIn";
 import Footer from "./components/Footer/Footer";
-import StylePage from "./Pages/Style-page/Style-page";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import RegisterPage from "./Pages/SignUp/SignUp";
 import TermsAndConditions from "./Pages/Terms-and-conditions/TermsAndConditions";
@@ -34,7 +33,6 @@ function App() {
           <Route path="/about-us"><AboutUs/></Route>
           <Route exact path="/contact"><ContactPage/></Route>
           <Route path="/contact/thank-you" ><ThankYou /></Route>
-          <Route path="/style"><StylePage/></Route>
           <Route exact path="/signin"><AccountPage/></Route>
           <Route exact path="/my-account"><MyAccount/></Route>
           <Route path="/forgot-password"><ForgotPasswordPage/></Route>

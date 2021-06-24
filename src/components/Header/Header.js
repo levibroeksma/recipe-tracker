@@ -62,11 +62,7 @@ function Header({logo}) {
                                     Contact
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/style" activeClassName="active">
-                                    Style
-                                </NavLink>
-                            </li>
+
                             {!user ? (
                                     <li>
                                         <NavLink to="/signin" activeClassName="active">
@@ -76,11 +72,18 @@ function Header({logo}) {
                                 )
                                 :
                                 (
-                                    <li>
-                                        <NavLink to="" activeClassName="active" onClick={logout}>
-                                            Log out
-                                        </NavLink>
-                                    </li>
+                                    <>
+                                        <li>
+                                            <NavLink to="/my-account" activeClassName="active" id="my-account">
+                                                My account
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="" activeClassName="active" onClick={logout}>
+                                                Log out
+                                            </NavLink>
+                                        </li>
+                                    </>
                                 )}
                         </ul>
                     </nav>

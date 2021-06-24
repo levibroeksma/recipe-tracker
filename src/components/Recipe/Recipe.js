@@ -21,10 +21,6 @@ function Recipe( { title, preptime, kcalimage, kcal, description} ) {
                         <img src={cookTime} alt="prep time"/>
                         <span>{preptime} min</span>
                     </div>
-                    <div className="kcal-holder">
-                        <img src={kcalImg} alt="kcal count"/>
-                        <span>{kcal} kcal</span>
-                    </div>
                 </div>
                 <div className="text-holder">
                     <h2>{title}</h2>

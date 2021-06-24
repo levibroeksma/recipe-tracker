@@ -1,3 +1,4 @@
+import "./Add-recipe-page.css"
 import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import {BsTrashFill} from "react-icons/bs";
@@ -7,22 +8,18 @@ import Button from "../../components/Button/Button";
 
 function AddRecipeStep2() {
     const history= useHistory();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const nextStep = () => {
-        history.push("step-3")
-    }
+    const [indexes, setIndexes] = useState([0]);
+    const [counter, setCounter] = useState(1);
+
     const previousStep = () => {
         history.push("/add-recipe/step-1");
     }
 
-    // ADD INGREDIENTS BUILD
-
-    const [indexes, setIndexes] = useState([0]);
-    const [counter, setCounter] = useState(1);
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
     const onSubmit = (data) => {
         console.log(data);
+        history.push("step-3")
     };
 
     const addIngredient = () => {
@@ -45,14 +42,13 @@ function AddRecipeStep2() {
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-                    <h1>Add a new recipe</h1>
+                    <h1>Add the ingredients</h1>
                     <div className="add-ingredient-wrapper">
                         <form onSubmit={handleSubmit(onSubmit)} className="add-ingredient-form">
-                            <h2>Add an ingredient</h2>
                             {indexes.map((index) => {
-                                const fieldName = `ingredient-${index}`;
+                                const fieldName = `ingredient_${index}`;
                                 return (
-                                    <div name={fieldName} key={fieldName}>
+                                    <div key={fieldName}>
                                         <div className="ingredient-input-holder">
                                             <Input
                                                 name={`${fieldName}`}
@@ -105,25 +101,6 @@ function AddRecipeStep2() {
                     </div>
                 </div>
             </div>
-
-            {/*<div className="page-wrapper blue">*/}
-            {/*    <div className="page-wrapper-inner">*/}
-            {/*        <div className="button-wrapper">*/}
-            {/*            <Button*/}
-            {/*                classNameButton="btn cancel"*/}
-            {/*                buttonTitle="Previous step"*/}
-            {/*                type="submit"*/}
-            {/*                onClickEvent={previousStep}*/}
-            {/*            />*/}
-            {/*            <Button*/}
-            {/*                classNameButton="btn"*/}
-            {/*                buttonTitle="Save and continue"*/}
-            {/*                type="submit"*/}
-            {/*                onClickEvent={nextStep}*/}
-            {/*            />*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </>
     )
 }

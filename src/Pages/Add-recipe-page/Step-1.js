@@ -47,15 +47,7 @@ function Step1() {
                             buttonTitle="Save and continue"
                             type="submit"
                         />
-
                     </form>
-                </div>
-            </div>
-            <div className="page-wrapper blue">
-                <div className="page-wrapper-inner">
-                    <div className="button-wrapper">
-
-                    </div>
                 </div>
             </div>
         </>

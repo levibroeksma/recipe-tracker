@@ -50,10 +50,6 @@
     justify-content: center;
 }
 
-.thank-you-holder::after {
-    background-image: url("");
-}
-
 .thank-you-holder .text-holder {
     max-width: 400px;
     text-align: center;

@@ -55,17 +55,6 @@ function MyAccountPage() {
                         buttonTitle="Add a new recipe"
                         classNameButton="btn"
                     />
-                    {/*<section className="account-details">*/}
-                    {/*    <h2>Account details</h2>*/}
-                    {/*    <div className="detail-titles">*/}
-                    {/*        <h5>Username</h5>*/}
-                    {/*        <h5>Email</h5>*/}
-                    {/*    </div>*/}
-                    {/*    <div className="detail-content">*/}
-                    {/*        <p>{user?.username}</p>*/}
-                    {/*        <p>{user?.email}</p>*/}
-                    {/*    </div>*/}
-                    {/*</section>*/}
                 </div>
             </div>
             <div className="page-wrapper blue">
@@ -74,31 +63,26 @@ function MyAccountPage() {
                     <div className="my-recipe-wrapper">
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
@@ -111,31 +95,26 @@ function MyAccountPage() {
                     <div className="my-recipe-wrapper">
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
                         <Recipe
                             title="Pasta Bolognese"
-                            kcal="475 kcal"
                             preptime="30 minutes"
                             description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
                         />
