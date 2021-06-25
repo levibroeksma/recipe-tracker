@@ -39,7 +39,7 @@ function SignUp() {
             });
             console.log(response);
             setSucces(true);
-            setTimeout(() => history.push("/signin"), 2000);
+            setTimeout(() => history.push("/signin"), 10000);
         } catch (error) {
             console.log("OH NO", error);
         }
@@ -53,10 +53,11 @@ function SignUp() {
                 <h1>Registreren</h1>
 
                 <div className="registration-form-holder">
-                    <p className="hidden-message">{success && "Registeren is gelukt!"}</p>
-                    <p className="hidden-message">{loading && "Moment geduld aub"}</p>
+                    <h3 className="hidden-message">{success && "Registeren is gelukt!"}</h3>
+                    <h3 className="hidden-message">{loading && "Moment geduld aub"}</h3>
                     <p>
-                        Please fill out the fields below to finish your registration. We have already checked your requested username. Guess what? It’s available!
+                        {!success && "Please fill out the fields below to finish your registration. We have already checked your requested username. Guess what? It’s available!"}
+                        {!loading && "Please fill out the fields below to finish your registration. We have already checked your requested username. Guess what? It’s available!"}
                     </p>
                     {!success && (
                         <form onSubmit={handleSubmit(onSubmit)} className="registration-form">

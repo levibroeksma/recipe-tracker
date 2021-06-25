@@ -4,21 +4,25 @@ import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import Input from "../../components/Input/Input";
 import Textarea from "../../components/Textarea/Textarea";
+import {useState} from "react";
 
 
 function Step1() {
     const history= useHistory();
     const {handleSubmit, register, formState: { errors }} = useForm();
+    const [title, setTitle] = useState();
+    const [description, setDescription] = useState();
 
     const onSubmit = (data) => {
         console.log(data)
         history.push("step-2")
     }
+
     return (
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-                    <h1>Upload your own recipe</h1>
+                    <h1>Start with a title and short description</h1>
                     <form onSubmit={handleSubmit(onSubmit)} id="newRecipeForm">
                         <Input
                             name="recipeTitle"

@@ -21,6 +21,7 @@ import AddRecipeStep2 from "./Pages/Add-recipe-page/Step-2";
 import AddRecipeStep3 from "./Pages/Add-recipe-page/Step-3";
 import AddRecipeStep4 from "./Pages/Add-recipe-page/Step-4";
 import AddRecipeStep5 from "./Pages/Add-recipe-page/Step-5";
+import Test from "./Pages/New recipe map/Test";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/register/confirmation"><RegstrationConfirmation/></Route>
           <Route path="/terms-and-conditions"><TermsAndConditions/></Route>
           <Route path="/privacy-policy"><PrivacyPolicy /></Route>
+          <Route path="/test"><Test /></Route>
       </Switch>
       <Footer />
     </>

@@ -27,7 +27,7 @@ function AddRecipeStep4() {
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-                    <h2>Additional details</h2>
+                    <h1>Additional details</h1>
                     <form onSubmit={handleSubmit(onSubmit)} id="recipe-detail-form">
                         <FlagSelector
                             id="country-flag-choice"
@@ -116,17 +116,19 @@ function AddRecipeStep4() {
                                 />
                             </div>
                         </div>
-                        <Button
-                            classNameButton="btn cancel"
-                            buttonTitle="Previous step"
-                            type="button"
-                            onClickEvent={previousStep}
-                        />
-                        <Button
-                            classNameButton="btn"
-                            buttonTitle="Save and continue"
-                            type="submit"
-                        />
+                        <div className="button-wrapper">
+                            <Button
+                                classNameButton="btn cancel"
+                                buttonTitle="Previous step"
+                                type="button"
+                                onClickEvent={previousStep}
+                            />
+                            <Button
+                                classNameButton="btn"
+                                buttonTitle="Save and continue"
+                                type="submit"
+                            />
+                        </div>
                     </form>
                 </div>
             </div>
