@@ -10,3 +10,8 @@ h1 img {
 .welcome-text p {
     font-size: 16px;
 }
+
+.my-recipe-wrapper {
+    display: flex;
+    overflow: auto;
+}

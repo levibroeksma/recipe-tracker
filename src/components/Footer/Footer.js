@@ -2,11 +2,18 @@ import './Footer.css';
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope,faPhone} from "@fortawesome/free-solid-svg-icons";
+import {authContext} from "../../contexts/AuthContext";
+import {useContext} from "react";
+
 
 function Footer() {
 
     const mail = <FontAwesomeIcon icon={faEnvelope}/>
     const phone = <FontAwesomeIcon icon={faPhone}/>
+
+    const {
+        authState: { user },
+    } = useContext(authContext);
 
     return (
         <footer>
@@ -24,7 +31,7 @@ function Footer() {
                             <li><Link to="/recipes">Recipe's</Link></li>
                             <li><Link to="/about-us">About us</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
-                            <li><Link to="/account">Account</Link></li>
+                            {!user ? (<li><Link to="/signin">Account</Link></li>) : (<li><Link to="/my-account">Account</Link></li>)}
                         </ul>
                     </section>
                     <section className="footer-section">

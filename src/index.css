@@ -3,8 +3,8 @@
 body {
   margin: 0;
   font-family: 'Noto Sans JP','Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,7 +24,7 @@ div#root {
 }
 
 .page-wrapper.blue {
-background: rgba(168,218,220,0.08);
+  background: rgba(168,218,220,0.08);
 }
 
 .page-wrapper-inner {
@@ -37,11 +37,12 @@ background: rgba(168,218,220,0.08);
 
 .page-wrapper-inner.left {
   align-items: start;
+  overflow: scroll;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -76,10 +77,4 @@ p {
   line-height: 1.65em;
   color: #565656;
   font-size: 15px;
-}
-
-/*Z-indexes*/
-
-header {
-  z-index: 1;
 }

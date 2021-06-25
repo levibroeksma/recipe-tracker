@@ -1,47 +1,87 @@
-/*DROPZONE*/
-
-.img-image {
-    font-size: 80px;
-    color: #808080;
-    opacity: 0.7;
-}
-
-.dropzone {
+.dropzone-holder {
+    width: 100%;
+    text-align: center;
+    min-height: 150px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    border: 3px solid #808080;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid #fd8888;
     border-style: dashed;
-    height: 100%;
-    min-height: 200px;
 }
 
-/*PREVIEW GALLERY*/
+.dropzone-holder p {
+    margin-top: 0;
+}
 
-.thumbsContainer {
+.dropzone-holder .dropzone-image {
+    font-size: 50px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.thumb-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 16px;
     width: 100%;
-    justify-content: start;
-}
-.thumb {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    height: 100%;
-    box-sizing: border-box;
-    width: calc(25% - 10px);
-    max-height: 80px;
-    overflow: hidden;
-    margin: 5px;
 }
 
-.preview-image {
-    height: 100%;
-    max-height: 200px;
+.thumb-container .accepted,
+.thumb-container .rejected {
+    width: 50%;
+}
+
+.thumb {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 258px;
+    border-radius: 10px 20px 0 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.thumb::before {
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: grey;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 50px;
+}
+
+.thumb::after {
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: grey;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50px;
+}
+
+li.error-message {
+    color: red;
+    list-style: none;
+}
+
+ul.error-list {
+    padding-left: 5px;
+}
+.img {
+    display: block;
+}
+
+img.img {
+    width: 100%;
+    min-width: 1200px;
 }

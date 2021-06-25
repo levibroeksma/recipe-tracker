@@ -1,7 +1,8 @@
 import './Style-page.css'
-import { HiSearch } from "react-icons/hi";
 
 function StylePage() {
+
+
 
     return (
         <div className="page-wrapper">

@@ -59,6 +59,7 @@ section .text-holder {
     flex-direction: row;
     padding: 10px 0;
     border-bottom: 1px solid #DEDEDE;
+    justify-content: space-around;
 }
 
 .spec-holder .country-holder,

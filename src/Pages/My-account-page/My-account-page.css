@@ -7,3 +7,31 @@
     width: 100%;
     padding: 30px 10px;
 }
+
+section.account-details {
+    width: 25%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #fff;
+    border: 1px solid #fd8888;
+}
+
+section.account-details .detail-titles {
+    width: 50%;
+}
+
+section.account-details h2 {
+    width: 100%;
+}
+section.account-details h5,
+section.account-details p{
+    margin: 0;
+    font-size: 14px;
+}
+.name-account-holder {
+    color: #fd8888;
+}

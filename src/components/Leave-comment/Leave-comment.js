@@ -1,10 +1,8 @@
 import "./Leave-comment.css"
 import {useForm} from "react-hook-form";
-import {useHistory} from "react-router-dom";
 import Textarea from "../Textarea/Textarea";
 import Button from "../Button/Button";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar} from "@fortawesome/free-solid-svg-icons";
+
 import RatingRow from "../Ratings/RatingRow";
 import {useState} from "react";
 

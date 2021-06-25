@@ -1,9 +1,11 @@
-import './Header.css';
 import {NavLink, Link} from "react-router-dom";
-import {useState} from "react";
+import {useState, useContext} from "react";
 import {HiSearch} from "react-icons/hi";
+import {authContext} from "../../contexts/AuthContext";
+import './Header.css';
 
 function Header({logo}) {
+
     const [navScrolled, setNavScrolled] = useState(false);
     const changeMenuSize = () => {
         if(window.scrollY >= 1) {
@@ -14,8 +16,14 @@ function Header({logo}) {
     }
     window.addEventListener("scroll", changeMenuSize);
 
+    const {
+        logout,
+        authState: { user },
+    } = useContext(authContext);
+
     return (
         <header className={navScrolled ? 'header scrolled' : 'header'}>
+
             <div className="header-holder">
                 <div className="logo-holder">
                     <Link exact to="/">
@@ -54,22 +62,35 @@ function Header({logo}) {
                                     Contact
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/style" activeClassName="active">
-                                    Style
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/signin" activeClassName="active">
-                                    Sign in
-                                </NavLink>
-                            </li>
+
+                            {!user ? (
+                                    <li>
+                                        <NavLink to="/signin" activeClassName="active">
+                                            Sign in
+                                        </NavLink>
+                                    </li>
+                                )
+                                :
+                                (
+                                    <>
+                                        <li>
+                                            <NavLink to="/my-account" activeClassName="active" id="my-account">
+                                                My account
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="" activeClassName="active" onClick={logout}>
+                                                Log out
+                                            </NavLink>
+                                        </li>
+                                    </>
+                                )}
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
-    )
+    );
 }
 
 export default Header;
