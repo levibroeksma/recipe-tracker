@@ -54,7 +54,7 @@ function AddRecipeStep2() {
                                                 name={`${fieldName}`}
                                                 labelId="testId"
                                                 register={register}
-                                                placeholder="test"
+                                                placeholder="Add an ingredient"
                                                 type="text"
                                                 errors={errors}
                                             />

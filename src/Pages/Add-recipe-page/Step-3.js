@@ -51,7 +51,6 @@ function AddRecipeStep3() {
                                     return (
                                         <div key={fieldName}>
                                             <div className="direction-input-holder">
-
                                                 <Textarea
                                                     name={`${fieldName}`}
                                                     labelId="testId"
