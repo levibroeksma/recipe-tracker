@@ -3,7 +3,7 @@ import './Recipe.css';
 import {Link} from "react-router-dom";
 import mexico from "../../assets/mexico.png"
 import cookTime from "../../assets/clock.png"
-function Recipe( { title, preptime, kcalimage, kcal, description} ) {
+function Recipe( { title, preptime, description} ) {
     return(
         <section className="recipe-holder">
             <Link to="#" className="recipe-link">

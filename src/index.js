@@ -1,18 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { StateMachineProvider} from "little-state-machine";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./contexts/AuthContext";
+import AddRecipeProvider from "./contexts/AddRecipeProvider";
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
+            <AddRecipeProvider>
                 <AuthContextProvider>
                     <App />
                 </AuthContextProvider>
+            </AddRecipeProvider>
         </Router>
     </React.StrictMode>,
     document.getElementById("root")

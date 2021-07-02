@@ -17,7 +17,7 @@ function MyAccountPage() {
     const history = useHistory();
 
     const toAddRecipe = () => {
-        history.push("add-recipe/step-1")
+        history.push("add-recipe")
     }
 
     useEffect(() => {
@@ -34,7 +34,6 @@ function MyAccountPage() {
                         },
                     }
                 );
-                // console.log("WAT IS IN THIS RESPONSE?", response);
                 setContent(response.data);
             } catch (error) {}
         }
@@ -42,7 +41,6 @@ function MyAccountPage() {
         fetchPrivateData();
     }, []);
 
-    // console.log("WHAT IS CONTENT??", content);
 
     return (
         <>

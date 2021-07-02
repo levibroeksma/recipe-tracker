@@ -15,13 +15,8 @@ import TermsAndConditions from "./Pages/Terms-and-conditions/TermsAndConditions"
 import PrivacyPolicy from "./Pages/Privacy-policy/Privacy-policy-page";
 import RegstrationConfirmation from "./Pages/Forgot-password/Registration-confirmation-page";
 import MyAccount from "./Pages/My-account-page/My-account-page";
-import Step1 from "./Pages/Add-recipe-page/Step-1";
 import ForgotPasswordPage from "./Pages/Forgot-password/Forgot-password-page";
-import AddRecipeStep2 from "./Pages/Add-recipe-page/Step-2";
-import AddRecipeStep3 from "./Pages/Add-recipe-page/Step-3";
-import AddRecipeStep4 from "./Pages/Add-recipe-page/Step-4";
-import AddRecipeStep5 from "./Pages/Add-recipe-page/Step-5";
-import Test from "./Pages/New recipe map/Test";
+import AddRecipe2 from "./Pages/Add-recipe-page/AddRecipe2";
 
 function App() {
   return (
@@ -37,16 +32,11 @@ function App() {
           <Route exact path="/signin"><AccountPage/></Route>
           <Route exact path="/my-account"><MyAccount/></Route>
           <Route path="/forgot-password"><ForgotPasswordPage/></Route>
-          <Route exact path="/add-recipe/step-1"><Step1/></Route>
-          <Route path="/add-recipe/step-2"><AddRecipeStep2/></Route>
-          <Route path="/add-recipe/step-3"><AddRecipeStep3/></Route>
-          <Route path="/add-recipe/step-4"><AddRecipeStep4/></Route>
-          <Route path="/add-recipe/step-5"><AddRecipeStep5/></Route>
+          <Route exact path="/add-recipe"><AddRecipe2/></Route>
           <Route path="/register"><RegisterPage/></Route>
           <Route path="/register/confirmation"><RegstrationConfirmation/></Route>
           <Route path="/terms-and-conditions"><TermsAndConditions/></Route>
           <Route path="/privacy-policy"><PrivacyPolicy /></Route>
-          <Route path="/test"><Test /></Route>
       </Switch>
       <Footer />
     </>
