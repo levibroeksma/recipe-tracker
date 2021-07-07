@@ -12,11 +12,11 @@ export default function Step4() {
         <form onSubmit={handleSubmit(onSubmit)} id="recipe-detail-form">
             <label htmlFor="countryFlags" className="details">
                 <input
-                    list="countryFlags"
+                    list="country"
                     placeholder="Country of origin"
                     className="textInput"
-                    name="countryFlags"
-                    {...register("countryFlags")}
+                    name="country"
+                    {...register("country")}
                 />
             </label>
             <FlagSelector/>

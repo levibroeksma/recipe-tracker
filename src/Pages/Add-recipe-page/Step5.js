@@ -1,7 +1,10 @@
 import {useAddRecipe} from "../../contexts/AddRecipeProvider";
 import axios from "axios";
+import {authContext} from "../../contexts/AuthContext";
+import {useContext} from "react";
 
 export default function Step5() {
+    const { user } = useContext(authContext);
     const { handleSubmit, watch } = useAddRecipe();
     const {title, description, ingredients,directions, countryFlags, beef, fish, lamb, pork, vegan, vegetarian, spicy} = watch();
 
@@ -10,7 +13,9 @@ export default function Step5() {
         try {
             const response = await axios.post("http://localhost:8080/api/recipes", {
                 title: data.title,
-                description: data.description
+                description: data.description,
+                username: user.username,
+                country: data.countryFlags
             });
             console.log("DIT IS DE RESPONSE LOG", response)
         } catch (error) {
