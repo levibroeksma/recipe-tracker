@@ -6,8 +6,10 @@
     margin-bottom: 20px;
 }
 
-form.add-ingredient-form {
+form.add-ingredient-form,
+form.new-recipe-form{
     max-width: 500px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -66,6 +68,8 @@ form.add-ingredient-form {
     border: 1px solid #fd8888;
     border-radius: 8px;
     margin-top: 15px;
+    max-width: 500px;
+    width: 100%;
 }
 
 .button-wrapper button.btn {
@@ -90,4 +94,83 @@ form.add-ingredient-form {
     position: absolute;
     right: 0;
     border-radius: 0 4px 0 4px;
+}
+
+.direction-input-holder button.btn {
+    padding: 8px 14px;
+}
+.direction-input-holder button.btn svg {
+    font-size: 20px;
+}
+
+/*PREVIEW*/
+
+.step-holder-preview {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+}
+.step-holder-preview-inner {
+    width: calc(50% - 20px);
+}
+
+.step-holder-preview-inner h3 {
+    margin: 0;
+}
+
+.ingredients-overview {
+    list-style: none;
+    padding: 0 0 0 5px;
+    margin: 0
+}
+
+.directions-overview {
+    margin: 0;
+}
+
+form#recipe-detail-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.preview-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.preview-wrapper img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.preview-wrapper h3 {
+    margin: 0;
+    font-weight: 400;
+    color: #aaa;
+}
+.header-preview {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-wrapper {
+    width:100%;
+}
+.boolean-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boolean-wrapper span {
+    width: 25%;
+}
+
+.boolean-wrapper span:empty {
+    display: none;
 }

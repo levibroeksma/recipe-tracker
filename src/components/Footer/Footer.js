@@ -7,13 +7,9 @@ import {useContext} from "react";
 
 
 function Footer() {
-
+    const {isTokenValid} = useContext(authContext);
     const mail = <FontAwesomeIcon icon={faEnvelope}/>
     const phone = <FontAwesomeIcon icon={faPhone}/>
-
-    const {
-        authState: { user },
-    } = useContext(authContext);
 
     return (
         <footer>
@@ -31,7 +27,7 @@ function Footer() {
                             <li><Link to="/recipes">Recipe's</Link></li>
                             <li><Link to="/about-us">About us</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
-                            {!user ? (<li><Link to="/signin">Account</Link></li>) : (<li><Link to="/my-account">Account</Link></li>)}
+                            {!isTokenValid() ? (<li><Link to="/signin">Account</Link></li>) : (<li><Link to="/my-account">Account</Link></li>)}
                         </ul>
                     </section>
                     <section className="footer-section">

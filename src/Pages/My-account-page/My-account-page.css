@@ -35,3 +35,68 @@ section.account-details p{
 .name-account-holder {
     color: #fd8888;
 }
+
+/*ADMIN PAGE*/
+
+.user-list-wrapper {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #fd8888;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+}
+
+table.user-list {
+    width: 100%;
+    text-align: left;
+}
+
+table.user-list th,
+table.user-list tr {
+    width: 22%;
+}
+
+table.user-list th:last-child,
+table.user-list tr:last-child {
+    width: 12%;
+}
+
+td.button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+table.user-list tr th {
+    font-size: 10px;
+    position: relative;
+    top: 10px;
+}
+
+table.user-list tr td p {
+    margin: 0;
+}
+
+.enabled .active {
+    color: #38b000;
+    font-weight: 700;
+}
+
+.enabled .inactive {
+    color: red;
+    font-weight: 700;
+}
+
+.user-wrapper {
+    border-bottom: 1px solid #fd8888;
+    padding-bottom: 20px;
+}
+
+.table-headers {
+    margin-top: -10px;
+
+}
+td.fullname {
+    text-transform: capitalize;
+}

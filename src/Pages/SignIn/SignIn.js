@@ -15,15 +15,13 @@ function SignIn() {
     const history = useHistory();
 
     async function onSubmit(data) {
+        console.log("LOGIN SUCCESFULL")
         try {
-            const response = await axios.post("http://localhost:3000/login", {
-                email: data.email,
-                password: data.password,
-            });
+            const result = await axios.post("http://localhost:8080/authenticate", data);
             history.push("/my-account")
-            login(response.data.accessToken);
+            login(result.data.jwt);
         } catch (error) {
-            console.log("Oh no", error);
+            console.error(error);
         }
     }
 
@@ -46,10 +44,10 @@ function SignIn() {
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             <Input
-                                name="email"
-                                labelId="emailId"
-                                type="email"
-                                placeholder="Email..."
+                                name="username"
+                                labelId="usernameId"
+                                type="text"
+                                placeholder="Username..."
                                 required={true}
                                 requiredError="Required."
                                 register={register}

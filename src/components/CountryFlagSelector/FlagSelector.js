@@ -1,21 +1,7 @@
-function FlagSelector({register, name, required, requiredError, errors}) {
+function FlagSelector() {
     return(
         <>
-            <label htmlFor="country-flag-choice" id="countryId">
-                <input
-                    list="country-flags"
-                    id="country-flag-choice"
-                    name="country-flag-choice"
-                    placeholder="Country of origin"
-                    className="textInput"
-                    {...register(
-                        name,
-                        {
-                            required: required,
-                        })}
-                />
-                {errors[name] && errors[name].type === "required" && <span className="errorMessage">{requiredError}</span>}
-                <datalist id="country-flags">
+                <datalist id="countryFlags">
                     <option value="abkhazia"/>
                     <option value="afghanistan"/>
                     <option value="albania"/>
@@ -269,7 +255,6 @@ function FlagSelector({register, name, required, requiredError, errors}) {
                     <option value="zambia"/>
                     <option value="zimbabwe"/>
                 </datalist>
-            </label>
         </>
     )
 }
