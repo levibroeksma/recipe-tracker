@@ -27,23 +27,24 @@ function SignUp() {
         console.log("DATA VAN DE GEBRUIKER??", data);
         try {
             setLoading(true);
-            const response = await axios.post("http://localhost:3000/register", {
+            const response = await axios.post("http://localhost:8080/users", {
                 email: data.email,
                 password: data.password,
                 username: data.username,
                 firstName: data.firstName,
                 lastName: data.lastName,
-                privacyPolicy: data.privacyPolicy,
-                termsAndConditions: data.termsAndConditions,
                 newsLetter: data.newsLetter,
             });
-            console.log(response);
+            const postRole = await axios.post(`http://localhost:8080/users/${data.username}/authorities`, {
+                username: data.username,
+                authority: "USER"
+            })
+            console.log("Dit is de response log: " + response);
             setSucces(true);
-            setTimeout(() => history.push("/signin"), 10000);
+            setTimeout(() => history.push("/signin"), 1000);
         } catch (error) {
-            console.log("OH NO", error);
+            alert(`Something went wrong, registration failed ${error}`)
         }
-
         setLoading(false);
     }
 

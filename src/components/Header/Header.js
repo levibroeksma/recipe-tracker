@@ -7,6 +7,7 @@ import './Header.css';
 function Header({logo}) {
 
     const [navScrolled, setNavScrolled] = useState(false);
+    const {isTokenValid} = useContext(authContext);
     const changeMenuSize = () => {
         if(window.scrollY >= 1) {
             setNavScrolled(true);
@@ -18,7 +19,6 @@ function Header({logo}) {
 
     const {
         logout,
-        authState: { user },
     } = useContext(authContext);
 
     return (
@@ -63,7 +63,7 @@ function Header({logo}) {
                                 </NavLink>
                             </li>
 
-                            {!user ? (
+                            {!isTokenValid() ? (
                                     <li>
                                         <NavLink to="/signin" activeClassName="active">
                                             Sign in

@@ -5,58 +5,100 @@ import { useHistory } from "react-router-dom";
 
 export const authContext = createContext({});
 
+
 function AuthContextProvider({children}) {
+    const [authState, setAuthState] = useState({
+        user: null,
+        status: "pending"
+    });
+
     const history = useHistory();
-    const [authState, setAuthState] = useState({ user: null, status: "pending" });
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            login(token);
-        } else {
-            setAuthState({ user: null, status: "done" });
+    function isTokenValid() {
+        const jwtToken = localStorage.getItem('token');
 
-        }
-    }, []);
+        if(!jwtToken) return false;
 
-    async function getUserData(id, token) {
-        setAuthState({ user: null, status: "pending" });
-        try {
-            const response = await axios.get(
-                `http://localhost:3000/600/users/${id}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
+        const decodedToken = jwt_decode(jwtToken);
+        const expirationUnix = decodedToken.exp;
 
-            setAuthState({ user: response.data, status: "done" });
+        const now = new Date().getTime();
+        const currentUnix = Math.round(now / 1000);
 
-        } catch (error) {}
+
+        const isTokenStillValid = expirationUnix - currentUnix > 0;
+
+        return isTokenStillValid;
     }
 
-    async function login(token) {
-        localStorage.setItem("token", token);
-        const dataFromToken = jwt_decode(token);
-        const userId = dataFromToken.sub;
+    useEffect(() => {
+        const token = localStorage.getItem('token');
 
-        getUserData(userId, token);
+        if(!authState.user && isTokenValid()) {
+            const decodedToken = jwt_decode(token);
+
+            fetchUserData(token, decodedToken.sub);
+
+        } else {
+            setAuthState({
+                user: null,
+                status: 'done',
+            });
+        }
+
+    },[]);
+
+    function login(jwtToken) {
+        // console.log(jwtToken)
+        localStorage.setItem('token', jwtToken);
+        const decodedToken = jwt_decode(jwtToken);
+        console.log(decodedToken);
+        const userId = decodedToken.sub;
+        fetchUserData(jwtToken, userId);
+    }
+
+    async function fetchUserData(token, id) {
+        console.log("TEST: " + id)
+        try {
+            const result = await axios.get(`http://localhost:8080/authenticated`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            setAuthState({
+                user: {
+                    username: result.data.name,
+                    authority: result.data.authorities[0].authority,
+                },
+                status: 'done',
+            });
+            history.push('/my-account');
+        } catch(e) {
+            console.error(e);
+        }
     }
 
     function logout() {
-        // @todo
         localStorage.removeItem("token");
-        setAuthState({ user: null, status: "done" });
+        setAuthState({user: null, status: "done"});
         history.push("/");
     }
 
-    const data = { authState: authState, login: login, logout: logout };
+    const data = {
+        ...authState,
+        login: login,
+        logout: logout,
+        isTokenValid: isTokenValid,
+    };
 
     return (
         <authContext.Provider value={data}>
-            {authState.status === "pending" && <h1>Fetching you data! Hold on</h1>}
-            {authState.status === "done" && children}
+            {authState.status === 'pending'
+                ? <p>Loading...</p>
+                : children
+            }
         </authContext.Provider>
     );
 }

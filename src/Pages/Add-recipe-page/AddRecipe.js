@@ -7,7 +7,7 @@ import Step4 from "./Step4";
 import Step5 from "./Step5";
 
 
-export default function AddRecipe2() {
+export default function AddRecipe() {
     const [step, setStep] = useState(1);
 
     return (

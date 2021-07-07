@@ -1,12 +1,47 @@
 import {useAddRecipe} from "../../contexts/AddRecipeProvider";
+import axios from "axios";
 
 export default function Step5() {
     const { handleSubmit, watch } = useAddRecipe();
     const {title, description, ingredients,directions, countryFlags, beef, fish, lamb, pork, vegan, vegetarian, spicy} = watch();
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
         console.log("ALLE DATA?", data);
+        try {
+            const response = await axios.post("http://localhost:8080/api/recipes", {
+                title: data.title,
+                description: data.description
+            });
+            console.log("DIT IS DE RESPONSE LOG", response)
+        } catch (error) {
+            alert(`Something went wrong, please check if you have filled out all the required fields: ${error}`)
+        }
     }
+
+    // async function onSubmit(data) {
+    //     console.log("DATA VAN DE GEBRUIKER??", data);
+    //     try {
+    //         setLoading(true);
+    //         const response = await axios.post("http://localhost:8080/users", {
+    //             email: data.email,
+    //             password: data.password,
+    //             username: data.username,
+    //             firstName: data.firstName,
+    //             lastName: data.lastName,
+    //             newsLetter: data.newsLetter,
+    //         });
+    //         const postRole = await axios.post(`http://localhost:8080/users/${data.username}/authorities`, {
+    //             username: data.username,
+    //             authority: "USER"
+    //         })
+    //         console.log("Dit is de response log: " + response);
+    //         setSucces(true);
+    //         setTimeout(() => history.push("/signin"), 1000);
+    //     } catch (error) {
+    //         alert(`Something went wrong, registration failed ${error}`)
+    //     }
+    //     setLoading(false);
+    // }
 
     const flag = require(`../../assets/flags/${countryFlags}.png`).default
 
