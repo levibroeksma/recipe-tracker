@@ -6,7 +6,7 @@ import {useContext} from "react";
 export default function Step5() {
     const { user } = useContext(authContext);
     const { handleSubmit, watch } = useAddRecipe();
-    const {title, description, ingredients,directions, countryFlags, beef, fish, lamb, pork, vegan, vegetarian, spicy} = watch();
+    const {title, description, ingredients,directions, country, beef, fish, lamb, pork, vegan, vegetarian, spicy} = watch();
 
     async function onSubmit(data) {
         console.log("ALLE DATA?", data);
@@ -15,7 +15,7 @@ export default function Step5() {
                 title: data.title,
                 description: data.description,
                 username: user.username,
-                country: data.countryFlags
+                country: data.country
             });
             console.log("DIT IS DE RESPONSE LOG", response)
         } catch (error) {
@@ -48,7 +48,7 @@ export default function Step5() {
     //     setLoading(false);
     // }
 
-    const flag = require(`../../assets/flags/${countryFlags}.png`).default
+    const flag = require(`../../assets/flags/${country}.png`).default
 
 
     return (

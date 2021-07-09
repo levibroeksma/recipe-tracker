@@ -18,6 +18,7 @@ import MyAccount from "./Pages/My-account-page/My-account-page";
 import ForgotPasswordPage from "./Pages/Forgot-password/Forgot-password-page";
 import AddRecipe from "./Pages/Add-recipe-page/AddRecipe";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import PageFileUpload from "./Pages/PageFileUpload";
 
 export default function App() {
   return (
@@ -25,20 +26,21 @@ export default function App() {
       <ScrollToTop/>
       <Header logo={logo}/>
       <Switch>
-          <Route exact path="/"><HomePage/></Route>
-          <Route exact path="/recipes"><RecipePage/></Route>
-          <Route exact component={AboutUs} path="/about-us"/>
-          <Route exact path="/contact"><ContactPage/></Route>
-          <Route exact path="/contact/thank-you" ><ThankYou /></Route>
-          <Route exact path="/signin"><AccountPage/></Route>
-          <ProtectedRoute exact path="/my-account" component={MyAccount}/>
-          <Route exact path="/forgot-password"><ForgotPasswordPage/></Route>
-          <ProtectedRoute exact path="/add-recipe" component={AddRecipe} />
-          <Route exact path="/add-recipe"><AddRecipe/></Route>
-          <Route exact path="/register"><RegisterPage/></Route>
-          <Route exact path="/register/confirmation"><RegstrationConfirmation/></Route>
-          <Route exact path="/terms-and-conditions"><TermsAndConditions/></Route>
-          <Route exact path="/privacy-policy"><PrivacyPolicy /></Route>
+          <Route exact={true} path="/"><HomePage/></Route>
+          <Route exact={true} path="/recipes"><RecipePage/></Route>
+          <Route exexact={true}act component={AboutUs} path="/about-us"/>
+          <Route exexact={true}act path="/contact"><ContactPage/></Route>
+          <Route exact={true} path="/contact/thank-you" ><ThankYou /></Route>
+          <Route exact={true} path="/signin"><AccountPage/></Route>
+          <ProtectedRoute exact={true} path="/my-account" component={MyAccount}/>
+          <Route exact={true} path="/forgot-password"><ForgotPasswordPage/></Route>
+          <ProtectedRoute exact={true} path="/add-recipe" component={AddRecipe} />
+          <Route exact={true} path="/add-recipe"><AddRecipe/></Route>
+          <Route exact={true} path="/register"><RegisterPage/></Route>
+          <Route exact={true} path="/test"><PageFileUpload/></Route>
+          <Route exact={true} path="/register/confirmation"><RegstrationConfirmation/></Route>
+          <Route exact={true} path="/terms-and-conditions"><TermsAndConditions/></Route>
+          <Route exact={true} path="/privacy-policy"><PrivacyPolicy /></Route>
           <Route path="/*" component={() => { return <h1>404 PAGE NOT FOUND</h1>}}/>
       </Switch>
       <Footer />
