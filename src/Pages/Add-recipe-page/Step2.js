@@ -7,7 +7,7 @@ import "./Add-recipe-page.css"
 
 export default function Step2() {
     const { register, getValues } = useAddRecipe();
-    const { control, handleSubmit, formState: { errors } } = useForm();
+    const { control } = useForm();
     const { fields, append, remove } = useFieldArray({
         control,
         name: "ingredients"

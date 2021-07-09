@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import FlagSelector  from "../../components/CountryFlagSelector/FlagSelector";
 
 export default function Step4() {
-    const {handleSubmit, formState: { errors }} = useForm();
+    const {handleSubmit} = useForm();
     const { register } = useAddRecipe();
     const onSubmit = (data) => {
         console.log(data)
