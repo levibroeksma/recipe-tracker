@@ -48,6 +48,7 @@ export default function MyAccountPage() {
     }, []);
 
     async function changeActiveStatus(user) {
+
         try {
             console.log(user.username, user.enabled)
             const response = await axios.put(`http://localhost:8080/users/${user.username}`, {
@@ -96,18 +97,11 @@ export default function MyAccountPage() {
                                         }
                                     </td>
                                     <td className="button">
-                                        {user.enabled === true ?
-                                            <Button
-                                                classNameButton="btn"
-                                                buttonTitle="Deactivate"
-                                                onClickEvent={() => changeActiveStatus(user)}
-                                            />
-                                            :
-                                            <Button
-                                                classNameButton="btn"
-                                                buttonTitle="Activate"
-                                                onClickEvent={() => changeActiveStatus(user)}
-                                            />}
+                                        <Button
+                                            classNameButton="btn"
+                                            buttonTitle={user.enabled === true ? "Deactivate" : "Activate"}
+                                            onClickEvent={() => changeActiveStatus(user)}
+                                        />
                                     </td>
                                  </tr>
                             </tbody>
@@ -117,19 +111,17 @@ export default function MyAccountPage() {
              </>
             ) : (
                 <>
-                    <>
-                        <h1>Welcome back
-                            <span className="name-account-holder">
-                                {currentUser.firstName} {currentUser.lastName}
-                            </span>
-                        </h1>
-                        <Button
-                            type="button"
-                            onClickEvent={toAddRecipe}
-                            buttonTitle="Add a new recipe"
-                            classNameButton="btn"
-                        />
-                    </>
+                    <h1>Welcome back
+                        <span className="name-account-holder">
+                            {currentUser.firstName} {currentUser.lastName}
+                        </span>
+                    </h1>
+                    <Button
+                        type="button"
+                        onClickEvent={toAddRecipe}
+                        buttonTitle="Add a new recipe"
+                        classNameButton="btn"
+                    />
                 </>
             )}
                 </div>
