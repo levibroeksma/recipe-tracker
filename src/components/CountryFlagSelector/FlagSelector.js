@@ -1,7 +1,7 @@
 function FlagSelector() {
     return(
         <>
-                <datalist id="countryFlags">
+                <datalist id="country">
                     <option value="abkhazia"/>
                     <option value="afghanistan"/>
                     <option value="albania"/>

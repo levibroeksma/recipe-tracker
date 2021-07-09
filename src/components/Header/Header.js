@@ -4,7 +4,7 @@ import {HiSearch} from "react-icons/hi";
 import {authContext} from "../../contexts/AuthContext";
 import './Header.css';
 
-function Header({logo}) {
+export default function Header({logo}) {
 
     const [navScrolled, setNavScrolled] = useState(false);
     const {isTokenValid} = useContext(authContext);
@@ -17,13 +17,10 @@ function Header({logo}) {
     }
     window.addEventListener("scroll", changeMenuSize);
 
-    const {
-        logout,
-    } = useContext(authContext);
+    const { logout } = useContext(authContext);
 
     return (
         <header className={navScrolled ? 'header scrolled' : 'header'}>
-
             <div className="header-holder">
                 <div className="logo-holder">
                     <Link exact to="/">
@@ -58,11 +55,15 @@ function Header({logo}) {
                                 </NavLink>
                             </li>
                             <li>
+                                <NavLink to="/test" activeClassName="active">
+                                    Test
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/contact" activeClassName="active">
                                     Contact
                                 </NavLink>
                             </li>
-
                             {!isTokenValid() ? (
                                     <li>
                                         <NavLink to="/signin" activeClassName="active">
@@ -92,5 +93,3 @@ function Header({logo}) {
         </header>
     );
 }
-
-export default Header;

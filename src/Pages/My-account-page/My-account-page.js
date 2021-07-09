@@ -1,137 +1,139 @@
 import React, { useContext, useState, useEffect } from "react";
-import { authContext } from "../../contexts/AuthContext";
 import axios from "axios";
-import "./My-account-page.css"
-import Button from "../../components/Button/Button";
-import api from "../../api/http-common"
-
 import {useHistory} from "react-router-dom";
+import "./My-account-page.css"
+import { authContext } from "../../contexts/AuthContext";
+import Button from "../../components/Button/Button";
 
-function MyAccountPage() {
+export default function MyAccountPage() {
     const { user } = useContext(authContext);
     const [users, setUsers] = useState([]);
-    const history = useHistory();
     const [currentUser, setCurrentUser] = useState(user.username);
-
-    // const retrieveUsers = async () => {
-    //     const response = await api.get("/users")
-    //     return response.data
-    // }
-    //
-    // const updateAccountStatus = async (user) => {
-    //     const response = await api.put(`/users/${user.username}`, user)
-    //     const {enabled} = response.data.enabled;
-    //     setUsers(users.map(user => {
-    //         return user.enabled = !enabled;
-    //     }))
-    // };
-
-    const handleName = currentUser => {
-        return <h1>{currentUser.firstName} + {currentUser.lastName}</h1>
-    }
+    const [submitSucces, toggleSubmitSucces] = useState(false);
+    const history = useHistory();
 
     const toAddRecipe = () => {
         history.push("add-recipe")
     }
 
-    useEffect(() => {
-        async function fetchUsers() {
-            try {
+    async function fetchUsers() {
+        try {
+            const token = localStorage.getItem("token");
+            const response = await axios.get(
+                `http://localhost:8080/users`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            setUsers(response.data)
+        } catch (error) {}
+    }
 
-                const token = localStorage.getItem("token");
-                const response = await axios.get(
-                    `http://localhost:8080/users`,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-                setUsers(response.data)
-            } catch (error) {}
-        }
+    useEffect(() => {
+        // Get list of users for admin list
+        fetchUsers();
+
+        // Get userdetails current user for welcome message
         async function fetchCurrentUserDetails() {
             try {
                 const response = await axios.get(`http://localhost:8080/users/${user.username}`);
                 setCurrentUser(response.data)
             } catch (error) {}
         }
-        // const getAllUsers = async () => {
-        //     const allUsers = await retrieveUsers();
-        //     if(allUsers) setUsers(allUsers);
-        // }
-        fetchUsers();
         fetchCurrentUserDetails();
-        // getAllUsers();
+
     }, []);
+
+    async function changeActiveStatus(user) {
+        try {
+            console.log(user.username, user.enabled)
+            const response = await axios.put(`http://localhost:8080/users/${user.username}`, {
+                enabled: !user.enabled,
+            });
+            toggleSubmitSucces(true);
+        } catch (error) {}
+    }
+
+    useEffect(()=> {
+        if (submitSucces === true) {
+            fetchUsers();
+            toggleSubmitSucces(false);
+        }
+    },[submitSucces])
 
     return (
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-            {user.authority === "USER" ? (
-                <>
-                    <h1>Welcome back <span className="name-account-holder">{currentUser.firstName} {currentUser.lastName}</span></h1>
-                    <Button
-                        type="button"
-                        onClickEvent={toAddRecipe}
-                        buttonTitle="Add a new recipe"
-                        classNameButton="btn"
-                    />
-                </>
-            ) :
-                (
-                    <></>
-                )
-            }
             {user.authority === "ADMIN" ? (
              <>
                 <h1>Manage users</h1>
                 <div className="user-list-wrapper">
                      {users.map(user => {
-                        return <>
-                                <table className="user-list" key={user.email} >
-                                    <div className="user-wrapper" key={user.username}>
-                                         <tr className="table-headers">
-                                             <th key={user.username + "Fn"}>Full name</th>
-                                             <th key={user.username + "Un"}>Username</th>
-                                             <th key={user.username + "Em"}>Email</th>
-                                             <th key={user.username + "En"}>Enabled</th>
-                                             <th></th>
-                                         </tr>
-                                         <tr>
-                                            <td className="fullname"><p>{user.firstName} {user.lastName}</p></td>
-                                            <td className="username"><p>{user.username}</p></td>
-                                            <td className="email"><p>{user.email}</p></td>
-                                            <td className="enabled">{user.enabled === true ? <p className="active">Active</p> : <p className="inactive">Inactive</p>}</td>
-                                            <td className="button">
-                                                {user.enabled === true ?
-                                                    <Button
-                                                        classNameButton="btn"
-                                                        buttonTitle="Deactivate"
-                                                        // onClickEvent={updateAccountStatus({user})}
-                                                    /> :
-                                                    <Button
-                                                        classNameButton="btn"
-                                                        buttonTitle="Activate"
-                                                    />}
-                                            </td>
-                                         </tr>
-                                    </div>
-                                </table>
-
-                        </>
+                        return <table className="user-list" key={user.username}>
+                            <thead>
+                                 <tr className="table-headers">
+                                     <th>Full name</th>
+                                     <th>Username</th>
+                                     <th>Email</th>
+                                     <th>Enabled</th>
+                                     <th></th>
+                                 </tr>
+                            </thead>
+                            <tbody>
+                                 <tr>
+                                    <td className="fullname"><p>{user.firstName} {user.lastName}</p></td>
+                                    <td className="username"><p>{user.username}</p></td>
+                                    <td className="email"><p>{user.email}</p></td>
+                                    <td className="enabled">
+                                        {user.enabled === true ?
+                                            <p className="active">Active</p>
+                                            :
+                                            <p className="inactive">Inactive</p>
+                                        }
+                                    </td>
+                                    <td className="button">
+                                        {user.enabled === true ?
+                                            <Button
+                                                classNameButton="btn"
+                                                buttonTitle="Deactivate"
+                                                onClickEvent={() => changeActiveStatus(user)}
+                                            />
+                                            :
+                                            <Button
+                                                classNameButton="btn"
+                                                buttonTitle="Activate"
+                                                onClickEvent={() => changeActiveStatus(user)}
+                                            />}
+                                    </td>
+                                 </tr>
+                            </tbody>
+                        </table>
                      })}
                 </div>
              </>
             ) : (
-                <></>
+                <>
+                    <>
+                        <h1>Welcome back
+                            <span className="name-account-holder">
+                                {currentUser.firstName} {currentUser.lastName}
+                            </span>
+                        </h1>
+                        <Button
+                            type="button"
+                            onClickEvent={toAddRecipe}
+                            buttonTitle="Add a new recipe"
+                            classNameButton="btn"
+                        />
+                    </>
+                </>
             )}
                 </div>
             </div>
         </>
     );
 }
-
-export default MyAccountPage;

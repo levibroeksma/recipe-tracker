@@ -25,7 +25,6 @@ function AuthContextProvider({children}) {
         const now = new Date().getTime();
         const currentUnix = Math.round(now / 1000);
 
-
         const isTokenStillValid = expirationUnix - currentUnix > 0;
 
         return isTokenStillValid;
