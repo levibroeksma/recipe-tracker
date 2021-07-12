@@ -1,5 +1,5 @@
 import "./Button.css"
-function Button({disabled, classNameButton, onClickEvent, onChangeEvent, buttonTitle, type}) {
+export default function Button({disabled, classNameButton, onClickEvent, onChangeEvent, buttonTitle, type}) {
     return (
         <button
             type={type}
@@ -12,5 +12,3 @@ function Button({disabled, classNameButton, onClickEvent, onChangeEvent, buttonT
         </button>
     )
 }
-
-export default Button;

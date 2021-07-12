@@ -17,6 +17,10 @@ header.scrolled {
     padding: 5px 0;
 }
 
+header.scrolled .logo-holder img {
+    width: 150px;
+}
+
 .header-holder {
     width: 100%;
     max-width: 1300px;
@@ -34,8 +38,9 @@ header.scrolled {
 }
 
 .logo-holder img {
-    width: 150px;
+    width: 200px;
     height: auto;
+    transition: .25s ease;
 }
 
 /*Navigation*/

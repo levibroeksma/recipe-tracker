@@ -1,6 +1,6 @@
 import './Privacy-policy.css'
 import { Link} from 'react-router-dom';
-function PrivacyPolicy() {
+export default function PrivacyPolicy() {
     return (
         <>
             <div className="page-wrapper">
@@ -247,5 +247,3 @@ function PrivacyPolicy() {
         </>
     )
 }
-
-export default PrivacyPolicy;

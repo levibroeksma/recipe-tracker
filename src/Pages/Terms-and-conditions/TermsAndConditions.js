@@ -1,5 +1,5 @@
 import './TermsAndConditions.css'
-function TermsAndConditions() {
+export default function TermsAndConditions() {
     return (
         <>
             <div className="page-wrapper">
@@ -56,5 +56,3 @@ function TermsAndConditions() {
         </>
     )
 }
-
-export default TermsAndConditions;

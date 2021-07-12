@@ -6,7 +6,7 @@ import {authContext} from "../../contexts/AuthContext";
 import {useContext} from "react";
 
 
-function Footer() {
+export default function Footer() {
     const {isTokenValid} = useContext(authContext);
     const mail = <FontAwesomeIcon icon={faEnvelope}/>
     const phone = <FontAwesomeIcon icon={faPhone}/>
@@ -47,5 +47,3 @@ function Footer() {
         </footer>
     )
 }
-
-export default Footer;

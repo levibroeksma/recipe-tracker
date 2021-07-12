@@ -60,6 +60,7 @@ section .text-holder {
     padding: 10px 0;
     border-bottom: 1px solid #DEDEDE;
     justify-content: space-around;
+    min-height: 85px;
 }
 
 .spec-holder .country-holder,

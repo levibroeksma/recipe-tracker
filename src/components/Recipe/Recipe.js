@@ -1,19 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './Recipe.css';
 import {Link} from "react-router-dom";
-import mexico from "../../assets/mexico.png"
 import cookTime from "../../assets/clock.png"
-function Recipe( { title, preptime, description} ) {
+import RecipeHeaderImage from "../RecipeHeaderImage/RecipeHeaderImage";
+import axios from "axios";
+
+export default function Recipe( { title, preptime, description, country, link, headerImgId} ) {
+
     return(
         <section className="recipe-holder">
-            <Link to="#" className="recipe-link">
+            <Link to={link} className="recipe-link">
                 <div className="img-holder">
-                        <img src="//via.placeholder.com/275x120" alt=""/>
+                    {/*{blobRecipeImage && <img id="displayPic" src={blobRecipeImage} alt={headerImgId.fileName} />}*/}
                 </div>
                 <div className="spec-holder">
                     <div className="country-holder">
-                        <img src={mexico} alt={title}/>
-                        <span>Mexican</span>
+                        {country !== "" ?
+                            (<img src={require(`../../assets/flags/${country}.png`).default} alt={country}/>)
+                            :
+                            (<img src="//via.placeholder.com/60x60" alt="placeholder"/>)}
+                        <span>{country}</span>
                     </div>
                     <div className="prep-time-holder">
                         <img src={cookTime} alt="prep time"/>
@@ -28,5 +34,3 @@ function Recipe( { title, preptime, description} ) {
         </section>
     )
 }
-
-export default Recipe;

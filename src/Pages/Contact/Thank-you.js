@@ -1,7 +1,6 @@
 import CustomerServiceAlert from "../../components/CustomerServiceAlert/CustomerServiceAlert";
 
-
-function ThankYou() {
+export default function ThankYou() {
     return (
         <>
         <div className="page-wrapper">
@@ -19,5 +18,3 @@ function ThankYou() {
         </>
     )
 }
-
-export default ThankYou;

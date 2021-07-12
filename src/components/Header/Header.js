@@ -1,6 +1,5 @@
 import {NavLink, Link} from "react-router-dom";
 import {useState, useContext} from "react";
-import {HiSearch} from "react-icons/hi";
 import {authContext} from "../../contexts/AuthContext";
 import './Header.css';
 
@@ -27,15 +26,15 @@ export default function Header({logo}) {
                         <img src={logo} alt="Recipe tracker"/>
                     </Link>
                 </div>
-                <div className="search-bar-holder">
-                    <div className="search-bar">
-                        <input
-                            type="text"
-                            id="searchbar"
-                            placeholder="search..."/>
-                        <HiSearch className="searchIcon"/>
-                    </div>
-                </div>
+                {/*<div className="search-bar-holder">*/}
+                {/*    <div className="search-bar">*/}
+                {/*        <input*/}
+                {/*            type="text"*/}
+                {/*            id="searchbar"*/}
+                {/*            placeholder="search..."/>*/}
+                {/*        <HiSearch className="searchIcon"/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className="nav-holder">
                     <nav>
                         <ul>
@@ -55,18 +54,18 @@ export default function Header({logo}) {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/test" activeClassName="active">
-                                    Test
-                                </NavLink>
-                            </li>
-                            <li>
                                 <NavLink to="/contact" activeClassName="active">
                                     Contact
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/test" activeClassName="active">
+                                    test
+                                </NavLink>
+                            </li>
                             {!isTokenValid() ? (
                                     <li>
-                                        <NavLink to="/signin" activeClassName="active">
+                                        <NavLink to="/sign-in" activeClassName="active">
                                             Sign in
                                         </NavLink>
                                     </li>

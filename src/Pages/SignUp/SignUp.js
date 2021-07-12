@@ -7,8 +7,9 @@ import Input from "../../components/Input/Input";
 import "./SignUp.css"
 import Checkbox from "../../components/Checkbox/Checkbox";
 import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai";
+import FlagSelector from "../../components/CountryFlagSelector/FlagSelector";
 
-function SignUp() {
+export default function SignUp() {
 
     const history = useHistory();
     const {handleSubmit, register, formState: { errors }} = useForm();
@@ -34,6 +35,7 @@ function SignUp() {
                 firstName: data.firstName,
                 lastName: data.lastName,
                 newsLetter: data.newsLetter,
+                country: data.country,
             });
             const postRole = await axios.post(`http://localhost:8080/users/${data.username}/authorities`, {
                 username: data.username,
@@ -76,7 +78,6 @@ function SignUp() {
                                 maxLength={20}
                                 maxLengthError="A username has to contain 4 - 12 characters."
                             />
-
                             <Input
                                 name="firstName"
                                 labelId="firstNameId"
@@ -95,7 +96,6 @@ function SignUp() {
                                 required={true}
                                 requiredError="Required."
                             />
-
                             <Input
                                 name="email"
                                 labelId="email-field"
@@ -108,6 +108,16 @@ function SignUp() {
                                 pattern={/^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                                 patternError="Please enter a valid email address"
                             />
+                            <label>
+                                <input
+                                    list="country"
+                                    placeholder="Country of origin"
+                                    className="textInput"
+                                    name="country"
+                                    {...register("country")}
+                                />
+                            </label>
+                            <FlagSelector/>
                             <div className="password-login-wrapper">
                             <Input
                                 name="password"
@@ -187,5 +197,3 @@ function SignUp() {
         </div>
     );
 }
-
-export default SignUp;

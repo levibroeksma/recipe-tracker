@@ -2,7 +2,7 @@ import React from "react";
 import './Checkbox.css'
 import {Link} from "react-router-dom";
 
-function Checkbox({name, required, requiredError,errors,register,labelTitle,labelId,titleLink,pageRoute}) {
+export default function Checkbox({name, required, requiredError,errors,register,labelTitle,labelId,titleLink,pageRoute}) {
     return (
         <label htmlFor={name} id={labelId}>
             <input
@@ -15,5 +15,3 @@ function Checkbox({name, required, requiredError,errors,register,labelTitle,labe
         </label>
     )
 }
-
-export default Checkbox;

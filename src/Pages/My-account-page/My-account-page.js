@@ -11,7 +11,7 @@ export default function MyAccountPage() {
     const [currentUser, setCurrentUser] = useState(user.username);
     const [submitSucces, toggleSubmitSucces] = useState(false);
     const history = useHistory();
-
+    console.log("check for user country: ", user)
     const toAddRecipe = () => {
         history.push("add-recipe")
     }
@@ -50,7 +50,6 @@ export default function MyAccountPage() {
     async function changeActiveStatus(user) {
 
         try {
-            console.log(user.username, user.enabled)
             const response = await axios.put(`http://localhost:8080/users/${user.username}`, {
                 enabled: !user.enabled,
             });
@@ -85,15 +84,31 @@ export default function MyAccountPage() {
                                  </tr>
                             </thead>
                             <tbody>
-                                 <tr>
-                                    <td className="fullname"><p>{user.firstName} {user.lastName}</p></td>
-                                    <td className="username"><p>{user.username}</p></td>
-                                    <td className="email"><p>{user.email}</p></td>
+                                 <tr className="user-details-row">
+                                    <td className="fullname">
+                                        <p>
+                                            {user.firstName} {user.lastName}
+                                        </p>
+                                    </td>
+                                    <td className="username">
+                                        <p>
+                                            {user.username}
+                                        </p>
+                                    </td>
+                                    <td className="email">
+                                        <p>
+                                            {user.email}
+                                        </p>
+                                    </td>
                                     <td className="enabled">
                                         {user.enabled === true ?
-                                            <p className="active">Active</p>
+                                            <p className="active">
+                                                Active
+                                            </p>
                                             :
-                                            <p className="inactive">Inactive</p>
+                                            <p className="inactive">
+                                                Inactive
+                                            </p>
                                         }
                                     </td>
                                     <td className="button">
@@ -111,10 +126,9 @@ export default function MyAccountPage() {
              </>
             ) : (
                 <>
-                    <h1>Welcome back
-                        <span className="name-account-holder">
-                            {currentUser.firstName} {currentUser.lastName}
-                        </span>
+                    <h1>Welcome back <span className="name-account-holder">
+                        {currentUser.firstName} {currentUser.lastName}
+                    </span>
                     </h1>
                     <Button
                         type="button"

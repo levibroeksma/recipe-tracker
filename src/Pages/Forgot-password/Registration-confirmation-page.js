@@ -1,4 +1,4 @@
-function RegstrationConfirmation() {
+export default function RegistrationConfirmation() {
     return (
         <>
            <div className="page-wrapper">
@@ -17,5 +17,3 @@ function RegstrationConfirmation() {
         </>
     )
 }
-
-export default RegstrationConfirmation;

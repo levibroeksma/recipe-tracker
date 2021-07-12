@@ -1,4 +1,4 @@
-function Star({ fill = "none", stroke = "#FD8888"}) {
+export default function Star({ fill = "none", stroke = "#FD8888"}) {
     return (
         <>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill={fill} viewBox="0 0 24 24"
@@ -9,5 +9,3 @@ function Star({ fill = "none", stroke = "#FD8888"}) {
         </>
     )
 }
-
-export default Star;

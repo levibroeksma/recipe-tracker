@@ -1,5 +1,5 @@
 import './CustomerServiceAlert.css'
-function CustomerServiceAlert() {
+export default function CustomerServiceAlert() {
     return (
         <div className="service-alert-holder">
             <div className="text-holder">
@@ -8,5 +8,3 @@ function CustomerServiceAlert() {
         </div>
     )
 }
-
-export default CustomerServiceAlert;

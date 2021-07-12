@@ -1,6 +1,7 @@
 import "./Textarea.css"
 import React from "react";
-function Textarea({name,labelId,placeholder, required, register, maxLength, maxLengthError,requiredError, errors}) {
+
+export default function Textarea({name,labelId,placeholder, required, register, maxLength, maxLengthError,requiredError, errors}) {
     return (
         <>
             <label htmlFor={name} id={labelId}>
@@ -17,5 +18,3 @@ function Textarea({name,labelId,placeholder, required, register, maxLength, maxL
         </>
     )
 }
-
-export default Textarea;

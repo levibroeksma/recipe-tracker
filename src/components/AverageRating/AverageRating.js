@@ -1,6 +1,6 @@
 import './AverageRating.css'
 
-function AverageRating() {
+export default function AverageRating() {
     return (
         <>
             <div className="averageRating">
@@ -77,5 +77,3 @@ function AverageRating() {
         </>
     )
 }
-
-export default AverageRating;

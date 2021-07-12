@@ -2,7 +2,7 @@ import React from "react";
 import Star from "./Star";
 import "./RatingRow.css"
 
-function RatingRow({ index, rating, hoverRating, onMouseEnter, onMouseLeave, onSaveRating }) {
+export default function RatingRow({ index, rating, hoverRating, onMouseEnter, onMouseLeave, onSaveRating }) {
     const fill = React.useMemo(() => {
         if (hoverRating >= index) {
             return '#FD8888';
@@ -24,5 +24,3 @@ function RatingRow({ index, rating, hoverRating, onMouseEnter, onMouseLeave, onS
         </div>
     )
 }
-
-export default RatingRow;

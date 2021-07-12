@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import RatingRow from "../Ratings/RatingRow";
 import {useState} from "react";
 
-function LeaveComment() {
+export default function LeaveComment() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const onSubmit = (data) => {
         console.log(data)
@@ -68,5 +68,3 @@ function LeaveComment() {
         </section>
     )
 }
-
-export default LeaveComment;

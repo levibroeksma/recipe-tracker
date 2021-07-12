@@ -1,19 +1,33 @@
-.comment-wrapper {
-    display: flex;
+
+
+/*Pagination styling*/
+
+.pagination-wrapper {
     width: 100%;
-    position: relative;
-    overflow: scroll;
-    padding: 50px 30px;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 0 0;
 }
 
-.comment-section {
+.pagination {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 30px;
-    box-sizing: border-box;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
-    border-radius: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination > .active > a{
+    background-color: #fd8888 ;
+    border-color: #fd8888 ;
+    color: #fff;
+}
+.pagination > li > a{
+    border: 1px solid #fd8888 ;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination > li > a, .pagination > li > span{
+    color: #fd8888;
+    margin: 5px;
+    border-radius: 4px;
 }

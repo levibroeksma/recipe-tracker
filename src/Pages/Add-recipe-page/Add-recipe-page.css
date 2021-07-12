@@ -174,3 +174,9 @@ form#recipe-detail-form {
 .boolean-wrapper span:empty {
     display: none;
 }
+
+.recipe-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

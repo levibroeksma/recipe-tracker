@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 import "./SignIn.css"
 import Input from "../../components/Input/Input";
 
-function SignIn() {
+export default function SignIn() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const { login } = useContext(authContext);
     const history = useHistory();
@@ -80,5 +80,3 @@ function SignIn() {
         </div>
     );
 }
-
-export default SignIn;

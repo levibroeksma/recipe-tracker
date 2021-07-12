@@ -8,7 +8,7 @@ import {faEnvelope,faPhone} from "@fortawesome/free-solid-svg-icons";
 import CustomerServiceAlert from "../../components/CustomerServiceAlert/CustomerServiceAlert";
 import { useHistory } from "react-router-dom";
 
-function ContactPage() {
+export default function ContactPage() {
 
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
@@ -98,5 +98,3 @@ function ContactPage() {
     </>
     )
 }
-
-export default ContactPage;

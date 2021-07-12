@@ -1,7 +1,7 @@
 import React from "react";
 import './DoubleColumn.css'
 
-function DoubleColumnImgLeft({image, text, title, alt}) {
+export default function DoubleColumnImgLeft({image, text, title, alt}) {
     return (
         <div className="column-wrapper">
                 <section>
@@ -14,5 +14,3 @@ function DoubleColumnImgLeft({image, text, title, alt}) {
         </div>
     )
 }
-
-export default DoubleColumnImgLeft;

@@ -1,6 +1,6 @@
 import "./Home-page.css"
-import Recipe from "../../components/Recipe/Recipe";
-function HomePage() {
+
+export default function HomePage() {
     return (
         <>
             <div className="page-wrapper">
@@ -11,82 +11,6 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="page-wrapper blue">
-                <div className="page-wrapper-inner left">
-                    <h2>Highlighted</h2>
-                    <div className="my-recipe-wrapper">
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div className="page-wrapper">
-                <div className="page-wrapper-inner left">
-                    <h2>All time favorites</h2>
-                    <div className="my-recipe-wrapper">
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                        <Recipe
-                            title="Pasta Bolognese"
-                            kcal="475 kcal"
-                            preptime="30"
-                            description="A classic pasta you can get at any Italian restaurant. But just as good homemade!"
-                        />
-                    </div>
-                </div>
-            </div>
         </>
     )
 }
-
-export default HomePage;

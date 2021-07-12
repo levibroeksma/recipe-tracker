@@ -1,4 +1,4 @@
-function FlagSelector() {
+export default function FlagSelector() {
     return(
         <>
                 <datalist id="country">
@@ -258,6 +258,3 @@ function FlagSelector() {
         </>
     )
 }
-
-
-export default FlagSelector;
