@@ -27,6 +27,12 @@ section.recipe-holder a {
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     line-height: 0;
+    max-height: 120px;
+}
+
+.img-holder img {
+    width: 100%;
+    height: auto;
 }
 
 /*Text area*/

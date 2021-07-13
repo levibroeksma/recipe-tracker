@@ -15,13 +15,12 @@ export default function SignIn() {
     const history = useHistory();
 
     async function onSubmit(data) {
-        console.log("LOGIN SUCCESFULL")
         try {
             const result = await axios.post("http://localhost:8080/authenticate", data);
             history.push("/my-account")
             login(result.data.jwt);
-        } catch (error) {
-            console.error(error);
+        } catch (e) {
+            console.error(e);
         }
     }
 
@@ -31,18 +30,13 @@ export default function SignIn() {
     return (
         <div className="page-wrapper">
             <div className="page-wrapper-inner">
-
                 <h1>Inloggen</h1>
-
                 <div className="login-menu">
                     <div className="login-field">
-
                         <h2>Welcome back</h2>
                         <p>Please enter your account details below to continue.</p>
                         <p>Don't have an account yet? Click <Link to="/register">here</Link> to register.</p>
-
                         <form onSubmit={handleSubmit(onSubmit)}>
-
                             <Input
                                 name="username"
                                 labelId="usernameId"

@@ -1,4 +1,4 @@
-import {Link, useHistory, useParams} from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import "./RecipeDetailPage.css"
@@ -11,13 +11,12 @@ export default function RecipeDetailPage() {
     const { id } = useParams();
     const history = useHistory();
     const [blobRecipeImage, setBlobRecipeImage] = useState();
+    const [countryFlag, setCountryFlag] = useState("");
 
     async function fetchAllRecipes() {
         try {
             const response = await axios.get(`http://localhost:8080/api/recipes/${id}`);
             setCurrentRecipe(response.data)
-            // console.log("all recipes in async: ", currentRecipe)
-
         } catch (error) {}
     }
 
@@ -26,7 +25,6 @@ export default function RecipeDetailPage() {
             const result = await axios.get(`http://localhost:8080/api/recipes/${id}/fileName`, {
                 responseType: 'blob',
             });
-            console.log(result.data)
             const imageUrl = result.data;
             setBlobRecipeImage(URL.createObjectURL(imageUrl))
         } catch (e) {
@@ -34,12 +32,20 @@ export default function RecipeDetailPage() {
         }
     }
 
-
-    console.log(currentRecipe)
+    async function fetchRecipeFlag() {
+        try {
+            const result = await axios.get(`http://localhost:8080/api/recipes/${id}`);
+            const flag = result.data.country
+            setCountryFlag(<img src={require(`../../assets/flags/${flag}.png`).default} alt={flag}/>)
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
     useEffect(()=>{
         fetchAllRecipes();
-        fetchRecipeImage()
+        fetchRecipeImage();
+        fetchRecipeFlag();
     },[])
 
     return (
@@ -50,7 +56,7 @@ export default function RecipeDetailPage() {
                         <div className="recipe-img-holder">
                             <img src={blobRecipeImage} alt={currentRecipe.title}/>
                             <div className="country-flag">
-                                {/*<img src={require(`../../assets/flags/${currentRecipe.country}.png`).default} alt={currentRecipe.country}/>*/}
+                                {countryFlag}
                             </div>
                         </div>
                         <div className="recipe-text-holder">
@@ -113,28 +119,28 @@ export default function RecipeDetailPage() {
                 </div>
             </div>
 
-            {/*<div className="page-wrapper">*/}
-            {/*    <div className="page-wrapper-inner">*/}
-            {/*        <div className="comment-wrapper">*/}
-            {/*            <Comment*/}
-            {/*                comment="text is coming here"*/}
-            {/*                username="Levi Broeksma"*/}
-            {/*            />*/}
-            {/*            <Comment*/}
-            {/*                comment="text is coming here"*/}
-            {/*                username="Levi Broeksma"*/}
-            {/*            />*/}
-            {/*            <Comment*/}
-            {/*                comment="text is coming here"*/}
-            {/*                username="Levi Broeksma"*/}
-            {/*            />*/}
-            {/*            <Comment*/}
-            {/*                comment="text is coming here"*/}
-            {/*                username="Levi Broeksma"*/}
-            {/*            />*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="page-wrapper">
+                <div className="page-wrapper-inner">
+                    <div className="comment-wrapper">
+                        <Comment
+                            comment="text is coming here"
+                            username="Levi Broeksma"
+                        />
+                        <Comment
+                            comment="text is coming here"
+                            username="Levi Broeksma"
+                        />
+                        <Comment
+                            comment="text is coming here"
+                            username="Levi Broeksma"
+                        />
+                        <Comment
+                            comment="text is coming here"
+                            username="Levi Broeksma"
+                        />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

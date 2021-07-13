@@ -25,7 +25,6 @@ export default function SignUp() {
     }
 
     async function onSubmit(data) {
-        console.log("DATA VAN DE GEBRUIKER??", data);
         try {
             setLoading(true);
             const response = await axios.post("http://localhost:8080/users", {
@@ -41,7 +40,6 @@ export default function SignUp() {
                 username: data.username,
                 authority: "USER"
             })
-            console.log("Dit is de response log: " + response);
             setSucces(true);
             setTimeout(() => history.push("/signin"), 1000);
         } catch (error) {
@@ -58,10 +56,6 @@ export default function SignUp() {
                 <div className="registration-form-holder">
                     <h3 className="hidden-message">{success && "Registeren is gelukt!"}</h3>
                     <h3 className="hidden-message">{loading && "Moment geduld aub"}</h3>
-                    <p>
-                        {!success && "Please fill out the fields below to finish your registration. We have already checked your requested username. Guess what? It’s available!"}
-                        {!loading && "Please fill out the fields below to finish your registration. We have already checked your requested username. Guess what? It’s available!"}
-                    </p>
                     {!success && (
                         <form onSubmit={handleSubmit(onSubmit)} className="registration-form">
 

@@ -161,22 +161,59 @@ form#recipe-detail-form {
 .title-wrapper {
     width:100%;
 }
-.boolean-wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.boolean-wrapper span {
-    width: 25%;
-}
-
-.boolean-wrapper span:empty {
-    display: none;
-}
 
 .recipe-page-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.checkbox-wrapper-inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.checkbox-wrapper-inner label {
+    width: 25%;
+}
+
+.file-upload label {
+    max-width: 180px;
+    background: #FD8888;
+    border-radius: 50px;
+    border: 0;
+    padding: 1em 1.5em;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    transition: .25s ease-in-out;
+}
+
+.file-upload label:hover {
+    background: #d86d6d;
+}
+
+.file-upload {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.file-upload .cloud {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }

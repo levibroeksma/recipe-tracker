@@ -58,11 +58,7 @@ export default function Header({logo}) {
                                     Contact
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/test" activeClassName="active">
-                                    test
-                                </NavLink>
-                            </li>
+
                             {!isTokenValid() ? (
                                     <li>
                                         <NavLink to="/sign-in" activeClassName="active">

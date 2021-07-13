@@ -13,15 +13,17 @@ export default function Comment({comment, username}) {
     return(
         <>
             <section className="comment-holder">
-                <div className="delete-button">
                     {user.authority === "ADMIN" && isTokenValid() ?
-                        <Button
-                            type="submit"
-                            buttonTitle={<FaTrash/>}
-                            classNameButton="btn delete-comment"
-                        /> : <></>
+                        (<div className="delete-button">
+                            <Button
+                                type="submit"
+                                buttonTitle={<FaTrash/>}
+                                classNameButton="btn delete-comment"
+                            />
+                        </div>
+                        ) :
+                        (<></>)
                     }
-                </div>
                 <div className="text-holder">
                     <p>{comment}</p>
                 </div>

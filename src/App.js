@@ -20,7 +20,6 @@ import AddRecipe from "./Pages/Add-recipe-page/AddRecipe";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import RecipeDetailPage from "./Pages/Recipe-detail-page/RecipeDetailPage";
 import UploadedRecipe from "./Pages/Add-recipe-page/UploadedRecipe";
-import Test from "./Pages/Test";
 
 export default function App() {
   return (
@@ -44,7 +43,6 @@ export default function App() {
           <Route exact={true} path="/register/confirmation" component={RegistrationConfirmation}/>
           <Route exact={true} path="/terms-and-conditions" component={TermsAndConditions}/>
           <Route exact={true} path="/privacy-policy" component={PrivacyPolicy}/>
-          <Route exact={true} path="/test" component={Test}/>
           <Route path="/*" component={() => { return <h1>404 PAGE NOT FOUND</h1>}}/>
       </Switch>
       <Footer />

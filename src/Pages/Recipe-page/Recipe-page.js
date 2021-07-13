@@ -1,8 +1,11 @@
 import "./Recipe-page.css"
+import "../../components/Recipe/Recipe.css"
 import axios from "axios";
 import {useEffect, useState} from "react";
-import Recipe from "../../components/Recipe/Recipe";
 import ReactPaginate from 'react-paginate';
+import {Link} from "react-router-dom";
+import RecipeImage from "../../components/Recipe/RecipeImage";
+import cookTime from "../../assets/clock.png";
 
 export default function RecipePage() {
     // Pagination states
@@ -19,15 +22,36 @@ export default function RecipePage() {
             const slice = data.slice(offset, offset + perPage)
 
             const recipeData = slice.map(recipe =>
-                <Recipe
-                    key={recipe.id}
-                    title={recipe.title}
-                    preptime={recipe.cookingtime}
-                    description={recipe.description}
-                    country={recipe.country}
-                    link={`recipes/${recipe.id}`}
-                />
+                <>
+                <section className="recipe-holder">
+                    <Link to={`recipes/${recipe.id}`} className="recipe-link">
+                        <div className="img-holder">
+                            <RecipeImage
+                                recipeId={recipe.id}
+                            />
+                        </div>
+                        <div className="spec-holder">
+                            <div className="country-holder">
+                                {recipe.country !== "" ?
+                                    (<img src={require(`../../assets/flags/${recipe.country}.png`).default} alt={recipe.country}/>)
+                                    :
+                                    (<img src="//via.placeholder.com/60x60" alt="placeholder"/>)}
+                                <span>{recipe.country}</span>
+                            </div>
+                            <div className="prep-time-holder">
+                                <img src={cookTime} alt="prep time"/>
+                                <span>{recipe.cookingtime} min</span>
+                            </div>
+                        </div>
+                        <div className="text-holder">
+                            <h2>{recipe.title}</h2>
+                            <p>{recipe.description}</p>
+                        </div>
+                    </Link>
+                </section>
+                </>
             )
+
             setData(recipeData);
             setPageCount(Math.ceil(data.length / perPage));
         } catch (error) {}
