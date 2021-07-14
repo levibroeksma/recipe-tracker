@@ -1,37 +1,3 @@
-.my-recipe-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1300px;
-    overflow: scroll;
-    width: 100%;
-    padding: 30px 10px;
-}
-
-section.account-details {
-    width: 25%;
-    padding: 30px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: #fff;
-    border: 1px solid #fd8888;
-}
-
-section.account-details .detail-titles {
-    width: 50%;
-}
-
-section.account-details h2 {
-    width: 100%;
-}
-section.account-details h5,
-section.account-details p{
-    margin: 0;
-    font-size: 14px;
-}
 .name-account-holder {
     color: #fd8888;
 }
@@ -58,16 +24,6 @@ table.user-list tr {
     width: 22%;
 }
 
-table.user-list th:last-child,
-table.user-list tr:last-child {
-    width: 12%;
-}
-
-td.button {
-    display: flex;
-    justify-content: flex-end;
-}
-
 table.user-list tr th {
     font-size: 10px;
     position: relative;
@@ -88,15 +44,6 @@ table.user-list tr td p {
     font-weight: 700;
 }
 
-.user-wrapper {
-    border-bottom: 1px solid #fd8888;
-    padding-bottom: 20px;
-}
-
-.table-headers {
-    margin-top: -10px;
-
-}
 td.fullname {
     text-transform: capitalize;
 }

@@ -1,5 +1,3 @@
-
-
 /*Pagination styling*/
 
 .pagination-wrapper {
@@ -17,7 +15,6 @@
 
 .pagination > .active > a{
     background-color: #fd8888 ;
-    border-color: #fd8888 ;
     color: #fff;
 }
 .pagination > li > a{

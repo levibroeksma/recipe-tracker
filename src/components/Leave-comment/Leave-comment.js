@@ -9,7 +9,6 @@ import {useState} from "react";
 export default function LeaveComment() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const onSubmit = (data) => {
-        console.log(data)
     };
     const [rating, setRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
@@ -45,6 +44,7 @@ export default function LeaveComment() {
                                 {[1, 2, 3, 4, 5].map((index) => {
                                     return (
                                         <RatingRow
+                                            key={"key"+index}
                                             index={index}
                                             rating={rating}
                                             hoverRating={hoverRating}

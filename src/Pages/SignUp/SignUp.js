@@ -41,7 +41,7 @@ export default function SignUp() {
                 authority: "USER"
             })
             setSucces(true);
-            setTimeout(() => history.push("/signin"), 1000);
+            setTimeout(() => history.push("/sign-in"), 1000);
         } catch (error) {
             alert(`Something went wrong, registration failed ${error}`)
         }

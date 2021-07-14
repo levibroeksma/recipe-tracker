@@ -1,49 +1,15 @@
-.login-menu,
-.register-menu
-{
+.login-menu {
     width: 100%;
-    background: white;
     border: 1px solid #fd8888;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
     max-width: 600px;
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
-}
-
-.tab-holder {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: 10px 0;
-}
-
-.login-tab,
-.register-tab {
-    width: calc(50% - 15px);
-    text-align: center;
-    padding: 20px  15px ;
-    color: #1C1DB1;
-    font-weight: 600;
-    background: #f6f5f5;
-}
-
-.register-tab {
-    border-radius: 0px 10px 0 0;
-}
-.login-tab {
-    border-radius: 10px 0 0 0 ;
-}
-
-.login-tab.active,
-.register-tab.active {
-    background: #fff;
-    border-radius: 10px;
 }
 
 .login-field {
     padding: 30px;
 }
+
 .login-field a {
     text-decoration: none;
     color: #1C1DB1;
@@ -55,10 +21,9 @@
     color: #fd8888;
 }
 
-.login-field h5 {
-    margin: 0;
-}
-
-.registration-form .checkbox-wrapper span.errorMessage {
-    top: 18px;
+.login-field .forgot-password {
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+    text-decoration: underline;
 }

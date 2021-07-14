@@ -25,18 +25,6 @@
     height: 100%;
 }
 
-button.favorite {
-    background: #FD8888;
-    border-radius: 100%;
-    padding: 1em;
-    border: 0;
-    color: #fff;
-    position: absolute;
-    right: 30px;
-    top: 20px;
-    cursor: pointer;
-}
-
 .country-flag {
     position: absolute;
     left: 30px;
@@ -44,7 +32,7 @@ button.favorite {
 }
 
 .country-flag img {
-    max-width: 41px;
+    max-width: 40px;
     height: auto;
     box-shadow: 0px 0px 15px 0px #ffffff;
     border-radius: 100px;
@@ -88,6 +76,7 @@ button.favorite {
     border-radius: 10px;
     padding: 25px 0;
 }
+
 .ingredients-holder h2,
 .step-holder h2 {
     margin-left: 25px;
@@ -97,6 +86,7 @@ button.favorite {
 ul.ingredients-list {
     list-style: none;
     padding: 0;
+    padding-left: 10px;
     margin: 0 20px;
     line-height: 1.75em;
 }
@@ -121,9 +111,6 @@ ul.ingredients-list li,
 .bon-apetit {
     display: flex;
     justify-content: center;
-}
-
-.bon-apetit span {
     font-family: 'Great Vibes';
     font-size: 50px;
     color: #1C1DB1;
@@ -139,7 +126,6 @@ ul.ingredients-list li,
     border-radius: 10px;
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
@@ -148,31 +134,15 @@ ul.ingredients-list li,
     background: url(//via.placeholder.com/60x60);
     width: 60px;
     height: 60px;
-    overflow: hidden;
-    margin: 10px;
+    margin: 10px 20px 10px 20px;
 }
 
 .account-holder h3 {
     color: #1C1DB1;
-    margin: 0;
     font-weight: 400;
+    text-transform: capitalize;
 }
 
-.text-account {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-}
-
-.text-account span {
-    color: #3E3E3E;
-    font-size: 12px;
-}
-
-.text-account a {
-    color: #FD8888;
-    font-size: 13px;
-}
 
 /*navigation*/
 

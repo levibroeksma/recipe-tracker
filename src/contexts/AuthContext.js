@@ -16,15 +16,11 @@ export default function AuthContextProvider({children}) {
 
     function isTokenValid() {
         const jwtToken = localStorage.getItem('token');
-
         if(!jwtToken) return false;
-
         const decodedToken = jwt_decode(jwtToken);
         const expirationUnix = decodedToken.exp;
-
         const now = new Date().getTime();
         const currentUnix = Math.round(now / 1000);
-
         const isTokenStillValid = expirationUnix - currentUnix > 0;
 
         return isTokenStillValid;
@@ -44,20 +40,16 @@ export default function AuthContextProvider({children}) {
                 status: 'done',
             });
         }
-
     },[]);
 
     function login(jwtToken) {
-        // console.log(jwtToken)
         localStorage.setItem('token', jwtToken);
         const decodedToken = jwt_decode(jwtToken);
-        console.log(decodedToken);
         const userId = decodedToken.sub;
         fetchUserData(jwtToken, userId);
     }
 
     async function fetchUserData(token, id) {
-        console.log("TEST: " + id)
         try {
             const result = await axios.get(`http://localhost:8080/authenticated`, {
                 headers: {
@@ -69,10 +61,11 @@ export default function AuthContextProvider({children}) {
                 user: {
                     username: result.data.name,
                     authority: result.data.authorities[0].authority,
+                    country: result.data.country
                 },
                 status: 'done',
             });
-            history.push('/my-account');
+            // history.push('/my-account');
         } catch(e) {
             console.error(e);
         }

@@ -1,9 +1,9 @@
-import {useContext, useState} from "react";
+import React, {useContext, useState} from "react";
 import axios from "axios";
-import {TiDelete} from "react-icons/ti"
 import {useHistory} from "react-router-dom";
 import {useFieldArray, useForm} from "react-hook-form";
 import {IoMdCloudUpload} from "react-icons/io"
+import {TiDelete} from "react-icons/ti"
 
 import Button from "../../components/Button/Button";
 import FlagSelector from "../../components/CountryFlagSelector/FlagSelector";
@@ -15,11 +15,17 @@ export default function AddRecipe() {
     const history = useHistory();
     const [step, setStep] = useState(1);
     const [loading,setLoading] = useState(false);
-    const {handleSubmit, register, formState: {errors}, control} = useForm({mode: "onBlur"});
-    const { fields, append, remove } = useFieldArray({
-            control,
-            name: "ingredients"
-        }, {control, name:"directions"});
+    const {handleSubmit, register,control, formState: {errors}} = useForm({mode: 'onBlur'});
+    const {
+        fields: ingredientFields,
+        append: ingredientAppend,
+        remove: ingredientRemove,
+    } = useFieldArray({control, name: "ingredients"});
+    const {
+        fields: directionFields,
+        append: directionAppend,
+        remove: directionRemove
+    } = useFieldArray({control, name: "directions",})
 
 
     const formData = new FormData();
@@ -39,12 +45,13 @@ export default function AddRecipe() {
             formData.append("vegan", data.vegan);
             formData.append("vegetarian", data.vegetarian);
             formData.append("spicy", data.spicy);
-            formData.append("username", user.username);
             formData.append("poultry", data.poultry)
+            formData.append("username", user.username);
 
             const response = await axios.post('http://localhost:8080/api/recipes',
                 formData,
             )
+
             setLoading(false)
             history.push("/recipe-uploaded");
         } catch (e) {
@@ -64,7 +71,6 @@ export default function AddRecipe() {
                                 <IoMdCloudUpload className="cloud"/><span>Upload an image</span>
                             </label>
                         </div>
-
                     )}
                     {step === 2 && (
                         <>
@@ -75,72 +81,41 @@ export default function AddRecipe() {
                                     name="title"
                                     id="title"
                                     placeholder="Title..."
-                                    {...register("title")}
-                                    required
+                                    {...register("title",{required: true})}
                                 />
                                 {errors.title && errors.title.type === "required" && <span className="errorMessage">Required.</span>}
-
                             </label>
-                            <label htmlFor="description">
+                            <label htmlFor="description" id="descriptionLabel">
                                 <textarea
                                     id="description"
                                     name="description"
                                     placeholder="Description.."
-                                    {...register("description")}
+                                    {...register("description", {required: true})}
+
                                 />
-                                {errors.description && errors.description.type === "required" && <span className="errorMessage">Required</span>}
+                                {errors.description && errors.description.type === "required" && <span className="errorMessage">Required.</span>}
                             </label>
                         </>
                     )}
                     {step === 3 && (
                         <>
-                            { fields.map(({ id }, index) => {
-
+                            { ingredientFields.map(({ id }, index) => {
                                 return (
-                                    <div className="ingredient-input-holder" key={id}>
-                                        <label htmlFor={`ingredients[${index}].name`}>
-                                            <input
-                                                className="textInput"
-                                                name={`ingredients[${index}].name`}
-                                                {...register(`ingredients[${index}].name`)}
-                                            />
-                                        </label>
-                                        <Button
-                                            type="button"
-                                            classNameButton="btn remove"
-                                            buttonTitle={<TiDelete />}
-                                            onClickEvent={() => remove(index)}
-                                        />
-
-                                    </div>
-                                );
-                            })}
-
-                            <Button
-                                type="button"
-                                classNameButton="btn"
-                                onClickEvent={() => append({})}
-                                buttonTitle="Add an ingredient"
-                            />
-                        </>
-                    )}
-                    {step === 4 && (
-                        <>
-                            { fields.map(({ id }, index) => {
-                                return (
-                                    <div key={id}>
-                                        <div className="direction-input-holder">
-                                            <label htmlFor={`directions[${index}].name`}>
-                                <textarea
-                                    name={`directions[${index}].name`}
-                                    {...register(`directions[${index}].name`)}
-                                />
+                                    <div  key={id}>
+                                        <div className="ingredient-input-holder">
+                                            <label htmlFor={`ingredients[${index}].name`}>
+                                                <input
+                                                    className="textInput"
+                                                    type="text"
+                                                    name={`ingredients[${index}].name`}
+                                                    {...register(`ingredients[${index}].name`)}
+                                                />
                                             </label>
                                             <Button
                                                 type="button"
-                                                classNameButton="btn"
+                                                classNameButton="btn remove"
                                                 buttonTitle={<TiDelete />}
-                                                onClickEvent={() => remove(index)}
+                                                onClickEvent={() => ingredientRemove(index)}
                                             />
                                         </div>
                                     </div>
@@ -149,7 +124,37 @@ export default function AddRecipe() {
                             <Button
                                 type="button"
                                 classNameButton="btn"
-                                onClickEvent={() => append({})}
+                                onClickEvent={() => ingredientAppend({})}
+                                buttonTitle="Add an ingredient"
+                            />
+                        </>
+                    )}
+                    {step === 4 && (
+                        <>
+                            { directionFields.map(({ id }, index) => {
+                                return (
+                                    <div key={id}>
+                                        <div className="direction-input-holder">
+                                            <label htmlFor={`directions[${index}].name`}>
+                                                <textarea
+                                                    name={`directions[${index}].name`}
+                                                    {...register(`directions[${index}].name`)}
+                                                />
+                                            </label>
+                                            <Button
+                                                type="button"
+                                                classNameButton="btn"
+                                                buttonTitle={<TiDelete />}
+                                                onClickEvent={() => directionRemove(index)}
+                                            />
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                            <Button
+                                type="button"
+                                classNameButton="btn"
+                                onClickEvent={() => directionAppend({})}
                                 buttonTitle="Add an directions"
                             />
                         </>
@@ -164,8 +169,10 @@ export default function AddRecipe() {
                                             placeholder="Country of origin"
                                             className="textInput"
                                             name="country"
-                                            {...register("country")}
+                                            {...register("country", {required: true})}
                                         />
+                                        {errors.country && errors.country.type === "required" && <span className="errorMessage">Required.</span>}
+
                                     </label>
                                     <FlagSelector/>
                                     <label htmlFor="cookingTime" className="details">
@@ -174,9 +181,10 @@ export default function AddRecipe() {
                                             className="textInput"
                                             placeholder="Cooking time in minutes"
                                             name="cookingTime"
-                                            {...register("cookingTime")}
-                                            required
+                                            {...register("cookingTime", {required: true})}
                                         />
+                                        {errors.cookingTime && errors.cookingTime.type === "required" && <span className="errorMessage">Required.</span>}
+
                                     </label>
                                     <label htmlFor="calories" className="details">
                                         <input
@@ -262,11 +270,13 @@ export default function AddRecipe() {
                                     buttonTitle="Previous step"
                                     classNameButton="btn"
                                     disabled={step === 1}
+                                    type="button"
                                 />
                                 <Button
                                     onClickEvent={() => setStep(step + 1)}
                                     buttonTitle="Next step"
                                     classNameButton="btn"
+                                    type="button"
                                 />
                             </div>
                         </>
@@ -278,7 +288,7 @@ export default function AddRecipe() {
                                     buttonTitle="Previous step"
                                     classNameButton="btn"
                                     disabled={step === 1}
-
+                                    type="button"
                                 />
                                 <Button
                                     buttonTitle="Save recipe"
@@ -289,7 +299,6 @@ export default function AddRecipe() {
                         </>
                     )}
                 </form>
-
             </div>
         </div>
     );

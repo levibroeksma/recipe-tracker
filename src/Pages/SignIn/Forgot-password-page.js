@@ -1,11 +1,12 @@
 import {useForm} from "react-hook-form";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import "./SignIn.css"
+
 
 function ForgotPasswordPage() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const onSubmit = (data) => {
-        console.log(data)
     }
 
     return (

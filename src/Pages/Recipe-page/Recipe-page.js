@@ -22,8 +22,7 @@ export default function RecipePage() {
             const slice = data.slice(offset, offset + perPage)
 
             const recipeData = slice.map(recipe =>
-                <>
-                <section className="recipe-holder">
+                <section className="recipe-holder" key={recipe.id}>
                     <Link to={`recipes/${recipe.id}`} className="recipe-link">
                         <div className="img-holder">
                             <RecipeImage
@@ -49,7 +48,6 @@ export default function RecipePage() {
                         </div>
                     </Link>
                 </section>
-                </>
             )
 
             setData(recipeData);

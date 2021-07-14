@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
+import React, {useContext, useState} from "react";
+import {useForm} from "react-hook-form";
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
-import { authContext } from "../../contexts/AuthContext";
-import {AiFillEye} from "react-icons/ai";
-import {AiFillEyeInvisible} from "react-icons/ai"
+import {authContext} from "../../contexts/AuthContext";
+import {AiFillEye,AiFillEyeInvisible} from "react-icons/ai";
 import Button from "../../components/Button/Button";
-import "./SignIn.css"
 import Input from "../../components/Input/Input";
+import "./SignIn.css"
 
 export default function SignIn() {
     const {handleSubmit, register, formState: { errors }} = useForm();
@@ -17,8 +16,8 @@ export default function SignIn() {
     async function onSubmit(data) {
         try {
             const result = await axios.post("http://localhost:8080/authenticate", data);
-            history.push("/my-account")
             login(result.data.jwt);
+            history.push("/my-account");
         } catch (e) {
             console.error(e);
         }
@@ -67,6 +66,7 @@ export default function SignIn() {
                                 type="submit"
                                 classNameButton="btn"
                             />
+                            <Link className="forgot-password" to="/forgot-password">Forgot password</Link>
                         </form>
                     </div>
                 </div>

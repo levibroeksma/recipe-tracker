@@ -1,8 +1,5 @@
 .contact-wrapper {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
     align-items: center;
 }
 
@@ -10,7 +7,6 @@
 .contact-wrapper .contact-right {
     width: 50%;
     padding: 30px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,13 +38,6 @@
 }
 
 /*THANK YOU PAGE*/
-
-.thank-you-holder {
-    position: relative;
-    width: 1000px;
-    display: flex;
-    justify-content: center;
-}
 
 .thank-you-holder .text-holder {
     max-width: 400px;

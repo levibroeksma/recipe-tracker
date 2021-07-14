@@ -22,7 +22,7 @@ export default function Header({logo}) {
         <header className={navScrolled ? 'header scrolled' : 'header'}>
             <div className="header-holder">
                 <div className="logo-holder">
-                    <Link exact to="/">
+                    <Link to="/">
                         <img src={logo} alt="Recipe tracker"/>
                     </Link>
                 </div>
@@ -39,7 +39,7 @@ export default function Header({logo}) {
                     <nav>
                         <ul>
                             <li>
-                                <NavLink exact to="/" activeClassName="active">
+                                <NavLink to="/" activeClassName="active">
                                     Home
                                 </NavLink>
                             </li>
@@ -60,11 +60,11 @@ export default function Header({logo}) {
                             </li>
 
                             {!isTokenValid() ? (
-                                    <li>
-                                        <NavLink to="/sign-in" activeClassName="active">
-                                            Sign in
-                                        </NavLink>
-                                    </li>
+                                <li>
+                                    <NavLink to="/sign-in" activeClassName="active">
+                                        Sign in
+                                    </NavLink>
+                                </li>
                                 )
                                 :
                                 (
@@ -75,7 +75,7 @@ export default function Header({logo}) {
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="" activeClassName="active" onClick={logout}>
+                                            <NavLink to="/" activeClassName="active" onClick={logout}>
                                                 Log out
                                             </NavLink>
                                         </li>

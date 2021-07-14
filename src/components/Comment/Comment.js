@@ -13,7 +13,7 @@ export default function Comment({comment, username}) {
     return(
         <>
             <section className="comment-holder">
-                    {user.authority === "ADMIN" && isTokenValid() ?
+                    {user && user.authority === "ADMIN" && isTokenValid() &&
                         (<div className="delete-button">
                             <Button
                                 type="submit"
@@ -21,8 +21,7 @@ export default function Comment({comment, username}) {
                                 classNameButton="btn delete-comment"
                             />
                         </div>
-                        ) :
-                        (<></>)
+                        )
                     }
                 <div className="text-holder">
                     <p>{comment}</p>

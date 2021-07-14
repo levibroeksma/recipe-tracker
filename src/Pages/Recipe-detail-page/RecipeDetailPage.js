@@ -81,8 +81,7 @@ export default function RecipeDetailPage() {
 
                                 </div>
                                 <div className="text-account">
-                                    {/*<h3>{currentRecipe.username}</h3>*/}
-                                    <h3>Levi Broeksma</h3>
+                                    <h3>{currentRecipe.username}</h3>
                                 </div>
                             </div>
                             <div className="recipe-nav-holder">

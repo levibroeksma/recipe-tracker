@@ -13,7 +13,6 @@ export default function ContactPage() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const history = useHistory();
     const onSubmit = (data) => {
-        console.log(data)
         history.push('contact/thank-you');
     };
     const mail = <FontAwesomeIcon icon={faEnvelope}/>

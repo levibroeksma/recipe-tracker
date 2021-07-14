@@ -1,12 +1,3 @@
-.add-ingredient-wrapper {
-    width: 100%;
-}
-
-.add-ingredient-wrapper h2 {
-    margin-bottom: 20px;
-}
-
-form.add-ingredient-form,
 form.new-recipe-form{
     max-width: 500px;
     width: 100%;
@@ -25,11 +16,6 @@ form.new-recipe-form{
     border-radius: 8px;
 }
 
-.list-control-wrapper button.btn {
-    margin: 15px;
-    min-width: 160px;
-}
-
 .ingredient-input-holder {
     width: 100%;
     display: flex;
@@ -37,15 +23,12 @@ form.new-recipe-form{
     margin-bottom: 15px;
 }
 
-.ingredient-input-holder label {
-    width: 85%;
-}
-
 .ingredient-input-holder label input {
     margin: 0;
     border-radius: 8px 0px 0 8px;
     border-right: 0;
 }
+
 .ingredient-input-holder label input:focus,
 .direction-input-holder label textarea:focus {
     outline: 0;
@@ -53,12 +36,9 @@ form.new-recipe-form{
 
 .ingredient-input-holder button.btn.remove {
     width: 15%;
-    padding: 0;
     margin: 0;
     font-size: 18px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 0 8px 8px 0;
 }
 
@@ -68,14 +48,12 @@ form.new-recipe-form{
     border: 1px solid #fd8888;
     border-radius: 8px;
     margin-top: 15px;
-    max-width: 500px;
     width: 100%;
 }
 
 .button-wrapper button.btn {
     margin: 15px;
     min-width: 160px;
-
 }
 
 /*Directions*/
@@ -99,74 +77,9 @@ form.new-recipe-form{
 .direction-input-holder button.btn {
     padding: 8px 14px;
 }
+
 .direction-input-holder button.btn svg {
     font-size: 20px;
-}
-
-/*PREVIEW*/
-
-.step-holder-preview {
-    max-width: 1300px;
-    width: 100%;
-    display: flex;
-}
-.step-holder-preview-inner {
-    width: calc(50% - 20px);
-}
-
-.step-holder-preview-inner h3 {
-    margin: 0;
-}
-
-.ingredients-overview {
-    list-style: none;
-    padding: 0 0 0 5px;
-    margin: 0
-}
-
-.directions-overview {
-    margin: 0;
-}
-
-form#recipe-detail-form {
-    width: 100%;
-    max-width: 500px;
-}
-
-.preview-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.preview-wrapper img {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
-}
-
-.preview-wrapper h3 {
-    margin: 0;
-    font-weight: 400;
-    color: #aaa;
-}
-.header-preview {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.title-wrapper {
-    width:100%;
-}
-
-.recipe-page-wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .checkbox-wrapper-inner {
@@ -216,4 +129,14 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+/*error message*/
+
+form.new-recipe-form span.errorMessage {
+    top: 60px;
+}
+
+label#descriptionLabel span.errorMessage {
+    top: 160px;
 }

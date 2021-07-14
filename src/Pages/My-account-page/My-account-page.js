@@ -11,7 +11,6 @@ export default function MyAccountPage() {
     const [currentUser, setCurrentUser] = useState(user.username);
     const [submitSucces, toggleSubmitSucces] = useState(false);
     const history = useHistory();
-    console.log("check for user country: ", user)
     const toAddRecipe = () => {
         history.push("add-recipe")
     }

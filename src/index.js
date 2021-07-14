@@ -5,16 +5,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./contexts/AuthContext";
-import AddRecipeProvider from "./contexts/AddRecipeProvider";
+// import AddRecipeProvider from "./contexts/AddRecipeProvider";
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            <AddRecipeProvider>
+            <>
                 <AuthContextProvider>
                     <App />
                 </AuthContextProvider>
-            </AddRecipeProvider>
+            </>
         </Router>
     </React.StrictMode>,
     document.getElementById("root")
