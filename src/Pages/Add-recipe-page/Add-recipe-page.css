@@ -49,6 +49,7 @@ form.new-recipe-form{
     border-radius: 8px;
     margin-top: 15px;
     width: 100%;
+    max-width: 500px;
 }
 
 .button-wrapper button.btn {

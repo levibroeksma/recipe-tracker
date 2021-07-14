@@ -51,26 +51,31 @@ export default function AuthContextProvider({children}) {
 
     async function fetchUserData(token, id) {
         try {
-            const result = await axios.get(`http://localhost:8080/authenticated`, {
+            const authResult = await axios.get(`http://localhost:8080/authenticated`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
                 },
             });
+
+            const userResult = await axios.get(`http://localhost:8080/users/${authResult.data.name}`);
+
+
             setAuthState({
                 user: {
-                    username: result.data.name,
-                    authority: result.data.authorities[0].authority,
-                    country: result.data.country
+                    username: authResult.data.name,
+                    authority: authResult.data.authorities[0].authority,
+                    country: userResult.data.country,
+                    firstName: userResult.data.firstName,
+                    lastName: userResult.data.lastName,
                 },
                 status: 'done',
             });
-            // history.push('/my-account');
+
         } catch(e) {
             console.error(e);
         }
     }
-
     function logout() {
         localStorage.removeItem("token");
         setAuthState({user: null, status: "done"});

@@ -17,6 +17,7 @@ export default function SignIn() {
         try {
             const result = await axios.post("http://localhost:8080/authenticate", data);
             login(result.data.jwt);
+            // als het nog steeds niet werkt, misschien hier even een setTimeout op zetten (last resort)
             history.push("/my-account");
         } catch (e) {
             console.error(e);

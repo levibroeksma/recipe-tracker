@@ -20,7 +20,7 @@ export default function RecipePage() {
             const response = await axios.get(`http://localhost:8080/api/recipes`);
             const data = response.data;
             const slice = data.slice(offset, offset + perPage)
-
+            console.log(response.data)
             const recipeData = slice.map(recipe =>
                 <section className="recipe-holder" key={recipe.id}>
                     <Link to={`recipes/${recipe.id}`} className="recipe-link">
@@ -71,7 +71,8 @@ export default function RecipePage() {
                 <h1>Recipe's</h1>
                 <div className="recipe-page-wrapper">
                     {data}
-                    <div className="pagination-wrapper">
+                </div>
+                <div className="pagination-wrapper">
                     <ReactPaginate
                         previousLabel={"prev"}
                         nextLabel={"next"}
@@ -84,7 +85,6 @@ export default function RecipePage() {
                         containerClassName={"pagination"}
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"}/>
-                    </div>
                 </div>
             </div>
         </div>

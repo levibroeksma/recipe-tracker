@@ -1,15 +1,16 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useContext, useState, useEffect} from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 import "./My-account-page.css"
-import { authContext } from "../../contexts/AuthContext";
+import {authContext} from "../../contexts/AuthContext";
 import Button from "../../components/Button/Button";
 
 export default function MyAccountPage() {
-    const { user } = useContext(authContext);
+    const {user} = useContext(authContext);
     const [users, setUsers] = useState([]);
-    const [currentUser, setCurrentUser] = useState(user.username);
+    const [currentUser, setCurrentUser] = useState('');
     const [submitSucces, toggleSubmitSucces] = useState(false);
+
     const history = useHistory();
     const toAddRecipe = () => {
         history.push("add-recipe")
@@ -27,11 +28,16 @@ export default function MyAccountPage() {
                     },
                 }
             );
+            console.log('USERS OPNIEUW GEFETCHT', response.data)
+            // HIER ALTIJD RESPONSE.DATA SORTEREN OP ALFABETISCHE VOLGORDE
             setUsers(response.data)
-        } catch (error) {}
+        } catch (error) {
+        }
     }
 
+    // DIT MAG WEG EN USER DATA GEBRUIKEN UIDE CONTEXT
     useEffect(() => {
+
         // Get list of users for admin list
         fetchUsers();
 
@@ -40,103 +46,114 @@ export default function MyAccountPage() {
             try {
                 const response = await axios.get(`http://localhost:8080/users/${user.username}`);
                 setCurrentUser(response.data)
-            } catch (error) {}
+            } catch (error) {
+            }
         }
+
         fetchCurrentUserDetails();
 
     }, []);
 
     async function changeActiveStatus(user) {
-
+        //toggle enable, change user to inactive or active
         try {
             const response = await axios.put(`http://localhost:8080/users/${user.username}`, {
                 enabled: !user.enabled,
             });
             toggleSubmitSucces(true);
-        } catch (error) {}
+        } catch (error) {
+        }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         if (submitSucces === true) {
+            toggleSubmitSucces(false)
             fetchUsers();
-            toggleSubmitSucces(false);
         }
-    },[submitSucces])
+    }, [submitSucces])
 
     return (
         <>
             <div className="page-wrapper">
                 <div className="page-wrapper-inner">
-            {user.authority === "ADMIN" ? (
-             <>
-                <h1>Manage users</h1>
-                <div className="user-list-wrapper">
-                     {users.map(user => {
-                        return <table className="user-list" key={user.username}>
-                            <thead>
-                                 <tr className="table-headers">
-                                     <th>Full name</th>
-                                     <th>Username</th>
-                                     <th>Email</th>
-                                     <th>Enabled</th>
-                                     <th></th>
-                                 </tr>
-                            </thead>
-                            <tbody>
-                                 <tr className="user-details-row">
-                                    <td className="fullname">
-                                        <p>
-                                            {user.firstName} {user.lastName}
-                                        </p>
-                                    </td>
-                                    <td className="username">
-                                        <p>
-                                            {user.username}
-                                        </p>
-                                    </td>
-                                    <td className="email">
-                                        <p>
-                                            {user.email}
-                                        </p>
-                                    </td>
-                                    <td className="enabled">
-                                        {user.enabled === true ?
-                                            <p className="active">
-                                                Active
-                                            </p>
-                                            :
-                                            <p className="inactive">
-                                                Inactive
-                                            </p>
-                                        }
-                                    </td>
-                                    <td className="button">
-                                        <Button
-                                            classNameButton="btn"
-                                            buttonTitle={user.enabled === true ? "Deactivate" : "Activate"}
-                                            onClickEvent={() => changeActiveStatus(user)}
-                                        />
-                                    </td>
-                                 </tr>
-                            </tbody>
-                        </table>
-                     })}
-                </div>
-             </>
-            ) : (
-                <>
-                    <h1>Welcome back <span className="name-account-holder">
-                        {currentUser.firstName} {currentUser.lastName}
-                    </span>
-                    </h1>
-                    <Button
-                        type="button"
-                        onClickEvent={toAddRecipe}
-                        buttonTitle="Add a new recipe"
-                        classNameButton="btn"
-                    />
-                </>
-            )}
+                    {user && user.authority === "ADMIN" ? (
+                        <>
+                            <h1>Manage users</h1>
+                            <div className="user-list-wrapper">
+                                <table className="user-list" key={user.username}>
+                                    <thead>
+                                    <tr className="table-headers">
+                                        <th>Full name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Enabled</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                {users && users.map(user => {
+                                    return <tbody>
+                                        <tr className="user-details-row">
+                                            <td className="fullname">
+                                                <p>
+                                                    {user.firstName} {user.lastName}
+                                                </p>
+                                            </td>
+                                            <td className="username">
+                                                <p>
+                                                    {user.username}
+                                                </p>
+                                            </td>
+                                            <td className="email">
+                                                <p>
+                                                    {user.email}
+                                                </p>
+                                            </td>
+                                            <td className="enabled">
+                                                {user.enabled === true ?
+                                                    <p className="active">
+                                                        Active
+                                                    </p>
+                                                    :
+                                                    <p className="inactive">
+                                                        Inactive
+                                                    </p>
+                                                }
+                                            </td>
+                                            <td className="button">
+                                                <Button
+                                                    classNameButton="btn"
+                                                    buttonTitle={user.enabled === true ? "Deactivate" : "Activate"}
+                                                    onClickEvent={() => changeActiveStatus(user)}
+                                                />
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                })}
+                                </table>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <h1>Welcome back
+                                {currentUser &&
+                                    <>
+                                    <span className="name-account-holder">
+                                        {currentUser.firstName}
+                                    </span>
+                                    <span className="name-account-holder">
+                                        {currentUser.lastName}
+                                    </span>
+                                    </>
+                                }
+                            </h1>
+                            <Button
+                                type="button"
+                                onClickEvent={toAddRecipe}
+                                buttonTitle="Add a new recipe"
+                                classNameButton="btn"
+                            />
+                        </>
+                    )}
                 </div>
             </div>
         </>

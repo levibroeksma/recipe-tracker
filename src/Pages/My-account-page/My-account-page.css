@@ -1,5 +1,7 @@
 .name-account-holder {
     color: #fd8888;
+    margin-left: 10px;
+    text-transform: capitalize;
 }
 
 /*ADMIN PAGE*/
@@ -25,9 +27,7 @@ table.user-list tr {
 }
 
 table.user-list tr th {
-    font-size: 10px;
     position: relative;
-    top: 10px;
 }
 
 table.user-list tr td p {

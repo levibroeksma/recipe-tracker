@@ -47,6 +47,9 @@ export default function AddRecipe() {
             formData.append("spicy", data.spicy);
             formData.append("poultry", data.poultry)
             formData.append("username", user.username);
+            formData.append("userCountry", user.userCountry);
+            // formData.append("ingredients", data.ingredients)
+            // formData.append("ingredients", JSON.stringify(data.ingredients));
 
             const response = await axios.post('http://localhost:8080/api/recipes',
                 formData,

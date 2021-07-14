@@ -26,42 +26,33 @@ export default function Header({logo}) {
                         <img src={logo} alt="Recipe tracker"/>
                     </Link>
                 </div>
-                {/*<div className="search-bar-holder">*/}
-                {/*    <div className="search-bar">*/}
-                {/*        <input*/}
-                {/*            type="text"*/}
-                {/*            id="searchbar"*/}
-                {/*            placeholder="search..."/>*/}
-                {/*        <HiSearch className="searchIcon"/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <div className="nav-holder">
                     <nav>
                         <ul>
                             <li>
-                                <NavLink to="/" activeClassName="active">
+                                <NavLink exact to="/" activeClassName="active">
                                     Home
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/recipes" activeClassName="active">
+                                <NavLink exact to="/recipes" activeClassName="active">
                                     Recipe's
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/about-us" activeClassName="active">
+                                <NavLink exact to="/about-us" activeClassName="active">
                                     About us
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/contact" activeClassName="active">
+                                <NavLink exact to="/contact" activeClassName="active">
                                     Contact
                                 </NavLink>
                             </li>
 
                             {!isTokenValid() ? (
                                 <li>
-                                    <NavLink to="/sign-in" activeClassName="active">
+                                    <NavLink exact to="/sign-in" activeClassName="active">
                                         Sign in
                                     </NavLink>
                                 </li>
@@ -70,7 +61,7 @@ export default function Header({logo}) {
                                 (
                                     <>
                                         <li>
-                                            <NavLink to="/my-account" activeClassName="active" id="my-account">
+                                            <NavLink exact to="/my-account" activeClassName="active" id="my-account">
                                                 My account
                                             </NavLink>
                                         </li>
