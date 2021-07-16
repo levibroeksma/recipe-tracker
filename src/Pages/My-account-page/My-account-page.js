@@ -8,7 +8,6 @@ import Button from "../../components/Button/Button";
 export default function MyAccountPage() {
     const {user} = useContext(authContext);
     const [users, setUsers] = useState([]);
-    const [currentUser, setCurrentUser] = useState('');
     const [submitSucces, toggleSubmitSucces] = useState(false);
 
     const history = useHistory();
@@ -28,29 +27,20 @@ export default function MyAccountPage() {
                     },
                 }
             );
-            // console.log('USERS OPNIEUW GEFETCHT', response.data)
             // HIER ALTIJD RESPONSE.DATA SORTEREN OP ALFABETISCHE VOLGORDE
             setUsers(response.data)
+            // const userArray = response.data;
+            // console.log(userArray)
+            // setUsers(userArray.sort((a,b) => a.firstName > b.firstName))
+            // setUsers(response.data.sort((a,b) => { return a.firstName > b.firstName}))
+            console.log(users)
         } catch (error) {
         }
     }
 
-    // DIT MAG WEG EN USER DATA GEBRUIKEN UIDE CONTEXT
     useEffect(() => {
-
         // Get list of users for admin list
         fetchUsers();
-
-        // Get userdetails current user for welcome message
-        // async function fetchCurrentUserDetails() {
-        //     try {
-        //         const response = await axios.get(`http://localhost:8080/users/${user.username}`);
-        //         setCurrentUser(response.data)
-        //     } catch (error) {
-        //     }
-        // }
-        //
-        // fetchCurrentUserDetails();
 
     }, []);
 
@@ -71,7 +61,7 @@ export default function MyAccountPage() {
             fetchUsers();
         }
     }, [submitSucces])
-    // console.log(user)
+
     return (
         <>
             <div className="page-wrapper">
@@ -91,7 +81,7 @@ export default function MyAccountPage() {
                                     </tr>
                                     </thead>
                                 {users && users.map(user => {
-                                    return <tbody>
+                                    return <tbody key={"user" + user.username}>
                                         <tr className="user-details-row">
                                             <td className="fullname">
                                                 <p>
