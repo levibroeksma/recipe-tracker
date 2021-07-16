@@ -28,7 +28,7 @@ export default function MyAccountPage() {
                     },
                 }
             );
-            console.log('USERS OPNIEUW GEFETCHT', response.data)
+            // console.log('USERS OPNIEUW GEFETCHT', response.data)
             // HIER ALTIJD RESPONSE.DATA SORTEREN OP ALFABETISCHE VOLGORDE
             setUsers(response.data)
         } catch (error) {
@@ -42,15 +42,15 @@ export default function MyAccountPage() {
         fetchUsers();
 
         // Get userdetails current user for welcome message
-        async function fetchCurrentUserDetails() {
-            try {
-                const response = await axios.get(`http://localhost:8080/users/${user.username}`);
-                setCurrentUser(response.data)
-            } catch (error) {
-            }
-        }
-
-        fetchCurrentUserDetails();
+        // async function fetchCurrentUserDetails() {
+        //     try {
+        //         const response = await axios.get(`http://localhost:8080/users/${user.username}`);
+        //         setCurrentUser(response.data)
+        //     } catch (error) {
+        //     }
+        // }
+        //
+        // fetchCurrentUserDetails();
 
     }, []);
 
@@ -71,7 +71,7 @@ export default function MyAccountPage() {
             fetchUsers();
         }
     }, [submitSucces])
-
+    // console.log(user)
     return (
         <>
             <div className="page-wrapper">
@@ -135,13 +135,13 @@ export default function MyAccountPage() {
                     ) : (
                         <>
                             <h1>Welcome back
-                                {currentUser &&
+                                {user &&
                                     <>
                                     <span className="name-account-holder">
-                                        {currentUser.firstName}
+                                        {user.firstName}
                                     </span>
                                     <span className="name-account-holder">
-                                        {currentUser.lastName}
+                                        {user.lastName}
                                     </span>
                                     </>
                                 }

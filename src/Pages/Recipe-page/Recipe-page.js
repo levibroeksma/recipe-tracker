@@ -20,37 +20,9 @@ export default function RecipePage() {
             const response = await axios.get(`http://localhost:8080/api/recipes`);
             const data = response.data;
             const slice = data.slice(offset, offset + perPage)
-            console.log(response.data)
-            const recipeData = slice.map(recipe =>
-                <section className="recipe-holder" key={recipe.id}>
-                    <Link to={`recipes/${recipe.id}`} className="recipe-link">
-                        <div className="img-holder">
-                            <RecipeImage
-                                recipeId={recipe.id}
-                            />
-                        </div>
-                        <div className="spec-holder">
-                            <div className="country-holder">
-                                {recipe.country !== "" ?
-                                    (<img src={require(`../../assets/flags/${recipe.country}.png`).default} alt={recipe.country}/>)
-                                    :
-                                    (<img src="//via.placeholder.com/60x60" alt="placeholder"/>)}
-                                <span>{recipe.country}</span>
-                            </div>
-                            <div className="prep-time-holder">
-                                <img src={cookTime} alt="prep time"/>
-                                <span>{recipe.cookingtime} min</span>
-                            </div>
-                        </div>
-                        <div className="text-holder">
-                            <h2>{recipe.title}</h2>
-                            <p>{recipe.description}</p>
-                        </div>
-                    </Link>
-                </section>
-            )
 
-            setData(recipeData);
+
+            setData(slice);
             setPageCount(Math.ceil(data.length / perPage));
         } catch (error) {}
     }
@@ -70,7 +42,37 @@ export default function RecipePage() {
             <div className="page-wrapper-inner">
                 <h1>Recipe's</h1>
                 <div className="recipe-page-wrapper">
-                    {data}
+                    {data && data.map((recipe) => {
+                        return <section className="recipe-holder" key={recipe.id}>
+                            <Link to={`recipes/${recipe.id}`} className="recipe-link">
+                                <div className="img-holder">
+                                    <RecipeImage
+                                        recipeId={recipe.id}
+                                    />
+                                </div>
+                                <div className="spec-holder">
+                                    <div className="country-holder">
+                                        {recipe.country !== "" ?
+                                            (<img src={require(`../../assets/flags/${recipe.country}.png`).default}
+                                                  alt={recipe.country}/>)
+                                            :
+                                            (<img src="//via.placeholder.com/60x60" alt="placeholder"/>)}
+                                        <span>{recipe.country}</span>
+                                    </div>
+                                    <div className="prep-time-holder">
+                                        <img src={cookTime} alt="prep time"/>
+                                        <span>{recipe.cookingtime} min</span>
+                                    </div>
+                                </div>
+                                <div className="text-holder">
+                                    <h2>{recipe.title}</h2>
+                                    <p>{recipe.description}</p>
+                                </div>
+                            </Link>
+                        </section>
+                    })
+                    }
+
                 </div>
                 <div className="pagination-wrapper">
                     <ReactPaginate

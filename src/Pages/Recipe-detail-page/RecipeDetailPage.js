@@ -12,6 +12,9 @@ export default function RecipeDetailPage() {
     const history = useHistory();
     const [blobRecipeImage, setBlobRecipeImage] = useState();
     const [countryFlag, setCountryFlag] = useState("");
+    const [userFlag, setUserFlag] = useState("");
+    const [directionsOrderedList, setDirectionsOrderedList] = useState();
+    const [ingredientsUnorderedList, setIngredientsUnorderedList] = useState();
 
     async function fetchAllRecipes() {
         try {
@@ -22,7 +25,7 @@ export default function RecipeDetailPage() {
 
     async function fetchRecipeImage() {
         try {
-            const result = await axios.get(`http://localhost:8080/api/recipes/${id}/fileName`, {
+            const result = await axios.get(`http://localhost:8080/api/recipes/${id}`, {
                 responseType: 'blob',
             });
             const imageUrl = result.data;
@@ -36,11 +39,17 @@ export default function RecipeDetailPage() {
         try {
             const result = await axios.get(`http://localhost:8080/api/recipes/${id}`);
             const flag = result.data.country
+            const flagUser = result.data.userCountry
+
             setCountryFlag(<img src={require(`../../assets/flags/${flag}.png`).default} alt={flag}/>)
+            setUserFlag(<img src={require(`../../assets/flags/${flagUser}.png`).default} alt={flagUser}/>)
+
         } catch (e) {
             console.error(e);
         }
     }
+
+
 
     useEffect(()=>{
         fetchAllRecipes();
@@ -64,13 +73,13 @@ export default function RecipeDetailPage() {
                             <article className="ingredients-holder">
                                 <h2>Ingredients</h2>
                                 <ul className="ingredients-list">
-                                    <li>test</li>
+                                    {ingredientsUnorderedList}
                                 </ul>
                             </article>
                             <article className="step-holder">
                                 <h2>Preperations</h2>
                                 <ol>
-                                    <li>test</li>
+                                    {directionsOrderedList}
                                 </ol>
                                 <div className="bon-apetit">
                                     <span>Bon apetit!</span>
@@ -78,32 +87,20 @@ export default function RecipeDetailPage() {
                             </article>
                             <div className="account-holder">
                                 <div className="account-image">
-
+                                    {/*{currentRecipe.userCountry}*/}
+                                    {userFlag}
                                 </div>
                                 <div className="text-account">
                                     <h3>{currentRecipe.username}</h3>
                                 </div>
                             </div>
                             <div className="recipe-nav-holder">
-                                {/*<button */}
-                                {/*    className="btn"*/}
-                                {/*    onClick={()=>{history.push(`/recipes${currentRecipe.id - 1}`)}}*/}
-                                {/*    disabled={currentRecipe.id === 1}*/}
-                                {/*>*/}
-                                {/*    Previous*/}
-                                {/*</button>*/}
                                 <button
                                     className="btn"
                                         onClick={()=>{history.push("/recipes")}}
                                 >
                                     Overview
                                 </button>
-                                {/*<button*/}
-                                {/*    className="btn"*/}
-                                {/*    onClick={()=>{history.push(`/recipes/${currentRecipe.id + 1}`)}}*/}
-                                {/*>*/}
-                                {/*    Next*/}
-                                {/*</button>*/}
                             </div>
                         </div>
                     </section>

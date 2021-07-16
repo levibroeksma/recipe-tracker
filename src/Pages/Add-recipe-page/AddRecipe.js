@@ -28,9 +28,10 @@ export default function AddRecipe() {
     } = useFieldArray({control, name: "directions",})
 
 
-    const formData = new FormData();
     async function onSubmit(data) {
         try {
+            const formData = new FormData();
+            console.log('IK GA!')
             setLoading(true)
             formData.append("file", data.file[0]);
             formData.append("title", data.title);
@@ -47,16 +48,29 @@ export default function AddRecipe() {
             formData.append("spicy", data.spicy);
             formData.append("poultry", data.poultry)
             formData.append("username", user.username);
-            formData.append("userCountry", user.userCountry);
+            formData.append("userCountry", user.country);
             // formData.append("ingredients", data.ingredients)
-            // formData.append("ingredients", JSON.stringify(data.ingredients));
-
+            // formData.append("ingredients[]", JSON.stringify(data.ingredients)
+            console.log(data)
+            console.log(formData)
+            // fileUpload(file){
+            //     const url = 'http://localhost:8080/api/recipes';
+            //     const formData = new FormData();
+            //     formData.append('file',data.file[0])
+            //     const config = {
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         }
+            //     }
+            //     return  post(url, formData,config)
+            // }
             const response = await axios.post('http://localhost:8080/api/recipes',
-                formData,
+                    formData
             )
-
+            // console.log(data.ingredients)
+            // console.log(data.file)
             setLoading(false)
-            history.push("/recipe-uploaded");
+            // history.push("/recipe-uploaded");
         } catch (e) {
             console.error("Something went wong" , e);
         }
