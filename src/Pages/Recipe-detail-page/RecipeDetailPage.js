@@ -13,8 +13,6 @@ export default function RecipeDetailPage() {
     const [blobRecipeImage, setBlobRecipeImage] = useState();
     const [countryFlag, setCountryFlag] = useState("");
     const [userFlag, setUserFlag] = useState("");
-    const [directionsOrderedList, setDirectionsOrderedList] = useState();
-    const [ingredientsUnorderedList, setIngredientsUnorderedList] = useState();
 
     async function fetchAllRecipes() {
         try {
@@ -73,13 +71,11 @@ export default function RecipeDetailPage() {
                             <article className="ingredients-holder">
                                 <h2>Ingredients</h2>
                                 <ul className="ingredients-list">
-                                    {ingredientsUnorderedList}
                                 </ul>
                             </article>
                             <article className="step-holder">
                                 <h2>Preperations</h2>
                                 <ol>
-                                    {directionsOrderedList}
                                 </ol>
                                 <div className="bon-apetit">
                                     <span>Bon apetit!</span>

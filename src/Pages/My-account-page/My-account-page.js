@@ -27,13 +27,12 @@ export default function MyAccountPage() {
                     },
                 }
             );
-            // HIER ALTIJD RESPONSE.DATA SORTEREN OP ALFABETISCHE VOLGORDE
-            setUsers(response.data)
-            // const userArray = response.data;
-            // console.log(userArray)
-            // setUsers(userArray.sort((a,b) => a.firstName > b.firstName))
-            // setUsers(response.data.sort((a,b) => { return a.firstName > b.firstName}))
-            console.log(users)
+            setUsers(response.data.sort((a, b) => {
+                    if(a.firstName < b.firstName) { return -1; }
+                    if(a.firstName > b.firstName) { return 1; }
+                    return 0;
+                })
+            )
         } catch (error) {
         }
     }

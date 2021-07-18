@@ -19,11 +19,30 @@
 table.user-list {
     width: 100%;
     text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
-table.user-list th,
-table.user-list tr {
+table.user-list tbody {
+    margin: 10px 0;
+}
+
+table.user-list th {
     width: 22%;
+}
+
+.user-list tr.user-details-row td {
+    width: 22%;
+}
+
+tr.table-headers {
+    width: 100%;
+    display: flex;
+}
+
+tr.user-details-row {
+    width: 100%;
+    display: flex;
 }
 
 table.user-list tr th {
