@@ -41,12 +41,11 @@ export default function RecipeDetailPage() {
 
             setCountryFlag(<img src={require(`../../assets/flags/${flag}.png`).default} alt={flag}/>)
             setUserFlag(<img src={require(`../../assets/flags/${flagUser}.png`).default} alt={flagUser}/>)
-
+            console.log(result.data)
         } catch (e) {
             console.error(e);
         }
     }
-
 
 
     useEffect(()=>{
@@ -54,7 +53,7 @@ export default function RecipeDetailPage() {
         fetchRecipeImage();
         fetchRecipeFlag();
     },[])
-
+    console.log(currentRecipe)
     return (
         <>
             <div className="page-wrapper">
@@ -71,6 +70,7 @@ export default function RecipeDetailPage() {
                             <article className="ingredients-holder">
                                 <h2>Ingredients</h2>
                                 <ul className="ingredients-list">
+
                                 </ul>
                             </article>
                             <article className="step-holder">
