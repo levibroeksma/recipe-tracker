@@ -58,7 +58,6 @@ export default function SignUp() {
                     <h3 className="hidden-message">{loading && "Moment geduld aub"}</h3>
                     {!success && (
                         <form onSubmit={handleSubmit(onSubmit)} className="registration-form">
-
                             <Input
                                 name="username"
                                 labelId="username-field"
@@ -144,7 +143,6 @@ export default function SignUp() {
                                     onChange={(e)=>setPassword(e.target.value)}
                                 />
                             </label>
-
                             <div className="checkbox-wrapper">
                                 <Checkbox
                                     name="newsLetter"
@@ -177,7 +175,6 @@ export default function SignUp() {
                                     pageRoute="/privacy-policy"
                                 />
                             </div>
-
                             <Button
                                 buttonTitle="Register"
                                 classNameButton="btn"

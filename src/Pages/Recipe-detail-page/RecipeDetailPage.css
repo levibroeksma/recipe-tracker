@@ -106,6 +106,7 @@ ul.ingredients-list li,
 .step-holder ol {
     padding-right: 25px;
     line-height: 1.75em;
+    margin-left: 10px;
 }
 
 .bon-apetit {
@@ -135,6 +136,10 @@ ul.ingredients-list li,
     width: 60px;
     height: 60px;
     margin: 10px 20px 10px 20px;
+}
+
+.account-image img {
+    max-width: 60px;
 }
 
 .account-holder h3 {

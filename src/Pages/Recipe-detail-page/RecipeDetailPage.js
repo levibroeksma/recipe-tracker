@@ -8,22 +8,25 @@ import Comment from "../../components/Comment/Comment";
 
 export default function RecipeDetailPage() {
     const [currentRecipe, setCurrentRecipe] = useState([]);
+    const [blobRecipeImage, setBlobRecipeImage] = useState();
+    const [allIngredients, setAllIngredients] = useState([]);
+    const [allDirections, setAllDirections] = useState([]);
+
     const { id } = useParams();
     const history = useHistory();
-    const [blobRecipeImage, setBlobRecipeImage] = useState();
-    const [countryFlag, setCountryFlag] = useState("");
-    const [userFlag, setUserFlag] = useState("");
 
-    async function fetchAllRecipes() {
+    async function fetchRecipe() {
         try {
             const response = await axios.get(`http://localhost:8080/api/recipes/${id}`);
             setCurrentRecipe(response.data)
+            setAllIngredients(response.data.ingredients)
+            setAllDirections(response.data.directions)
         } catch (error) {}
     }
 
     async function fetchRecipeImage() {
         try {
-            const result = await axios.get(`http://localhost:8080/api/recipes/${id}`, {
+            const result = await axios.get(`http://localhost:8080/api/recipes/${id}/fileName`, {
                 responseType: 'blob',
             });
             const imageUrl = result.data;
@@ -36,24 +39,17 @@ export default function RecipeDetailPage() {
     async function fetchRecipeFlag() {
         try {
             const result = await axios.get(`http://localhost:8080/api/recipes/${id}`);
-            const flag = result.data.country
-            const flagUser = result.data.userCountry
-
-            setCountryFlag(<img src={require(`../../assets/flags/${flag}.png`).default} alt={flag}/>)
-            setUserFlag(<img src={require(`../../assets/flags/${flagUser}.png`).default} alt={flagUser}/>)
-            console.log(result.data)
         } catch (e) {
             console.error(e);
         }
     }
 
-
     useEffect(()=>{
-        fetchAllRecipes();
+        fetchRecipe();
         fetchRecipeImage();
         fetchRecipeFlag();
     },[])
-    console.log(currentRecipe)
+
     return (
         <>
             <div className="page-wrapper">
@@ -62,7 +58,7 @@ export default function RecipeDetailPage() {
                         <div className="recipe-img-holder">
                             <img src={blobRecipeImage} alt={currentRecipe.title}/>
                             <div className="country-flag">
-                                {countryFlag}
+                                {currentRecipe.country ? <img src={require(`../../assets/flags/${currentRecipe.country}.png`).default} alt={currentRecipe.country}/> : ("")}
                             </div>
                         </div>
                         <div className="recipe-text-holder">
@@ -70,12 +66,17 @@ export default function RecipeDetailPage() {
                             <article className="ingredients-holder">
                                 <h2>Ingredients</h2>
                                 <ul className="ingredients-list">
-
+                                    {allIngredients && allIngredients.map(ingredient => {
+                                        return <li key={"key" + ingredient.id}>{ingredient.name}</li>
+                                    })}
                                 </ul>
                             </article>
                             <article className="step-holder">
                                 <h2>Preperations</h2>
                                 <ol>
+                                    {allDirections && allDirections.map(direction => {
+                                        return <li key={"key" + direction.id}>{direction.name}</li>
+                                    })}
                                 </ol>
                                 <div className="bon-apetit">
                                     <span>Bon apetit!</span>
@@ -83,8 +84,7 @@ export default function RecipeDetailPage() {
                             </article>
                             <div className="account-holder">
                                 <div className="account-image">
-                                    {/*{currentRecipe.userCountry}*/}
-                                    {userFlag}
+                                    {currentRecipe.userCountry ? (<img src={require(`../../assets/flags/${currentRecipe.userCountry}.png`).default} alt={currentRecipe.userCountry}/>) : ("")}
                                 </div>
                                 <div className="text-account">
                                     <h3>{currentRecipe.username}</h3>
