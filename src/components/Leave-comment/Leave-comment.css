@@ -57,7 +57,7 @@
 
 .leave-a-comment form .errorMessage.textArea {
     position: absolute;
-    top: 352px;
+    top: 256px;
 }
 
 .leave-a-comment .right-holder .star-holder .stars svg.svg-inline--fa.fa-star.fa-w-18,
