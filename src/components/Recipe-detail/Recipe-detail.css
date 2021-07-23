@@ -5,7 +5,7 @@
     margin: 30px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     max-width: 1280px;
 }
 
@@ -71,7 +71,7 @@ button.favorite {
 .step-holder {
     border: 1px solid #FD8888;
     min-height: 100px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     box-sizing: border-box;
     margin-bottom: 30px;
 }
@@ -132,7 +132,7 @@ ul.ingredients-list li,
     width: calc(100% / 3 - 15px);
     border: 1px solid #FD8888;
     border-radius: 10px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -179,7 +179,7 @@ ul.ingredients-list li,
     box-sizing: border-box;
     border: 1px solid #FD8888;
     border-radius: 10px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
 }
 
 .recipe-nav-holder .btn {

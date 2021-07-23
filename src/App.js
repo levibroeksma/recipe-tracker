@@ -13,7 +13,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import RegisterPage from "./Pages/SignUp/SignUp";
 import TermsAndConditions from "./Pages/Terms-and-conditions/TermsAndConditions";
 import PrivacyPolicy from "./Pages/Privacy-policy/Privacy-policy-page";
-import RegistrationConfirmation from "./Pages/Forgot-password/Registration-confirmation-page";
+import RegistrationConfirmation from "./Pages/SignUp/Registration-confirmation-page";
 import MyAccount from "./Pages/My-account-page/My-account-page";
 import ForgotPasswordPage from "./Pages/SignIn/Forgot-password-page";
 import AddRecipe from "./Pages/Add-recipe-page/AddRecipe";

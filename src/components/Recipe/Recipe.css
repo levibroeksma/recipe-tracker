@@ -44,9 +44,8 @@ section .text-holder {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
     color: #1C1DB1;
-    margin: 0;
+    margin: 0 0 5px 0;
     font-size: 18px;
-    margin-bottom: 5px;
 }
 
 .text-holder p {
@@ -81,7 +80,7 @@ section .text-holder {
     color: #3E3E3E;
     font-weight: 200;
     font-size: 14px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     text-align: center;
 }
 

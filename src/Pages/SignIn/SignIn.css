@@ -3,7 +3,7 @@
     border: 1px solid #fd8888;
     border-radius: 10px;
     max-width: 600px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
 }
 
 .login-field {

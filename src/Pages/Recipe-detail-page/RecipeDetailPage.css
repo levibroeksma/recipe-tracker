@@ -5,7 +5,7 @@
     margin: 30px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     max-width: 1280px;
 }
 
@@ -33,7 +33,7 @@
 .country-flag img {
     max-width: 40px;
     height: auto;
-    box-shadow: 0px 0px 15px 0px #ffffff;
+    box-shadow: 0 0 15px 0 #ffffff;
     border-radius: 100px;
 }
 
@@ -65,7 +65,7 @@
 .step-holder {
     border: 1px solid #FD8888;
     min-height: 100px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     box-sizing: border-box;
     margin-bottom: 30px;
 }
@@ -84,7 +84,6 @@
 
 ul.ingredients-list {
     list-style: none;
-    padding: 0;
     padding-left: 10px;
     margin: 0 20px;
     line-height: 1.75em;
@@ -112,7 +111,7 @@ ul.ingredients-list li,
 .bon-apetit {
     display: flex;
     justify-content: center;
-    font-family: 'Great Vibes';
+    font-family: 'Great Vibes', Serif;
     font-size: 50px;
     color: #1C1DB1;
     transform: rotate(-20deg);
@@ -125,7 +124,7 @@ ul.ingredients-list li,
     width: calc(100% / 3 - 15px);
     border: 1px solid #FD8888;
     border-radius: 10px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     display: flex;
     align-items: center;
 }
@@ -158,7 +157,7 @@ ul.ingredients-list li,
     box-sizing: border-box;
     border: 1px solid #FD8888;
     border-radius: 10px;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
 }
 
 .recipe-nav-holder .btn {
@@ -183,26 +182,27 @@ ul.ingredients-list li,
     width: 100%;
     padding: 30px;
     box-sizing: border-box;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     border-radius: 10px;
 }
 
 .comment-holder {
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
-    width: 40%;
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
+    min-width: 40%;
     padding: 30px;
     border-radius: 10px;
     box-sizing: border-box;
     position: relative;
     margin-right: 30px;
+    max-width: 40%;
 }
 
 .comment-holder .text-holder {
     background: #F5F8FF;
-    padding: 15px;
     border-radius: 6px;
     margin-bottom: 20px;
     height: 150px;
+    padding: 15px 40px 15px 15px;
 }
 
 .comment-holder .text-holder p {

@@ -1,12 +1,10 @@
 footer {
-
     width: 100%;
     background: #fff;
     box-shadow: 10px -10px 10px 0 rgba(48, 63, 77, 0.1);
     display: flex;
     justify-content: center;
     flex-direction: column;
-
 }
 
 .footer-position-holder {
