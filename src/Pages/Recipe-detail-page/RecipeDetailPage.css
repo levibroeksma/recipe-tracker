@@ -94,6 +94,7 @@ ul.ingredients-list li,
 .step-holder ol li {
     margin-bottom: 5px;
     color: #3E3E3E;
+    font-size: 15px;
 }
 
 .step-holder {
@@ -188,7 +189,7 @@ ul.ingredients-list li,
 
 .comment-holder {
     box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
-    min-width: 40%;
+    width: 40%;
     padding: 30px;
     border-radius: 10px;
     box-sizing: border-box;

@@ -43,7 +43,7 @@ export default function App() {
           <Route exact path="/register/confirmation" component={RegistrationConfirmation}/>
           <Route exact path="/terms-and-conditions" component={TermsAndConditions}/>
           <Route exact path="/privacy-policy" component={PrivacyPolicy}/>
-          <Route path="/*" component={() => {return <h1>404 PAGE NOT FOUND</h1>}}/>
+          <Route path="/*" component={() => {return <div className="page-wrapper"><div className="page-wrapper-inner"><h1>404 PAGE NOT FOUND</h1></div></div>}}/>
       </Switch>
       <Footer />
     </>

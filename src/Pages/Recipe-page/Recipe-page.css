@@ -1,5 +1,6 @@
 .recipe-page-wrapper {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /*Pagination styling*/

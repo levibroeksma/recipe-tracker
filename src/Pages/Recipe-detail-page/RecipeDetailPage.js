@@ -16,7 +16,9 @@ export default function RecipeDetailPage() {
     const [allIngredients, setAllIngredients] = useState([]);
     const [allDirections, setAllDirections] = useState([]);
     const [allReviews, setAllReviews] = useState([]);
-    const [hasReviewed, setHasReviewed] = useState(false);
+
+    const [hasReviewed, setHasReviewed] = useState("");
+
     const {user, isTokenValid} = useContext(authContext);
     const star = <FontAwesomeIcon icon={faStar}/>
 
@@ -27,6 +29,7 @@ export default function RecipeDetailPage() {
     async function fetchRecipe() {
         try {
             const response = await axios.get(`http://localhost:8080/api/recipes/${id}`);
+            setHasReviewed(false)
             setCurrentRecipe(response.data)
             setAllIngredients(response.data.ingredients)
             setAllDirections(response.data.directions)
@@ -40,7 +43,6 @@ export default function RecipeDetailPage() {
         }
     }
 
-    console.log(currentRecipe)
     async function fetchRecipeImage() {
         try {
             const result = await axios.get(`http://localhost:8080/api/recipes/${id}/fileName`, {
@@ -65,7 +67,9 @@ export default function RecipeDetailPage() {
         fetchRecipe();
         fetchRecipeImage();
         fetchRecipeFlag();
+
     },[])
+
 
     return (
         <>
@@ -120,6 +124,7 @@ export default function RecipeDetailPage() {
                 </div>
             </div>
             {isTokenValid() ? (
+
                 <>
                     <div className="page-wrapper blue">
                         <div className="page-wrapper-inner">
@@ -204,6 +209,7 @@ export default function RecipeDetailPage() {
                                 </div>
                             </section>
                         })}
+
                     </div>
                 </div>
             </div>
