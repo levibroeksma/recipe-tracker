@@ -23,7 +23,7 @@ export default function AddRecipe() {
         fields: directionFields,
         append: directionAppend,
         remove: directionRemove
-    } = useFieldArray({control, name: "directions",})
+    } = useFieldArray({control, name: "directions"})
 
     async function onSubmit(data) {
         setLoading(true)

@@ -4,14 +4,14 @@
     max-width: calc(65% - 15px);
     padding: 20px 0;
     box-sizing: border-box;
-    box-shadow: 10px 20px 40px 0 rgb(48 63 77 / 10%);
+    box-shadow: 10px 20px 40px 0 rgba(48, 63, 77, 0.1);
     width: 100%;
 }
 
 .leave-a-comment form {
     display: flex;
     flex-direction: row;
-    margin: 0 0px 0 20px;
+    margin: 0 0 0 20px;
     height: 100%;
 }
 
@@ -57,7 +57,7 @@
 
 .leave-a-comment form .errorMessage.textArea {
     position: absolute;
-    top: 352px;
+    top: 256px;
 }
 
 .leave-a-comment .right-holder .star-holder .stars svg.svg-inline--fa.fa-star.fa-w-18,

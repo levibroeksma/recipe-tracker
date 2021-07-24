@@ -5,9 +5,9 @@ export default function RecipeDetail({title, ingredient, country, direction, use
     return (
         <section className="recipe-detail-page">
             <div className="recipe-img-holder">
-                <img src="//via.placeholder.com/1280x275" alt=""/>
+                {/*<img src="//via.placeholder.com/1280x275" alt="test"/>*/}
                 <div className="country-flag">
-                    <img src={country} alt="Mexico"/>
+                    <img src={country} alt="{country}"/>
                 </div>
             </div>
             <div className="recipe-text-holder">

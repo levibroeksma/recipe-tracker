@@ -27,7 +27,7 @@ export default function Footer() {
                             <li><Link to="/recipes">Recipe's</Link></li>
                             <li><Link to="/about-us">About us</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
-                            {!isTokenValid() ? (<li><Link to="/signin">Account</Link></li>) : (<li><Link to="/my-account">Account</Link></li>)}
+                            {!isTokenValid() ? (<li><Link to="/sign-in">Account</Link></li>) : (<li><Link to="/my-account">Account</Link></li>)}
                         </ul>
                     </section>
                     <section className="footer-section">

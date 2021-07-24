@@ -30,6 +30,18 @@ label#lastNameId {
     width: calc(100% / 3 - 15px);
 }
 
+label#email-field span.errorMessage,
+label#firstNameId span.errorMessage,
+label#lastNameId span.errorMessage,
+label#username-field span.errorMessage {
+    top: 60px;
+}
+
+label#termsAndConditionsId span.errorMessage,
+label#privacyPolicyId span.errorMessage {
+    top: 20px;
+}
+
 .registration-form .password-login-wrapper {
     width: calc(50% - 15px);
 }

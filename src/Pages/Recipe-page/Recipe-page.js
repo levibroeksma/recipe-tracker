@@ -21,7 +21,6 @@ export default function RecipePage() {
             const data = response.data;
             const slice = data.slice(offset, offset + perPage)
 
-
             setData(slice);
             setPageCount(Math.ceil(data.length / perPage));
         } catch (error) {}
@@ -72,7 +71,6 @@ export default function RecipePage() {
                         </section>
                     })
                     }
-
                 </div>
                 <div className="pagination-wrapper">
                     <ReactPaginate

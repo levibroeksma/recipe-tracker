@@ -41,7 +41,7 @@ export default function ContactPage() {
                                 type="text"
                                 placeholder="Name..."
                                 required={true}
-                                requiredError="This field is required."
+                                requiredError="Required."
                                 register={register}
                                 errors={errors}
                                 minLength={4}
