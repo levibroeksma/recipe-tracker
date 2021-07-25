@@ -63,13 +63,21 @@ export default function RecipeDetailPage() {
         }
     }
 
+    async function deleteReview(review) {
+        try {
+            const response = await axios.delete(`http://localhost:8080/api/reviews/${review.id}`)
+        } catch (error) {
+            console.error("You couldn't delete this review", error);
+        }
+        window.location.reload(false)
+    }
+
     useEffect(()=>{
         fetchRecipe();
         fetchRecipeImage();
         fetchRecipeFlag();
 
     },[])
-
 
     return (
         <>
@@ -152,6 +160,7 @@ export default function RecipeDetailPage() {
                                             type="submit"
                                             buttonTitle={<FaTrash/>}
                                             classNameButton="btn delete-comment"
+                                            onClickEvent={() => deleteReview(review)}
                                         />
                                     </div>
                                 )

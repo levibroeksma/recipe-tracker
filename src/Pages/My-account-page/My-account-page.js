@@ -38,13 +38,11 @@ export default function MyAccountPage() {
     }
 
     useEffect(() => {
-        // Get list of users for admin list
         fetchUsers();
 
     }, []);
 
     async function changeActiveStatus(user) {
-        //toggle enable, change user to inactive or active
         try {
             const response = await axios.put(`http://localhost:8080/users/${user.username}`, {
                 enabled: !user.enabled,
