@@ -15,7 +15,7 @@ export default function SignUp() {
     const {handleSubmit, register, formState: { errors }} = useForm();
     const [success, setSucces] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [password, setPassword] = useState(null);
+    const [password, setPassword] = useState("");
 
     const [showPassword, toggleShowPassword] = useState(false);
     const toggleVisability = () => {toggleShowPassword(!showPassword)}

@@ -12,7 +12,7 @@ export default function RecipePage() {
     const [offset, setOffset] = useState(0);
     const [data, setData] = useState([]);
     const [perPage] = useState(20);
-    const [pageCount, setPageCount] = useState(0)
+    const [pageCount, setPageCount] = useState(0);
 
     // Fetch all recipes with pagination
     async function fetchAllRecipes() {

@@ -25,7 +25,6 @@ export default function RecipeDetailPage() {
     const { id } = useParams();
     const history = useHistory();
 
-
     async function fetchRecipe() {
         try {
             const response = await axios.get(`http://localhost:8080/api/recipes/${id}`);
@@ -45,6 +44,7 @@ export default function RecipeDetailPage() {
 
     async function fetchRecipeImage() {
         try {
+            const token = localStorage.getItem("token");
             const result = await axios.get(`http://localhost:8080/api/recipes/${id}/fileName`, {
                 responseType: 'blob',
             });
@@ -57,7 +57,13 @@ export default function RecipeDetailPage() {
 
     async function fetchRecipeFlag() {
         try {
-            const result = await axios.get(`http://localhost:8080/api/recipes/${id}`);
+            const token = localStorage.getItem("token");
+            const result = await axios.get(`http://localhost:8080/api/recipes/${id}`,{
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                }
+            });
         } catch (e) {
             console.error(e);
         }
@@ -65,7 +71,15 @@ export default function RecipeDetailPage() {
 
     async function deleteReview(review) {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/reviews/${review.id}`)
+            const token = localStorage.getItem("token");
+
+            const response = await axios.delete(`http://localhost:8080/api/reviews/${review.id}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
         } catch (error) {
             console.error("You couldn't delete this review", error);
         }
@@ -218,7 +232,6 @@ export default function RecipeDetailPage() {
                                 </div>
                             </section>
                         })}
-
                     </div>
                 </div>
             </div>

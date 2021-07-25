@@ -25,13 +25,12 @@ export default function LeaveComment({recipeId}) {
         }
         try {
             const response = await axios.post("http://localhost:8080/api/reviews", reviewData)
-            window.location.reload(false)
+            window.location.reload(false);
         } catch (e) {
             console.error("Something went wrong, please try again. " + e)
         }
     }
 
-    // Leave rating with stars
     const onMouseEnter = (index) => {
         setHoverRating(index);
     };
