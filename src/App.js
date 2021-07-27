@@ -2,24 +2,24 @@ import './App.css';
 import logo from './logo.svg';
 import Header from './components/Header/Header'
 import {Switch, Route} from 'react-router-dom';
-import HomePage from "./Pages/Home-page/Home-page";
-import AboutUs from "./Pages/About-us";
-import RecipePage from "./Pages/Recipe-page/Recipe-page";
-import ContactPage from "./Pages/Contact/Contact-page";
-import ThankYou from "./Pages/Contact/Thank-you";
-import AccountPage from "./Pages/SignIn/SignIn";
+import HomePage from "./pages/Home-page/Home-page";
+import AboutUs from "./pages/About-us";
+import RecipePage from "./pages/Recipe-page/Recipe-page";
+import ContactPage from "./pages/Contact/Contact-page";
+import ThankYou from "./pages/Contact/Thank-you";
+import AccountPage from "./pages/SignIn/SignIn";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import RegisterPage from "./Pages/SignUp/SignUp";
-import TermsAndConditions from "./Pages/Terms-and-conditions/TermsAndConditions";
-import PrivacyPolicy from "./Pages/Privacy-policy/Privacy-policy-page";
-import RegistrationConfirmation from "./Pages/SignUp/Registration-confirmation-page";
-import MyAccount from "./Pages/My-account-page/My-account-page";
-import ForgotPasswordPage from "./Pages/SignIn/Forgot-password-page";
-import AddRecipe from "./Pages/Add-recipe-page/AddRecipe";
+import RegisterPage from "./pages/SignUp/SignUp";
+import TermsAndConditions from "./pages/Terms-and-conditions/TermsAndConditions";
+import PrivacyPolicy from "./pages/Privacy-policy/Privacy-policy-page";
+import RegistrationConfirmation from "./pages/SignUp/Registration-confirmation-page";
+import MyAccount from "./pages/My-account-page/My-account-page";
+import ForgotPasswordPage from "./pages/SignIn/Forgot-password-page";
+import AddRecipe from "./pages/Add-recipe-page/AddRecipe";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import RecipeDetailPage from "./Pages/Recipe-detail-page/RecipeDetailPage";
-import UploadedRecipe from "./Pages/Add-recipe-page/UploadedRecipe";
+import RecipeDetailPage from "./pages/Recipe-detail-page/RecipeDetailPage";
+import UploadedRecipe from "./pages/Add-recipe-page/UploadedRecipe";
 
 export default function App() {
   return (
